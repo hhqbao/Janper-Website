@@ -137,9 +137,9 @@
 
                 if (!gMobileView) {
                   $("#menu").toggleClass("expanded");
-                  $("#menu").animate({ left: '-200px' }, { duration: 1000 });
-                  $("#container").animate({ left: '250px' }, { duration: 1000 });
-                  $("header").animate({ left: '0' }, { duration: 1000, queue: false });
+                  $("#menu").animate({ left: '-200px' }, { duration:  450 });
+                  $("#container").animate({ left: '250px' }, { duration:  450 });
+                  $("header").animate({ left: '0' }, { duration:  450, queue: false });
                   $("#menuHamburger").css("display", "block");
                   $("#closeMenu").css("display", "none");
                 }
@@ -184,17 +184,17 @@
   function handleMenuLoad(id) {
     if (!gMobileView) {
       $(".closeSubMenu").css("display", "none");
-      $("#Dura").animate({ left: '50px' }, 1000, function () {
+      $("#Dura").animate({ left: '50px' }, 450, function () {
         {
           $("#Dura").css("z-index", "10");
         }
       });
 
       if ($("#menu").hasClass("expanded")) {
-        $("#container").animate({ left: '250px' }, { duration: 1000 });
+        $("#container").animate({ left: '250px' }, { duration:  450 });
       }
       else {
-        $("#container").animate({ left: '50px' }, { duration: 1000 });
+        $("#container").animate({ left: '50px' }, { duration:  450 });
       }
     }
     switch (id) {
@@ -406,7 +406,7 @@
                                         $('#SeriesBlurb').text("@Html.Partial("../DuraForm/Blurbs/SeriesFive")");
                                             break;
                                     }
-                            }, 1000);
+                            }, 450);
                         });
             }
         }
@@ -425,7 +425,7 @@
       else {
         $('html, body').animate({
           scrollTop: $(this).offset().top
-        }, 1000);
+        }, 450);
       }
     });
   }
@@ -434,9 +434,9 @@
 <script>
   $("#menuHamburger").click(function (event) {
     if (!gMobileView) {
-      $("header").animate({ left: '200px' }, { duration: 1000, queue: false });
-      $("#menu").animate({ left: '0px' }, { duration: 1000, queue: false });
-      $("#container").animate({ left: '250px' }, { duration: 1000, queue: false });
+      $("header").animate({ left: '200px' }, { duration:  450, queue: false });
+      $("#menu").animate({ left: '0px' }, { duration:  450, queue: false });
+      $("#container").animate({ left: '250px' }, { duration:  450, queue: false });
       $("#menuHamburger").css("display", "none");
       $("#closeMenu").css("display", "inline-block");
 
@@ -448,7 +448,7 @@
         $("#menu").attr("class", "menu expanded");
       }
       if ($(".closeSubMenu").css("display") == "block") {
-        $("#container").animate({ left: '450px' }, { duration: 1000, queue: false });
+        $("#container").animate({ left: '450px' }, { duration:  450, queue: false });
       }
     }
   });
@@ -456,24 +456,24 @@
 <script>
   $("#closeMenu").click(function (event) {
     if (!gMobileView) {
-      $("#menu").animate({ left: '-200px' }, { duration: 1000 });
+      $("#menu").animate({ left: '-200px' }, { duration:  450 });
       $("#menu").toggleClass("expanded");
-      $("#container").animate({ left: '50px' }, { duration: 1000 });
-      $("header").animate({ left: '0' }, { duration: 1000, queue: false });
+      $("#container").animate({ left: '50px' }, { duration:  450 });
+      $("header").animate({ left: '0' }, { duration:  450, queue: false });
       $("#menuHamburger").css("display", "block");
       $("#closeMenu").css("display", "none");
       $(".closeSubMenu").css("display", "none");
-      $("#Sheen").animate({ left: '50px' }, { duration: 1000, queue: false });
-      $("#Dura").animate({ left: '50px' }, { duration: 1000, queue: false });
-      $("#Edge").animate({ left: '50px' }, { duration: 1000, queue: false });
-      $("#Ease").animate({ left: '50px' }, { duration: 1000, queue: false });
+      $("#Sheen").animate({ left: '50px' }, { duration:  450, queue: false });
+      $("#Dura").animate({ left: '50px' }, { duration:  450, queue: false });
+      $("#Edge").animate({ left: '50px' }, { duration:  450, queue: false });
+      $("#Ease").animate({ left: '50px' }, { duration:  450, queue: false });
     }
   });
 </script>
 <script>
   function closeMenu(menuToClose) {
     if (!gMobileView) {
-      $("#" + menuToClose).animate({ left: '50px' }, 1000, function () {
+      $("#" + menuToClose).animate({ left: '50px' }, 450, function () {
         {
           $("#" + menuToClose).css("z-index", "10");
         }
@@ -481,10 +481,10 @@
 
       $(".closeSubMenu").css("display", "none");
       if ($("#menu").hasClass("expanded")) {
-        $("#container").animate({ left: '250px' }, { duration: 1000 });
+        $("#container").animate({ left: '250px' }, { duration:  450 });
       }
       else {
-        $("#container").animate({ left: '50px' }, { duration: 1000 });
+        $("#container").animate({ left: '50px' }, { duration:  450 });
       }
     }
   }
@@ -498,45 +498,45 @@
       $(this).add
       switch ($(this).attr('id')) {
         case 'sheenMenu':
-          $("#Sheen").animate({ left: '250px' }, 1000);
+          $("#Sheen").animate({ left: '250px' }, 450);
           $(".closeSubMenu").css("display", "block");
-          $("#Dura").animate({ left: '50px' }, 1000, function () {
+          $("#Dura").animate({ left: '50px' }, 450, function () {
           });
-          $("#Edge").animate({ left: '50px' }, 1000, function () {
+          $("#Edge").animate({ left: '50px' }, 450, function () {
           });
-          $("#Ease").animate({ left: '50px' }, 1000, function () {
+          $("#Ease").animate({ left: '50px' }, 450, function () {
           });
 
           break
         case 'duraMenu':
-          $("#Dura").animate({ left: '250px' }, 1000);
-          $("#container").animate({ left: '450px' }, { duration: 1000 });
+          $("#Dura").animate({ left: '250px' }, 450);
+          $("#container").animate({ left: '450px' }, { duration:  450 });
           $(".closeSubMenu").css("display", "block");
-          $("#Sheen").animate({ left: '50px' }, 1000, function () {
+          $("#Sheen").animate({ left: '50px' }, 450, function () {
           });
-          $("#Edge").animate({ left: '50px' }, 1000, function () {
+          $("#Edge").animate({ left: '50px' }, 450, function () {
           });
-          $("#Ease").animate({ left: '50px' }, 1000, function () {
+          $("#Ease").animate({ left: '50px' }, 450, function () {
           });
           break
         case 'edgeMenu':
-          $("#Sheen").animate({ left: '50px' }, 1000, function () {
+          $("#Sheen").animate({ left: '50px' }, 450, function () {
 
           });
-          $("#Dura").animate({ left: '50px' }, 1000, function () {
+          $("#Dura").animate({ left: '50px' }, 450, function () {
 
           });
-          $("#Ease").animate({ left: '50px' }, 1000, function () {
+          $("#Ease").animate({ left: '50px' }, 450, function () {
 
           });
           break
         case 'easeMenu':
-          $("#Ease").animate({ left: '250px' }, 1000);
-          $("#Sheen").animate({ left: '50px' }, 1000, function () {
+          $("#Ease").animate({ left: '250px' }, 450);
+          $("#Sheen").animate({ left: '50px' }, 450, function () {
           });
-          $("#Dura").animate({ left: '50px' }, 1000, function () {
+          $("#Dura").animate({ left: '50px' }, 450, function () {
           });
-          $("#Edge").animate({ left: '50px' }, 1000, function () {
+          $("#Edge").animate({ left: '50px' }, 450, function () {
           });
           break
       }
