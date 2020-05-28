@@ -1,0 +1,95 @@
+﻿
+@{
+    ViewBag.Title = "DuraForm";
+    Layout = "";
+}
+
+<div id="SeriesTwo" class="content-wrapper full">
+    <h2>series<span>two</span></h2>
+</div>
+<br class="clearfix" />
+<hr/>
+@using System.Xml.Linq;
+@using JanperWebsite.PhysicalAccessPaths;
+
+@{
+    String doorPath = AccessServerPath.FilePath() + "DuraFormDoors.xml";
+    XElement doorObject = XElement.Load(doorPath);
+
+    int counter = 1;
+
+    IEnumerable<XElement> doors = from d in doorObject.Elements("Door") where (string)d.Element("series") == "two" select d;
+
+    foreach (var node in doors)
+    {
+
+        var images = node.Element("images").Descendants("image").ToArray();
+
+        <div id="@node.Element("name").Value" class="content-wrapper quarter no-border">
+            <img src="@images[0].Value" />
+            <h3>@node.Element("name").Value</h3>
+            <h4>@node.Element("round").Value</h4>
+            <img src="@node.Element("profile").Value" />
+        </div>
+
+        if (counter % 4 == 0)
+        {
+            <br class="clearfix" />
+        }
+        counter++;
+    }
+}
+@*
+    <div id='Barwon' class="content-wrapper quarter no-border">
+        <img src="~/Images/DuraForm/Doors/S2/Barwon.jpg" />
+        <h3>Barwon</h3>
+        <h4></h4>
+    </div>
+    <div id='Canning' class="content-wrapper quarter no-border">
+        <img src="~/Images/DuraForm/Doors/S2/Canning.jpg" />
+        <h3>Canning</h3>
+        <h4></h4>
+    </div>
+    <div id='Daly' class="content-wrapper quarter no-border">
+        <img src="~/Images/DuraForm/Doors/S2/Daly.jpg" />
+        <h3>Daly</h3>
+        <h4></h4>
+    </div>
+    <div id='Fitzroy' class="content-wrapper quarter no-border">
+        <img src="~/Images/DuraForm/Doors/S2/Fitzroy.jpg" />
+        <h3>Fitzroy</h3>
+        <h4></h4>
+    </div>
+    <br class="clearfix" />
+    <div id='Franklin' class="content-wrapper quarter no-border">
+        <img src="~/Images/DuraForm/Doors/S2/Franklin.jpg" />
+        <h3>Franklin</h3>
+        <h4></h4>
+    </div>
+    <div id='Hunter' class="content-wrapper quarter no-border">
+        <img src="~/Images/DuraForm/Doors/S2/Hunter.jpg" />
+        <h3>Hunter</h3>
+        <h4></h4>
+    </div>
+    <div id='Huon' class="content-wrapper quarter ">
+        <img src="~/Images/DuraForm/Doors/S2/Huon.jpg" />
+        <h3>Huon</h3>
+        <h4></h4>
+    </div>
+    <div id='Emu' class="content-wrapper quarter">
+        <img src="~/Images/DuraForm/Doors/S2/emu.jpg" />
+        <h3>Emu</h3>
+        <h4></h4>
+    </div>
+    <br class="clearfix" />
+    <div id='Hastings' class="content-wrapper quarter">
+        <img src="~/Images/DuraForm/Doors/S2/Hastings.jpg" />
+        <h3>Hastings</h3>
+        <h4></h4>
+    </div>
+    <div id='Tambo' class="content-wrapper quarter">
+        <img src="~/Images/DuraForm/Doors/S2/Tambo.jpg" />
+        <h3>Tambo</h3>
+        <h4></h4>
+    </div>*@
+

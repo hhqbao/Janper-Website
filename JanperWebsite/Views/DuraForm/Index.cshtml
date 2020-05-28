@@ -1,0 +1,50 @@
+﻿
+
+@{
+    ViewBag.Title = "DuraForm";
+}
+
+<div class="mobile-sub-menu display-mobile">
+    <div class="mobile-sub-menu-title"><span></span></div>
+    <div class="mobile-sub-menu-control glyphicons glyphicons-chevron-down"></div>
+    <div class="mobile-sub-menu-expanded">
+        @Html.Partial("_DuraSubMenu")
+    </div>
+</div>
+
+<div id="DuraForm" class="animated slideInUp">
+
+    @Html.Partial("SeriesOne")
+    <br class="clearfix" />
+    @Html.Partial("SeriesTwo")
+    <br class="clearfix" />
+    @Html.Partial("SeriesThree")
+    <br class="clearfix" />
+    @Html.Partial("SeriesFour")
+    <br class="clearfix" />
+    @Html.Partial("SeriesFive")
+    <br class="clearfix" />
+    <div id="doorContainer" class="animated">
+
+    </div>
+    <script>
+        $("#DuraForm").on('click', '.quarter', function (event) {
+            var clicked = $(event.target)[0].id;
+            event.stopPropagation();
+            var url = window.location.href.split('/');
+            if (url[url.length - 1] == "SendRequest") {
+
+            }
+            $.ajax({
+                url: "DuraForm/GenerateDoor",
+                type: "POST",
+                data: { "doorName": clicked, "sender": "duraform" },
+                success: function (data) {
+                    $("#DuraForm").html(data);
+                    $(window).scrollTop(0);
+                }
+            })
+
+        })
+    </script>
+</div>

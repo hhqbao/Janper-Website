@@ -1,0 +1,58 @@
+﻿<div id="lightbox" class="hidden">
+
+    <div class="background"></div>
+    <div class="content-wrapper half">
+        <h1 id="Name">Avoca</h1>
+        <p id="desc">Lorum Ipsum</p>
+        <span id="closeLightbox" class="glyphicons glyphicons-remove"></span>
+        <div class="image-wrapper">
+
+            <img id="hero" src="" />
+            <span class="glyphicons glyphicons-chevron-right" id="right"></span>
+            <span class="glyphicons glyphicons-chevron-left" id="left"></span>
+        </div>
+        <div class="gallery">
+            <div class="content-wrapper quarter">
+                <div class="overlay">
+                    <span class="glyphicons glyphicons-search"></span>
+                </div>
+                <img id="Gallery1" src="" />
+            </div>
+            <div class="content-wrapper quarter">
+                <div class="overlay">
+                    <span class="glyphicons glyphicons-search"></span>
+                </div>
+                <img id="Gallery2" src="" />
+            </div>
+            <div class="content-wrapper quarter">
+                <div class="overlay">
+                    <span class="glyphicons glyphicons-search"></span>
+                </div>
+                <img id="Gallery3" src="" />
+            </div>
+            <div class="content-wrapper quarter">
+                <div class="overlay">
+                    <span class="glyphicons glyphicons-search"></span>
+                </div>
+                <img id="Gallery4" src="" />
+            </div>
+        </div>
+        <br class="clearfix" />
+    </div>
+
+</div>
+<script>
+    $(".gallery .quarter").click(function (event) {
+        $("#hero").attr('src', $(this).children().eq(1).attr('src'));
+    })
+
+</script>
+
+<script>
+    $("#closeLightbox").click(function (event) {
+        $("#lightbox").attr("class", "hidden");
+        $(".gallery").attr("class", "gallery ");
+        $("#Name").attr("class", "");
+        $("#desc").attr("class", "");
+    })
+</script>

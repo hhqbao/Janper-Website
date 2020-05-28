@@ -1,0 +1,184 @@
+﻿@import "_variables.scss";
+
+#DuraForm {
+    overflow: hidden;
+    padding-left: 50px;
+    padding-right: 100px;
+
+    .content-wrapper {
+
+
+        h2 {
+            font-family: $secondary-font;
+            font-size: 7em;
+            font-family: $secondary-font;
+            display: inline-block;
+            padding-top: 45px;
+
+            span {
+                color: $primary-colour;
+            }
+        }
+    }
+
+    .threequarter {
+        height: 5px;
+    }
+
+    .full {
+        position: relative;
+
+        h1 {
+            position: absolute;
+            margin: 0;
+        }
+    }
+
+    #SeriesOne {
+        margin-top: 50px;
+    }
+
+    .quarter {
+        width: 20% !important;
+        height: 15%;
+        margin: 0 15px;
+        padding: 0 0 20px 0;
+        border-bottom: 1px solid grey;
+        font-family: Rutan;
+        transition-duration: 0.4s;
+        z-index: 3;
+        cursor: hand;
+        cursor: pointer;
+
+        img {
+            /*width: 75%;*/
+            width: 100%;
+            display: block;
+            margin: auto;
+            margin-top: 50px;
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        h4 {
+            font-family: Rutan-Light;
+            height: 20px;
+            margin-bottom: 50px;
+            pointer-events: none;
+        }
+
+        h3 {
+            pointer-events: none;
+        }
+    }
+
+    .quarter:hover {
+        color: $primary-colour;
+        transition-duration: 0.4s;
+    }
+
+    .quarter:nth-child(1) {
+        margin-left: 0 !important;
+    }
+
+    #Colours {
+        .full {
+            margin-top: 50px;
+            margin-bottom: 30px;
+        }
+
+        .quarter {
+            border: none;
+            cursor: initial;
+
+            img {
+                margin: initial;
+                margin-top: 50px;
+                cursor: default;
+                border: 1px solid $secondary-colour;
+            }
+
+            h3 {
+                color: $secondary-colour;
+                text-align: left;
+                font-family: Rutan-Light;
+                height: 20px;
+                padding-top: 10px;
+            }
+        }
+
+        .quarter:hover {
+            color: initial;
+        }
+
+
+        h2 {
+            color: $primary-colour;
+
+            span {
+                color: $secondary-colour;
+            }
+        }
+
+        hr {
+            margin-top: 2.5rem;
+        }
+    }
+
+    #Options {
+        .content-wrapper {
+            cursor: initial;
+            overflow: auto;
+            height: initial;
+
+            hr {
+                margin: 10px 0;
+            }
+        }
+
+        .doors {
+            width: 33%;
+            float: left;
+
+            img {
+                width: 50%;
+                margin: auto;
+                padding: 0;
+            }
+
+            p {
+                font-size: 1em;
+            }
+        }
+
+        .quarter {
+            border: none;
+        }
+
+        .content-wrapper:hover {
+            color: initial;
+        }
+
+        hr {
+            border: 1px solid #C2C2C3;
+        }
+
+        h2 {
+            color: $primary-colour;
+
+            span {
+                color: $secondary-colour;
+            }
+        }
+
+        h3 {
+            color: $primary-colour;
+            padding-bottom: 10px;
+        }
+
+        img {
+            padding-left: 10px;
+            margin: 10px 0;
+        }
+    }
+}

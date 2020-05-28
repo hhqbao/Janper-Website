@@ -1,0 +1,33 @@
+﻿
+
+@{
+    ViewBag.Title = "JanperAcrylic";
+}
+<div id="JanperAcrylic">
+    <div class="content-wrapper full">
+        <h1>JanperAcrylic&#174;</h1>
+    </div>
+    <br class="clearfix" />
+    @{
+        int counter = 0;
+        foreach (string image in ViewBag.Images)
+        {
+            String name = image.Split('/').ToList().Last();
+            List<String> count = name.Split('.').ToList();
+            String caption = count.First();
+            caption = char.ToUpper(caption[0]) + caption.Substring(1);
+            <div class="content-wrapper quarter">
+                <img src="@Url.Content(image)" />
+                <h3>
+                    @caption<br />
+                </h3>
+            </div>
+            counter++;
+            if (counter % 4 == 0)
+            {
+                <br class="clearfix" />
+            }
+        }
+    }
+    <br class="clearfix" />
+</div>

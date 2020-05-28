@@ -1,0 +1,36 @@
+﻿
+@{
+  var Imagepath = Server.MapPath("~/Images/DuraForm/Colours/Satin");
+  var Files = Directory.GetFiles(Imagepath);
+  int counter = 1;
+  foreach (var file in Files)
+  {
+
+        List<string> swatch = Path.GetFileNameWithoutExtension(file).Split('_').ToList();
+        String swatchText = "";
+
+        foreach(String s in swatch)
+        {
+            if(s.ToLower() == "satin")
+            {
+                continue;
+            }
+            else
+            {
+                swatchText += char.ToUpper(s[0]) + s.Substring(1) + " ";
+            }
+
+        }
+    <div class="sample-wrapper">
+      <img src="~/Images/DuraForm/Colours/Satin/@Path.GetFileName(file)" />
+      <h5>@swatchText</h5>
+      <div class="sampletriangle"></div>
+      <span class="glyphicons glyphicons-remove display-desktop" />
+    </div>
+    if (counter % 4 == 0)
+    {
+      <br class="clearfix" />
+    }
+    counter++;
+  }
+}

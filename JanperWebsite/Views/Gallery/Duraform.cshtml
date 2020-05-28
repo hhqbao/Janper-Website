@@ -1,0 +1,43 @@
+﻿@{
+    int counter = 0;
+    foreach (string image in ViewBag.Duraform)
+    {
+        String path = image.Split('/').ToList().Last();
+        List<String> captionList = path.Split('-').ToList();
+        string caption = "";
+        bool first = true;
+        foreach (string s in captionList)
+        {
+            if (first)
+            {
+                caption = s;
+                first = false;
+            }
+            else
+            {
+                caption = caption + " - " + s;
+            }
+        }
+        caption = caption.Split('(')[0];
+        <div class="content-wrapper third">
+
+            <div class="gallery-wrapper">
+
+                <img src="@Url.Content(image)" />
+                <div class="overlay">
+                    <span class="glyphicons glyphicons-search"></span>
+                </div>
+            </div>
+
+            <p>
+                @caption<br />
+                @*(@count.Last().Substring(0, count.Last().IndexOf('.'))*@
+            </p>
+        </div>
+        counter++;
+        if (counter % 3 == 0)
+        {
+            <br class="clearfix" />
+        }
+    }
+}

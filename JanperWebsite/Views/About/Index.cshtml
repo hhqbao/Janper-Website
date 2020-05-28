@@ -1,0 +1,60 @@
+﻿<div id="about">
+  <div class="content-wrapper full">
+    <h1>About Us</h1>
+  </div>
+  <br class="clearfix" />
+  <div id="scrollheight">
+    <div class="content-wrapper TwoThird">
+      <h2>
+        Janper is an Australian owned family
+        company with over 50 years experience
+        in the cabinet making industry.
+      </h2>
+      <p>
+        Duraform Doors will give your home a unique look and design that reflects your style and taste. With over 50 different designs and ten edge treatments,
+        architects and designers across Australia specify Duraform doors for their projects. Duraform doors are a quality product with a wide variety of styles to
+        choose from.
+      </p>
+    </div>
+    <br class="clearfix" />
+    <div class="content-wrapper TwoThird display-desktop">
+      <div id="door1"></div>
+      <div id="door2"></div>
+    </div>
+  </div>
+  <br class="clearfix" />
+  <div id="scrollDown" class="content-wrapper full display-desktop">
+    <div id="arrow">
+      <span class="glyphicons glyphicons-play"></span>
+      <p>Scroll Down</p>
+    </div>
+  </div>
+  <div id="red" class="content-wrapper full">
+    <h1>Janper exclusive quality</h1>
+    <p>
+      An Australian owned family company, Janper Pty Ltd was established in 1969, and now has over fifty years experience in the cabinet making industry.
+
+      Millions of dollars have been invested in research and development and state of the art manufacturing equipment. From automatic routing systems, to our high pressure vacuum press, this reflects our determination and commitment to keep abreast with Australian and International standards in quality.
+
+      Design, production and quality systems are assessed regularly, with on-going training and updating of systems to maintain the highest calibre of finished product that has made Janper a leading manufacturer in the industry.
+    </p>
+  </div>
+</div>
+
+<script>
+  $(window).on('scroll', function () {
+    var arrow = $('#arrow');
+    var range = 100;
+    var scrollTop = $(this).scrollTop(),
+      height = $('#scrollheight').outerHeight() + 200,
+      offset = height / 1,
+      calc = 1 - (scrollTop - offset + range) / 100;
+
+    arrow.css({ 'opacity': calc });
+    if (calc > '1') {
+      arrow.css({ 'opacity': 1 });
+    } else if (calc < '0') {
+      arrow.css({ 'opacity': 0 });
+    }
+  });
+</script>

@@ -1,0 +1,92 @@
+﻿@import "_variables.scss";
+
+#home {
+    overflow: hidden;
+
+
+    #doors {
+        padding-left: 100px;
+        height: 800px;
+
+        h1 {
+            margin-top: 150px;
+            padding-top: 5px;
+            width: 50%;
+            display: inline-block;
+            float: left;
+            font-family: Baskerville;
+        }
+
+        img {
+            width: 50%;
+            animation-duration: 3s;
+            float: left;
+        }
+    }
+
+    #bathroom {
+        background-image: url("../../../Images/Home/bathroom.jpg");
+        height: 90vh;
+        background-size: cover;
+        background-position-y: center;
+    }
+
+
+    #red {
+        margin-top: 100px;
+        height: 450px;
+        background-color: $primary-colour;
+        color: white;
+        text-align: center;
+        position: relative;
+        width: 100%;
+
+        h1, p {
+            padding-top: 50px;
+        }
+
+        p {
+            font-family: Rutan-Light;
+            width: 75%;
+            margin: auto;
+        }
+    }
+    /*.full {
+        background-color: $primary-colour;
+        height: 500px;
+        top: 500px;
+        position: relative;
+
+        h1 {
+            border: none;
+            margin: 0;
+            color: white;
+            text-align: center;
+        }
+
+        p {
+            font-family: Rutan-Light;
+            color: white;
+            display: inline-block;
+            width: 75%;
+            margin: auto;
+        }
+    }*/
+}
+
+@media screen and (max-width:$min-size)
+{
+    #home{
+        #doors{
+            h1{
+                margin:150px auto 0 auto;
+                width:100%;
+                border:none;
+                font-size:3em;
+                text-align:center;
+                float:none;
+                left:0;
+            }
+        }
+    }
+}

@@ -1,0 +1,30 @@
+﻿@font-face {
+    font-family: 'Rutan';
+    font-style: normal;
+    font-weight: normal;
+    src: url('../../../fonts/Rutan-Medium.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Rutan-Light';
+    font-style: normal;
+    font-weight: normal;
+    src: url('../../../fonts/Rutan-Light.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Baskerville';
+    font-style: normal;
+    font-weight: normal;
+    src: url('../../../fonts/Baskerville.ttf') format('truetype');
+}
+
+
+$primary-font: 'Rutan', sans-serif;
+$secondary-font: 'Baskerville', sans-serif;
+
+$primary-colour:#EC092B;
+$secondary-colour:#373737;
+
+$min-size:1279px;
+

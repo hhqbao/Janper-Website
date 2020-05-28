@@ -1,0 +1,168 @@
+﻿@import "_variables.scss";
+@import url('https://fonts.googleapis.com/css?family=Roboto:300');
+footer {
+    width: 100%;
+    background-color: white;
+    position: absolute;
+    z-index: 100;
+    font-size: 1em;
+    font-family: Rutan-Light;
+
+    #safecode {
+        position: absolute;
+        bottom: 10px;
+        left: 10px;
+        font-size: 0.85em;
+
+        .copy {
+        }
+
+        a {
+            color: $secondary-colour;
+            transition-duration: 0.4s;
+
+            .credit {
+                font-family: 'Roboto', sans-serif;
+            }
+
+            .code {
+                color: #d73434;
+            }
+        }
+
+        a:hover {
+            text-decoration: none;
+            color: #d73434;
+            transition-duration: 0.4s;
+        }
+    }
+
+    .footer-container {
+        min-width: 1200px;
+        width: 80%;
+        margin: auto;
+        position: relative;
+
+        ul {
+            padding: 0;
+            padding-top: 50px;
+            width: 15%;
+            margin: 0;
+            float: left;
+            list-style: none;
+
+            li {
+                padding-bottom: 10px;
+                transition-duration: 0.4s;
+            }
+
+            li:hover {
+                cursor: pointer;
+                color: $primary-colour;
+                transition-duration: 0.4s;
+            }
+
+            li:nth-child(1) {
+                font-weight: bold;
+            }
+        }
+
+        ul:nth-child(1) {
+        }
+
+        form {
+            padding-top: 50px;
+            padding-left: 50px;
+            width: 25%;
+            position: absolute;
+            right: 0;
+
+            input[type=text] {
+                width: 100%;
+                margin: 0;
+                color: $secondary-colour;
+                font-family: Rutan-Light;
+                background-color: #ECECEC;
+                padding: 10px;
+                border: none;
+                position: relative;
+            }
+
+            input:focus {
+                outline-color: $primary-colour;
+            }
+
+            span {
+                position: absolute;
+                right: 0;
+                top: 55px;
+                font-size: 1.4em;
+                cursor: pointer;
+                transition-duration: 0.4s;
+            }
+
+            span:hover {
+                color: $primary-colour;
+                transition-duration: 0.4s;
+            }
+        }
+
+        .socials {
+            padding: 20px 0;
+            padding-left: 50px;
+            display: inline;
+            width: 25%;
+            float: right;
+
+            li {
+                display: inline-block;
+                width: 20%;
+                height: 50px;
+                background-position: center center;
+                background-size: contain;
+                background-repeat: no-repeat;
+                transition-duration: 0.4s;
+            }
+
+            li:hover {
+                transition-duration: 0.4s;
+            }
+
+            li:nth-child(4) {
+                padding-right: 0;
+            }
+
+            #Facebook {
+                background-image: url("../../../Images/Social/FACEBOOKAsset 1.png")
+            }
+
+            #Facebook:hover {
+                background-image: url("../../../Images/Social/facebook-redAsset 7.png")
+            }
+
+            #Twitter {
+                background-image: url("../../../Images/Social/TWITTERAsset 2.png")
+            }
+
+            #Twitter:hover {
+                background-image: url("../../../Images/Social/twitter-redAsset 8.png")
+            }
+
+            #Instagram {
+                background-image: url("../../../Images/Social/INSTAGRAMAsset 4.png")
+            }
+
+            #Instagram:hover {
+                background-image: url("../../../Images/Social/insta-redAsset 6.png")
+            }
+
+            #LinkedIN {
+                background-image: url("../../../Images/Social/linkedinAsset 5.png")
+            }
+
+            #LinkedIN:hover {
+                background-image: url("../../../Images/Social/linkedin-redAsset 9.png")
+            }
+        }
+    }
+}

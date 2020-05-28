@@ -1,0 +1,55 @@
+﻿@import "_variables.scss";
+
+#JanperAcrylic, #JanperEdge {
+    padding-left: 50px;
+
+    .full {
+        padding-left: 0 !important;
+        h1{
+            margin-top:50px;
+        }
+
+        h2{
+            color:$primary-colour;
+        }
+    }
+
+    .quarter {
+        width: 20% !important;
+        margin: 0 15px;
+        padding: 0 !important;
+        font-family: Rutan;
+
+        img {
+            width: 75%;
+            display: block;
+            margin: auto;
+            margin-top: 50px;
+            border: 1px solid $secondary-colour;
+        }
+
+        h3 {
+            color: $secondary-colour;
+            width: 75%;
+            margin: auto;
+            text-align: left;
+            font-family: Rutan-Light;
+            height: 20px;
+            padding-top: 10px;
+            margin-bottom: 50px;
+        }
+    }
+
+    .woodgrain{
+        img{
+            transform:rotate(90deg);
+        }
+    }
+
+    .quarter:hover {
+        h3 {
+            color: $primary-colour;
+            transition-duration: 0.4s;
+        }
+    }
+}

@@ -1,0 +1,76 @@
+﻿<div id="Gallery">
+  <div class="content-wrapper full">
+    <h1>Gallery</h1>
+    <h2>Duraform</h2>
+  </div>
+  @Html.Partial("Duraform")
+  <br class="clearfix" />
+  @Html.Partial("Acrylic")
+  <br class="clearfix" />
+</div>
+<br class="clearfix" />
+<script>
+  $(".gallery-wrapper").click(function (event) {
+    $("#lightbox").attr("class", "");
+    $(".gallery").attr("class", "gallery hidden");
+    $("#Name").attr("class", "hidden");
+    $("#left").attr("class", "glyphicons glyphicons-chevron-left")
+    $("#right").attr("class", "glyphicons glyphicons-chevron-right")
+    $("#desc").attr("class", "hidden");
+    $("#hero").attr("src", $(this).children().eq(0).attr("src"));
+    $("#hero").attr("class", "heropadding");
+  });
+
+  $(".third p").click(function (event) {
+    var doorname = $(this).html().split(" - ");
+    $.ajax({
+      url: "DuraForm/GenerateDoor",
+      type: "POST",
+      data: { "doorName": doorname[2].trim(), "sender": "Gallery" },
+      success: function (data) {
+        $("#Gallery").html(data);
+        $(window).scrollTop(0);
+      }
+    })
+  });
+
+</script>
+
+<script>
+  $("#left").click(function (event) {
+    handlechange("left", $("#hero").attr("src"));
+  });
+  $("#right").click(function (event) {
+    handlechange("right", $("#hero").attr("src"));
+  });
+
+  function handlechange(direction, image) {
+    $("#Gallery > .third").each(function () {
+      if ($(this).children().eq(0).children().eq(0).attr("src") == image) {
+        if (direction == "right") {
+          if ($(this).next().is('br')) {
+            if ($(this).next().next().children().length > 0) {
+              $("#hero").attr("src", $(this).next().next().children().eq(0).children().eq(0).attr("src"));
+            }
+          }
+          else {
+            $("#hero").attr("src", $(this).next().children().eq(0).children().eq(0).attr("src"));
+          }
+        }
+        else {
+          if ($(this).prev().is('br')) {
+            if ($(this).prev().prev().children().length > 0) {
+              $("#hero").attr("src", $(this).prev().prev().children().eq(0).children().eq(0).attr("src"));
+            }
+          }
+          else {
+            $("#hero").attr("src", $(this).prev().children().eq(0).children().eq(0).attr("src"));
+          }
+        }
+      }
+      else {
+        return true;
+      }
+    })
+  }
+</script>

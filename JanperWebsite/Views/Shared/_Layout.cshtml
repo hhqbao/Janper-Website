@@ -1,0 +1,601 @@
+﻿
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Janper</title>
+  @Styles.Render("~/Content/css")
+  @Scripts.Render("~/bundles/modernizr")
+  @Scripts.Render("~/bundles/jquery")
+  @Scripts.Render("~/bundles/bootstrap")
+  @Scripts.Render("~/bundles/scripts")
+  <script src="https://www.google.com/recaptcha/api.js"></script>
+  @RenderSection("scripts", required: false)
+  @*<link rel="apple-touch-icon" sizes="57x57" href="/images/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="/images/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/images/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="/images/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/images/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="/images/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="/images/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/images/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="/images/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="/images/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
+    <link rel="manifest" href="/images/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="/images/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">*@
+</head>
+<body>
+  <a id="back-to-top" href="#" class="btn btn-primary back-to-top display-desktop" role="button" title="Click to return on the top page" data-toggle="tooltip" data-placement="left"><span class="glyphicons glyphicons-chevron-up"></span></a>
+
+  <header>
+    <span id="menuHamburger" class="glyphicons glyphicons-menu-hamburger"></span>
+    <span id="closeMenu" class="glyphicons glyphicons-remove"></span>
+  </header>
+  <nav id="menu" class="menu">
+    <div class="menu-wrapper">
+      <div id="mainMenu" class="menu">
+        <ul>
+          <li id="homeLink">
+            Home
+            <script>
+
+              $("#homeLink").click(function (event) {
+                handleMenuLoad($(this).attr("id"));
+              });
+            </script>
+          </li>
+          <li id="GalleryLink">
+            Gallery
+            <script>
+
+              $("#GalleryLink").click(function (event) {
+                handleMenuLoad($(this).attr("id"));
+              });
+            </script>
+          </li>
+          <li id="AboutLink">
+            About
+            <script>
+
+              $("#AboutLink").click(function (event) {
+                handleMenuLoad($(this).attr("id"));
+              });
+            </script>
+          </li>
+
+        </ul>
+        <hr />
+        <ul id="menuList">
+          <li id="duraMenu">
+            DuraForm
+          </li>
+          <li id="sheenMenu">
+            JanperAcrylic
+            <script>
+              $("#sheenMenu").click(function (event) {
+                handleMenuLoad($(this).attr("id"));
+              });
+            </script>
+          </li>
+
+          <li id="edgeMenu">
+            JanperEdge
+            <script>
+              $("#edgeMenu").click(function (event) {
+                handleMenuLoad($(this).attr("id"));
+              });
+            </script>
+          </li>
+        </ul>
+        <hr />
+        <ul>
+          <li id="TradeMenu">
+
+            Trade Area
+            <script>
+              $("#TradeMenu").click(function (event) {
+                handleMenuLoad($(this).attr("id"));
+              });
+            </script>
+          </li>
+          <li id="ContactMenu">
+            Contact
+            <script>
+
+              $("#ContactMenu").click(function (event) {
+                handleMenuLoad($(this).attr("id"));
+              })
+            </script>
+          </li>
+        </ul>
+      </div>
+      <div id="Dura" class="menu subMenu">
+        <span class="closeSubMenu glyphicons glyphicons-remove"></span>
+        @Html.Partial("_DuraSubMenu")
+        <script>
+          assignDuraClickEvent('#Dura');
+
+          function assignDuraClickEvent(parentId) {
+            $(parentId + " li").click(function (event) {
+              var id = $(this).attr('id');
+              var $items = $(this).parent().children()
+              $(parentId + " li").each(function () {
+                $(this).removeClass("highlight");
+              });
+              $(this).addClass("highlight");
+              if ($("#content-container").children().first().attr('id') == "DuraForm" && $("#content-container").children().first().children().first().attr('class') == "content-wrapper") {
+                handleDuraFormLoad(id, true);
+              }
+              else {
+                handleDuraFormLoad(id, false);
+
+                if (!gMobileView) {
+                  $("#menu").toggleClass("expanded");
+                  $("#menu").animate({ left: '-200px' }, { duration: 1000 });
+                  $("#container").animate({ left: '250px' }, { duration: 1000 });
+                  $("header").animate({ left: '0' }, { duration: 1000, queue: false });
+                  $("#menuHamburger").css("display", "block");
+                  $("#closeMenu").css("display", "none");
+                }
+              }
+
+            }
+            );
+          }
+        </script>
+      </div>
+    </div>
+
+
+  </nav>
+  <div class="mobile">
+    <img src="~/Images/logo.png" />
+    <h1>Mobile page coming soon</h1>
+  </div>
+  @Html.Partial("_Lightbox")
+  <div id="container">
+
+    <img id="logo" src="~/Images/logo.png" />
+
+    <div id="content-container">
+
+      @RenderBody()
+    </div>
+    <div id="Contact" class="contact-wrapper">
+      @Html.Partial("_Contact", new JanperWebsite.Models.Model_Contact())
+    </div>
+  </div>
+  <footer class="display-desktop">
+    @Html.Partial("_Footer")
+  </footer>
+</body>
+
+</html>
+
+
+<script>
+
+  function handleMenuLoad(id) {
+    if (!gMobileView) {
+      $(".closeSubMenu").css("display", "none");
+      $("#Dura").animate({ left: '50px' }, 1000, function () {
+        {
+          $("#Dura").css("z-index", "10");
+        }
+      });
+
+      if ($("#menu").hasClass("expanded")) {
+        $("#container").animate({ left: '250px' }, { duration: 1000 });
+      }
+      else {
+        $("#container").animate({ left: '50px' }, { duration: 1000 });
+      }
+    }
+    switch (id) {
+      case "homeLink":
+        $.ajax(
+          {
+            url: "../Home/Index",
+            success: function (result) {
+              $("#content-container").html(result);
+              $(window).scrollTop(0);
+            }
+          })
+        break;
+      case "sheenMenu":
+        $.ajax(
+          {
+            url: "../JanperAcrylic/Index",
+            success: function (result) {
+              $("#content-container").html(result);
+              $(window).scrollTop(0);
+            }
+          })
+        break;
+      case "edgeMenu":
+        $.ajax(
+          {
+            url: "../JanperEdge/Index",
+            success: function (result) {
+              $("#content-container").html(result);
+              $(window).scrollTop(0);
+            }
+          })
+        break;
+      case "TradeMenu":
+        $.ajax(
+          {
+            url: "../TradeArea/Index",
+            success: function (result) {
+              $("#content-container").html(result);
+              $(window).scrollTop(0);
+            }
+          })
+        break;
+      case "ContactMenu":
+        $.ajax(
+          {
+            url: "../ContactPage/Index",
+            success: function (result) {
+              $("#content-container").html(result);
+              $(window).scrollTop(0);
+            }
+          })
+        break;
+      case "AboutLink":
+        $.ajax(
+          {
+            url: "../About/Index",
+            success: function (result) {
+              $("#content-container").html(result);
+              $(window).scrollTop(0);
+            }
+          })
+        break;
+      case "GalleryLink":
+        $.ajax(
+          {
+            url: "../Gallery/Index",
+            success: function (result) {
+              $("#content-container").html(result);
+              $(window).scrollTop(0);
+            }
+          })
+        break;
+    }
+  }
+</script>
+<script>
+    function handleDuraFormLoad(id, isLoaded) {
+        if (isLoaded) {
+            switch (id) {
+                case "DuraColours":
+                    $.ajax(
+                        {
+                            url: "../DuraForm/Colours/Index",
+                            success: function (result) {
+                                $("#DuraForm").replaceWith(result);
+                                $(window).scrollTop(0);
+                                $('#SeriesHeader').text("");
+                                $('#SeriesBlurb').text("");
+                            }
+                        })
+                    break;
+                case "DuraOptions":
+                    $.ajax(
+                        {
+                            url: "../DuraForm/Options",
+                            success: function (result) {
+                                $("#DuraForm").replaceWith(result);
+                                $(window).scrollTop(0);
+                                $('#SeriesHeader').text("");
+                                $('#SeriesBlurb').text("");
+                            }
+                        })
+                    break;
+
+                default:
+                                switch (id)
+                                    {
+                                        case "DuraS1":
+                                        $(window).scrollTop(0);
+                                        $("#SeriesHeader").text("SeriesOne");
+                                        $("#SeriesBlurb").text("@Html.Partial("../DuraForm/Blurbs/SeriesOne")");
+                                            break;
+
+                                        case "DuraS2":
+                                            $('#SeriesTwo').scrollView();
+                                        $("#SeriesHeader").text("SeriesTwo");
+                                        $("#SeriesBlurb").text("@Html.Partial("../DuraForm/Blurbs/SeriesTwo")");
+                                            break;
+
+                                        case "DuraS3":
+                                            $('#SeriesThree').scrollView();
+                                        $("#SeriesHeader").text("SeriesThree");
+                                        $("#SeriesBlurb").text("@Html.Partial("../DuraForm/Blurbs/SeriesThree")");
+                                            break;
+
+                                        case "DuraS4":
+                                            $('#SeriesFour').scrollView();
+                                        $("#SeriesHeader").text("SeriesFour");
+                                        $("#SeriesBlurb").text("@Html.Partial("../DuraForm/Blurbs/SeriesOne")");
+                                            break;
+
+                                        case "DuraS5":
+                                            $('#SeriesFive').scrollView();
+                                        $('#SeriesHeader').text("SeriesFive");
+                                        $('#SeriesBlurb').text("@Html.Partial("../DuraForm/Blurbs/SeriesFive")");
+                                            break;
+                                    }
+            }
+        }
+        else {
+            switch (id) {
+                case "DuraColours":
+                    $.ajax(
+                        {
+                            url: "../DuraForm/Colours/Index",
+                            success: function (result) {
+                                $("#content-container").html(result);
+                                $(window).scrollTop(0);
+                                $('#SeriesHeader').text("");
+                                $('#SeriesBlurb').text("");
+                            }
+                        })
+                    break;
+                case "DuraOptions":
+                    $.ajax(
+                        {
+                            url: "../DuraForm/Options",
+                            success: function (result) {
+                                $("#content-container").html(result);
+                                $(window).scrollTop(0);
+                                $('#SeriesHeader').text("");
+                                $('#SeriesBlurb').text("");
+                            }
+                        })
+                    break;
+
+                default:
+                    $.ajax(
+                        {
+                            url: "../DuraForm/Index",
+                            success: function (result) {
+                                $("#content-container").html(result);
+                            }
+                        }).done(function ()
+                        {
+
+                            setTimeout(function ()
+                            {
+                                switch (id)
+                                    {
+                                        case "DuraS1":
+                                        $(window).scrollTop(0);
+                                        $("#SeriesHeader").text("SeriesOne");
+                                        $("#SeriesBlurb").text("@Html.Partial("../DuraForm/Blurbs/SeriesOne")");
+                                            break;
+
+                                        case "DuraS2":
+                                            $('#SeriesTwo').scrollView();
+                                        $("#SeriesHeader").text("SeriesTwo");
+                                        $("#SeriesBlurb").text("@Html.Partial("../DuraForm/Blurbs/SeriesTwo")");
+                                            break;
+
+                                        case "DuraS3":
+                                            $('#SeriesThree').scrollView();
+                                        $("#SeriesHeader").text("SeriesThree");
+                                        $("#SeriesBlurb").text("@Html.Partial("../DuraForm/Blurbs/SeriesThree")");
+                                            break;
+
+                                        case "DuraS4":
+                                            $('#SeriesFour').scrollView();
+                                        $("#SeriesHeader").text("SeriesFour");
+                                        $("#SeriesBlurb").text("@Html.Partial("../DuraForm/Blurbs/SeriesOne")");
+                                            break;
+
+                                        case "DuraS5":
+                                            $('#SeriesFive').scrollView();
+                                        $('#SeriesHeader').text("SeriesFive");
+                                        $('#SeriesBlurb').text("@Html.Partial("../DuraForm/Blurbs/SeriesFive")");
+                                            break;
+                                    }
+                            }, 1000);
+                        });
+            }
+        }
+    }
+
+</script>
+
+<script>
+  $.fn.scrollView = function () {
+    return this.each(function () {
+      if (gMobileView) {
+        $('html, body').animate({
+          scrollTop: $(this).offset().top
+        }, 300);
+      }
+      else {
+        $('html, body').animate({
+          scrollTop: $(this).offset().top
+        }, 1000);
+      }
+    });
+  }
+</script>
+
+<script>
+  $("#menuHamburger").click(function (event) {
+    if (!gMobileView) {
+      $("header").animate({ left: '200px' }, { duration: 1000, queue: false });
+      $("#menu").animate({ left: '0px' }, { duration: 1000, queue: false });
+      $("#container").animate({ left: '250px' }, { duration: 1000, queue: false });
+      $("#menuHamburger").css("display", "none");
+      $("#closeMenu").css("display", "inline-block");
+
+      if ($("header").attr("style") == "left: 200px") {
+        $("#menu").attr("class", "menu");
+
+      }
+      else {
+        $("#menu").attr("class", "menu expanded");
+      }
+      if ($(".closeSubMenu").css("display") == "block") {
+        $("#container").animate({ left: '450px' }, { duration: 1000, queue: false });
+      }
+    }
+  });
+</script>
+<script>
+  $("#closeMenu").click(function (event) {
+    if (!gMobileView) {
+      $("#menu").animate({ left: '-200px' }, { duration: 1000 });
+      $("#menu").toggleClass("expanded");
+      $("#container").animate({ left: '50px' }, { duration: 1000 });
+      $("header").animate({ left: '0' }, { duration: 1000, queue: false });
+      $("#menuHamburger").css("display", "block");
+      $("#closeMenu").css("display", "none");
+      $(".closeSubMenu").css("display", "none");
+      $("#Sheen").animate({ left: '50px' }, { duration: 1000, queue: false });
+      $("#Dura").animate({ left: '50px' }, { duration: 1000, queue: false });
+      $("#Edge").animate({ left: '50px' }, { duration: 1000, queue: false });
+      $("#Ease").animate({ left: '50px' }, { duration: 1000, queue: false });
+    }
+  });
+</script>
+<script>
+  function closeMenu(menuToClose) {
+    if (!gMobileView) {
+      $("#" + menuToClose).animate({ left: '50px' }, 1000, function () {
+        {
+          $("#" + menuToClose).css("z-index", "10");
+        }
+      });
+
+      $(".closeSubMenu").css("display", "none");
+      if ($("#menu").hasClass("expanded")) {
+        $("#container").animate({ left: '250px' }, { duration: 1000 });
+      }
+      else {
+        $("#container").animate({ left: '50px' }, { duration: 1000 });
+      }
+    }
+  }
+</script>
+<script>
+  $("#menuList li").click(function (event) {
+    if (!gMobileView) {
+      $("#menuList li").each(function () {
+        $(this).removeClass("highlight");
+      });
+      $(this).add
+      switch ($(this).attr('id')) {
+        case 'sheenMenu':
+          $("#Sheen").animate({ left: '250px' }, 1000);
+          $(".closeSubMenu").css("display", "block");
+          $("#Dura").animate({ left: '50px' }, 1000, function () {
+          });
+          $("#Edge").animate({ left: '50px' }, 1000, function () {
+          });
+          $("#Ease").animate({ left: '50px' }, 1000, function () {
+          });
+
+          break
+        case 'duraMenu':
+          $("#Dura").animate({ left: '250px' }, 1000);
+          $("#container").animate({ left: '450px' }, { duration: 1000 });
+          $(".closeSubMenu").css("display", "block");
+          $("#Sheen").animate({ left: '50px' }, 1000, function () {
+          });
+          $("#Edge").animate({ left: '50px' }, 1000, function () {
+          });
+          $("#Ease").animate({ left: '50px' }, 1000, function () {
+          });
+          break
+        case 'edgeMenu':
+          $("#Sheen").animate({ left: '50px' }, 1000, function () {
+
+          });
+          $("#Dura").animate({ left: '50px' }, 1000, function () {
+
+          });
+          $("#Ease").animate({ left: '50px' }, 1000, function () {
+
+          });
+          break
+        case 'easeMenu':
+          $("#Ease").animate({ left: '250px' }, 1000);
+          $("#Sheen").animate({ left: '50px' }, 1000, function () {
+          });
+          $("#Dura").animate({ left: '50px' }, 1000, function () {
+          });
+          $("#Edge").animate({ left: '50px' }, 1000, function () {
+          });
+          break
+      }
+    }
+  });
+</script>
+<script>
+  $(".closeSubMenu").click(function (event) {
+    $("#Dura li").each(function () {
+      $(this).removeClass("highlight");
+    });
+    if ($(window).width() > gMobileViewSize) {
+      div = $(this).parent("div").eq(0).attr('id');
+      closeMenu(div);
+    }
+  });
+</script>
+
+<script>
+  MutationObserver = window.MutationObserver || window.WebKitMutationObserver;
+
+  var observer = new MutationObserver(function (mutations, observer) {
+    var page = $("#content-container").children().first().attr("id");
+    if (page == "TradeArea") {
+      $("#contact-form").hide();
+      $("#HomeContact").show();
+    }
+    else {
+      $("#contact-form").show();
+      $("#HomeContact").hide();
+    }
+
+    // ...
+  });
+
+  // define what element should be observed by the observer
+  // and what types of mutations trigger the callback
+  observer.observe(document, {
+    subtree: true,
+    attributes: true
+    //...
+  });
+
+</script>
+<script>
+  $(document).ready(function () {
+    $(window).scroll(function () {
+      if ($(this).scrollTop() > 50) {
+        $('#back-to-top').fadeIn();
+      } else {
+        $('#back-to-top').fadeOut();
+      }
+    });
+    // scroll body to 0px on click
+    $('#back-to-top').click(function (event) {
+      $("html, body").animate({ scrollTop: 0 }, "slow");
+      return false;
+    });
+  });
+</script>
+
+<script src="~/Content/js/app-dist.js"></script>

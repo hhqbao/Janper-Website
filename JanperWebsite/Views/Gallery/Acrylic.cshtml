@@ -1,0 +1,38 @@
+﻿<div class="content-wrapper full">
+  <h2>Acrylic</h2>
+</div>
+@{
+  int counter = 0;
+  foreach (string image in ViewBag.Acrylic)
+  {
+    String name = image.Split('/').ToList().Last();
+    List<String> count = name.Split('(').ToList();
+    String caption = "";
+    if (count.First().Contains("Gloss"))
+    {
+      caption = count.First().Substring(0, count.First().IndexOf("Gloss") - 1) + ", " + count.First().Substring(count.First().IndexOf("Gloss"));
+    }
+    else
+    {
+      caption = count.First().Substring(0, count.First().IndexOf("Matt") - 1) + ", " + count.First().Substring(count.First().IndexOf("Matt"));
+    }
+    <div class="content-wrapper third">
+      <div class="gallery-wrapper">
+
+        <img src="@Url.Content(image)" />
+        <div class="overlay">
+          <span class="glyphicons glyphicons-search"></span>
+        </div>
+      </div>
+      <p>
+        @caption<br />
+        @*(@count.Last().Substring(0, count.Last().IndexOf('.'))*@
+      </p>
+    </div>
+    counter++;
+    if (counter % 3 == 0)
+    {
+      <br class="clearfix" />
+    }
+  }
+}

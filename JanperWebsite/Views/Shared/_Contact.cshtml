@@ -1,0 +1,118 @@
+﻿@model JanperWebsite.Models.Model_Contact
+@{
+    Layout = null;
+}
+
+<div class="content-wrapper half">
+    <div class="triangle"></div>
+    <h1>
+        Janper has <br />
+        your cabinetry <br />
+        covered...
+    </h1>
+    <p>
+        If you have an enquiry, we are here to help.
+
+    </p>
+    <p id="success" class="red hidden">
+        Your enquiry has been recieved.
+    </p>
+
+    <div id="HomeContact" class="button">Click Here</div>
+    <script>
+        $("#HomeContact").click(function (event) {
+            $.ajax(
+                {
+                    url: "../ContactPage/Index",
+                    success: function (result) {
+                        $("#content-container").html(result);
+                        $(window).scrollTop(0);
+                        $("#contact-form").show();
+                        $("#HomeContact").hide();
+                    }
+                })
+
+        })
+    </script>
+</div>
+<div class="content-wrapper half">
+    @using (Html.BeginForm("ContactPost", "Contact", FormMethod.Post, new { id = "contact-form" }))
+    {
+        @Html.TextBoxFor(x => x.Name, new { @placeholder = "Name*", id = "name" })<br />
+        <span id="nameempty" class="hidden red">Name can't be empty<br /></span>
+
+        @Html.TextBoxFor(x => x.Email, new { @placeholder = "Email*", id = "email" })<br />
+        <span id="emailempty" class="hidden red">Email can't be empty <br /></span>
+        <span id="emailinvalid" class="hidden red">Not a valid email address<br /></span>
+        @Html.TextBoxFor(x => x.Phone, new { @placeholder = "Phone*" })<br />
+        <span id="phoneempty" class="hidden red">Phone can't be empty<br /></span>
+
+        @Html.TextAreaFor(x => x.AdditionalComments, new { @placeholder = "Message*", @cols = "20", @rows = "5" })<br />
+        <span id="messageempty" class="hidden red">Message can't be empty<br /></span>
+        <div class="g-recaptcha" data-sitekey="6LdaXkAUAAAAAGjvU-dSmkD7GC8-0P4juesp0l7b"></div>
+        <div class="button" id="submit">Send</div>
+        <script>
+            $("#submit").click(function (event) {
+                var formvalid = true;
+                var indexof = document.getElementById("email").value
+                if (document.getElementById("name").value == "") {
+                    formvalid = false;
+                    $("#nameempty").attr("class", "red");
+                }
+                else {
+                    $("#nameempty").attr("class", "red hidden");
+                }
+                if (document.getElementById("email").value == "") {
+                    formvalid = false;
+                    $("#emailempty").attr("class", "red");
+                }
+                else {
+                    $("#emailempty").attr("class", "red hidden");
+                }
+                if (indexof.indexOf("@@") == -1) {
+                    formvalid = false;
+                    $("#emailinvalid").attr("class", "red");
+                }
+                else {
+                    $("#emailinvalid").attr("class", "red hidden");
+                }
+                if (document.getElementById("Phone").value == "") {
+                    formvalid = false;
+                    $("#phoneempty").attr("class", "red");
+                }
+                else {
+                    $("#phoneempty").attr("class", "red hidden");
+                }
+                if (document.getElementById("AdditionalComments").value == "") {
+                    formvalid = false;
+                    $("#messageempty").attr("class", "red");
+                }
+                else {
+                    $("#messageempty").attr("class", "red hidden");
+                }
+                if (formvalid) {
+                    $.ajax({
+                        url: "Enquiries/ContactPost",
+                        type: "post",
+                        data: $("#contact-form").serialize(), //if you need to post Model data, use this
+                        success: function (result) {
+                            $("#partial").replaceWith(result);
+
+                        }
+                    });
+                    $("form span").each(function () {
+                        $(this).attr("class", "hidden");
+                    })
+
+                    $("input[type=text]").each(function () {
+                        $(this).val("");
+                    });
+                    $("#AdditionalComments").val("");
+                    $("#success").show();
+
+                }
+
+            });
+        </script>
+    }
+</div>

@@ -1,0 +1,79 @@
+﻿@model JanperWebsite.Models.Model_TradeContact
+    <div class="content-wrapper half">
+        <p>All fields are required</p>
+
+        @using (Html.BeginForm("SendRequest", "TradeArea", FormMethod.Post, new { id = "SamplesForm" }))
+        {
+            @Html.TextBoxFor(x => x.CustomerName, new { @placeholder = "Name" })<br />
+            <span id="nameerror" class="red hidden">Name cannot be empty</span><br />
+
+            @Html.TextBoxFor(x => x.Email, new { @placeholder = "Email" })<br />
+            <span id="emailerror" class="red hidden">Email cannot be empty</span><br />
+            <span id="emailinvalid" class="red hidden">Email is not valid</span><br />
+            @Html.TextBoxFor(x => x.Address, new { @placeholder = "Street Address" })<br />
+            <span id="addresserror" class="red hidden">Address cannot be empty</span><br />
+
+            @Html.TextBoxFor(x => x.Suburb, new { @placeholder = "Suburb" })<br />
+            <span id="suburberror" class="red hidden">Suburb cannot be empty</span><br />
+
+            @Html.TextBoxFor(x => x.State, new { @placeholder = "State" })<br />
+            <span id="stateerror" class="red hidden">State cannot be empty</span><br />
+
+            @Html.TextBoxFor(x => x.pCode, new { @placeholder = "Postcode" })<br />
+            <span id="pcodeerror" class="red hidden">Postcode cannot be empty</span><br />
+            <span id="pcodeinvalid" class="red hidden">Postcode must be 4 numbers</span><br />
+
+            @Html.HiddenFor(x => x.samples);
+            <br class="clearfix" />
+            <h4>DuraForm - Supa Matt</h4>
+            <ul id="SupaMattList"></ul>
+            <h4>DuraForm - Satin</h4>
+            <ul id="SatinList"></ul>
+            <h4>DuraForm - Textures</h4>
+            <ul id="TextureList"></ul>
+            <h4>DuraForm - Suedette</h4>
+            <ul id="SuedetteList"></ul>
+            <h4>DuraForm - Gloss Standard</h4>
+            <ul id="GlossStandardList"></ul>
+            <h4>DuraForm - Gloss Premium</h4>
+            <ul id="GlossPremiumList"></ul>
+            <h4>DuraForm - Woodgrain</h4>
+            <ul id="WoodgrainList"></ul>
+            <h4>JanperEdge - Matt</h4>
+            <ul id="EdgeMattList"></ul>
+            <h4>JanperEdge - Woodgrain</h4>
+            <ul id="EdgeWoodgrainList"></ul>
+            <h4>JanperAcrylic</h4>
+            <ul id="AcrylicList"></ul>
+            <h4>DuraForm - Breeze</h4>
+            <ul id="BreezeList"></ul>
+            <div class="g-recaptcha" data-sitekey="6LdaXkAUAAAAAGjvU-dSmkD7GC8-0P4juesp0l7b"></div>
+            <input id="sampleSubmit" type="button" class="button" value="Send message" />
+            <br class="clearfix" />
+
+            <p id="sampleerror" class="red hidden">
+                Please select some samples
+            </p>
+
+            if (Model == null || Model.Successful)
+            {
+                <p class="red">
+                    Your sample request has been recieved. We will send out your samples shortly.
+                </p>
+            }
+            <p>
+                Please select the colour samples you would like to recieve and we will post them to the address supplied above
+            </p>
+
+            <p class="red">
+                Please note that colours may differ with the finished product. These colour swatches are to be used as a guide only.
+            </p>
+            <script>
+                $(document).ready(function () {
+                    $("input[type=text]").each(function () {
+                        $(this).val("");
+                    });
+                });
+            </script>
+        }
+    </div>

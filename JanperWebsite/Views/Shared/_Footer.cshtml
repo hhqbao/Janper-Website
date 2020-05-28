@@ -1,0 +1,392 @@
+﻿<div id="safecode">
+    <span class="copy">&copy; </span>@DateTime.Now.Year Janper <br />
+    <a href="http://safecode.com.au" target="_blank"><span class="credit">Powered by Safe</span><span class="credit code">Code</span></a>
+</div>
+<div class="footer-container">
+
+    <ul id="FooterMain">
+        <li id="HomeFooter">
+            Home
+        </li>
+        <li id="AboutFooter">
+            About Janper
+        </li>
+        <li id="ContactFooter">
+            Contact Us
+        </li>
+        <li id="TradeFooter">
+            Trade Area
+        </li>
+    </ul>
+    <ul>
+        <li id="AcrylicFooter">
+            JanperAcrylic®
+        </li>
+    </ul>
+    <ul id="FooterDura">
+        <li>
+            DuraFrom®
+        </li>
+        <li id="DuraS1">
+            SeriesOne
+        </li>
+        <li id="DuraS2">
+            SeriesTwo
+        </li>
+        <li id="DuraS3">
+            SeriesThree
+        </li>
+        <li id="DuraS4">
+            SeriesFour
+        </li>
+        <li id="DuraS5">
+            SeriesFive
+        </li>
+        <li id="DuraColours">
+            Colours & Finishes
+        </li>
+        <li id="DuraOptions">
+            Options & Accessories
+        </li>
+    </ul>
+    <ul>
+        <li id="EdgeFooter">
+            JanperEdge®
+        </li>
+
+    </ul>
+    <form>
+        <input id="searchField" type="text" maxlength="25" placeholder="Search" />
+        <span id="sendSearch" class="glyphicons glyphicons-search"></span>
+    </form>
+
+    <ul class="socials hidden">
+        <li id="Facebook">
+
+        </li>
+        <li id="Twitter">
+
+        </li>
+        <li id="Instagram">
+
+        </li>
+        <li id="LinkedIN">
+        </li>
+    </ul>
+</div>
+
+<script>
+    $("#sendSearch").click(function (event) {
+        var term = $("#searchField").val();
+        $(this).attr('class', "glyphicons glyphicons-refresh glyphicon-spin");
+        $.ajax({
+            url: "Search/SiteSearch",
+            type: "POST",
+            data: { "searchString": term },
+            success: function (data) {
+                $("#content-container").html(data);
+                $(window).scrollTop(0);
+            },
+            complete: function () {
+                $('#sendSearch').attr('class', "glyphicons glyphicons-search");
+                $("#searchField").val("");
+            }
+        })
+    });
+
+    $('#searchField').keypress(function (event) {
+        if (event.keyCode == 13) {
+            event.preventDefault()
+            var term = $("#searchField").val();
+            $("#sendSearch").attr('class', "glyphicons glyphicons-refresh glyphicon-spin");
+            $.ajax({
+                url: "Search/SiteSearch",
+                type: "POST",
+                data: { "searchString": term },
+                success: function (data) {
+                    $("#content-container").html(data);
+                    $(window).scrollTop(0);
+                },
+                complete: function () {
+                    $('#sendSearch').attr('class', "glyphicons glyphicons-search");
+                    $("#searchField").val("");
+                }
+            })
+        }
+    });
+</script>
+
+<script>
+    $("#EdgeFooter").click(function (event) {
+
+        $.ajax(
+            {
+                url: "../JanperEdge/Index",
+                success: function (result) {
+                    $("#content-container").html(result);
+                    $(window).scrollTop(0);
+                }
+            })
+    });
+
+    $("#AcrylicFooter").click(function (event) {
+
+        $.ajax(
+            {
+                url: "../JanperAcrylic/Index",
+                success: function (result) {
+                    $("#content-container").html(result);
+                    $(window).scrollTop(0);
+                }
+            })
+    });
+
+    $("#FooterMain li").click(function (event) {
+        var id = $(this).attr('id');
+        switch (id) {
+            case "HomeFooter":
+                $.ajax(
+                    {
+                        url: "../Home/Index",
+                        success: function (result) {
+                            $("#content-container").html(result);
+                            $(window).scrollTop(0);
+                        }
+                    })
+                break;
+            case "AboutFooter":
+                $.ajax(
+                    {
+                        url: "../About/Index",
+                        success: function (result) {
+                            $("#content-container").html(result);
+                            $(window).scrollTop(0);
+                        }
+                    })
+                break;
+
+            case "ContactFooter":
+                $.ajax(
+                    {
+                        url: "../ContactPage/Index",
+                        success: function (result) {
+                            $("#content-container").html(result);
+                            $(window).scrollTop(0);
+                        }
+                    })
+                break;
+
+            case "TradeFooter":
+                $.ajax(
+                    {
+                        url: "../TradeArea/Index",
+                        success: function (result) {
+                            $("#content-container").html(result);
+                            $(window).scrollTop(0);
+                        }
+                    })
+                break;
+
+        }
+    });
+</script>
+
+<script>
+        $("#FooterDura li").click(function (event) {
+            var id = $(this).attr('id');
+
+            if ($("#content-container").children().first().attr('id') == "DuraForm") {
+            switch (id) {
+                case "DuraColours":
+                    $.ajax(
+                        {
+                            url: "../DuraForm/Colours/Index",
+                            success: function (result) {
+                                $("#DuraForm").replaceWith(result);
+                                $(window).scrollTop(0);
+                                $('#SeriesHeader').text("");
+                                $('#SeriesBlurb').text("");
+                                $("#Dura li").each(function () {
+                                    $(this).removeClass("highlight");
+                                });
+                                $("#DuraColours").addClass("highlight");
+                            }
+                        })
+                    break;
+                case "DuraOptions":
+                    $.ajax(
+                        {
+                            url: "../DuraForm/Options",
+                            success: function (result) {
+                                $("#DuraForm").replaceWith(result);
+                                $(window).scrollTop(0);
+                                $('#SeriesHeader').text("");
+                                $('#SeriesBlurb').text("");
+                                $("#Dura li").each(function () {
+                                    $(this).removeClass("highlight");
+                                });
+                                $("#DuraOptions").addClass("highlight");
+                            }
+                        })
+                    break;
+                default:
+                        switch (id)
+                            {
+                                case "DuraS1":
+                                $(window).scrollTop(0);
+                                $("#SeriesHeader").text("SeriesOne");
+                                $("#SeriesBlurb").text("@Html.Partial("../DuraForm/Blurbs/SeriesOne")");
+                                $("#Dura li").each(function () {
+                                    $(this).removeClass("highlight");
+                                });
+                                $("#DuraS1").addClass("highlight");
+                                    break;
+
+                                case "DuraS2":
+                                    $('#SeriesTwo').scrollView();
+                                $("#SeriesHeader").text("SeriesTwo");
+                                $("#SeriesBlurb").text("@Html.Partial("../DuraForm/Blurbs/SeriesTwo")");
+                                $("#Dura li").each(function () {
+                                    $(this).removeClass("highlight");
+                                });
+                                $("#DuraS2").addClass("highlight");
+                                    break;
+
+                                case "DuraS3":
+                                    $('#SeriesThree').scrollView();
+                                $("#SeriesHeader").text("SeriesThree");
+                                $("#SeriesBlurb").text("@Html.Partial("../DuraForm/Blurbs/SeriesThree")");
+                                $("#Dura li").each(function () {
+                                    $(this).removeClass("highlight");
+                                });
+                                $("#DuraS3").addClass("highlight");
+                                    break;
+
+                                case "DuraS4":
+                                    $('#SeriesFour').scrollView();
+                                $("#SeriesHeader").text("SeriesFour");
+                                $("#SeriesBlurb").text("@Html.Partial("../DuraForm/Blurbs/SeriesOne")");
+                                $("#Dura li").each(function () {
+                                    $(this).removeClass("highlight");
+                                });
+                                $("#DuraS4").addClass("highlight");
+                                    break;
+
+                                case "DuraS5":
+                                    $('#SeriesFive').scrollView();
+                                $('#SeriesHeader').text("SeriesFive");
+                                $('#SeriesBlurb').text("@Html.Partial("../DuraForm/Blurbs/SeriesFive")");
+                                $("#Dura li").each(function () {
+                                    $(this).removeClass("highlight");
+                                });
+                                $("#DuraS5").addClass("highlight");
+                                    break;
+                            }
+                    }
+
+            }
+        else {
+            switch (id) {
+                case "DuraColours":
+                    $.ajax(
+                        {
+                            url: "../DuraForm/Colours/Index",
+                            success: function (result) {
+                                $("#content-container").html(result);
+                                $(window).scrollTop(0);
+                                $('#SeriesHeader').text("");
+                                $('#SeriesBlurb').text("");
+                                $("#Dura li").each(function () {
+                                    $(this).removeClass("highlight");
+                                });
+                                $("#DuraColours").addClass("highlight");
+                            }
+                        })
+                    break;
+                case "DuraOptions":
+                    $.ajax(
+                        {
+                            url: "../DuraForm/Options",
+                            success: function (result) {
+                                $("#content-container").html(result);
+                                $(window).scrollTop(0);
+                                $('#SeriesHeader').text("");
+                                $('#SeriesBlurb').text("");
+                                $("#Dura li").each(function () {
+                                    $(this).removeClass("highlight");
+                                });
+                                $("#DuraOptions").addClass("highlight");
+                            }
+                        })
+                    break;
+                default:
+                    $.ajax(
+                        {
+                            url: "../DuraForm/Index",
+                            success: function (result) {
+                                $("#content-container").html(result);
+                            }
+                        }).done(function ()
+                        {
+                            setTimeout(function ()
+                            {
+                                switch (id)
+                                    {
+                                        case "DuraS1":
+                                        $(window).scrollTop(0);
+                                        $("#SeriesHeader").text("SeriesOne");
+                                        $("#SeriesBlurb").text("@Html.Partial("../DuraForm/Blurbs/SeriesOne")");
+                                        $("#Dura li").each(function () {
+                                            $(this).removeClass("highlight");
+                                        });
+                                        $("#DuraS1").addClass("highlight");
+                                            break;
+
+                                        case "DuraS2":
+                                            $('#SeriesTwo').scrollView();
+                                        $("#SeriesHeader").text("SeriesTwo");
+                                        $("#SeriesBlurb").text("@Html.Partial("../DuraForm/Blurbs/SeriesTwo")");
+                                        $("#Dura li").each(function () {
+                                            $(this).removeClass("highlight");
+                                        });
+                                        $("#DuraS2").addClass("highlight");
+                                            break;
+
+                                        case "DuraS3":
+                                            $('#SeriesThree').scrollView();
+                                        $("#SeriesHeader").text("SeriesThree");
+                                        $("#SeriesBlurb").text("@Html.Partial("../DuraForm/Blurbs/SeriesThree")");
+                                        $("#Dura li").each(function () {
+                                            $(this).removeClass("highlight");
+                                        });
+                                        $("#DuraS3").addClass("highlight");
+                                            break;
+
+                                        case "DuraS4":
+                                            $('#SeriesFour').scrollView();
+                                        $("#SeriesHeader").text("SeriesFour");
+                                        $("#SeriesBlurb").text("@Html.Partial("../DuraForm/Blurbs/SeriesOne")");
+                                        $("#Dura li").each(function () {
+                                            $(this).removeClass("highlight");
+                                        });
+                                        $("#DuraS4").addClass("highlight");
+                                            break;
+
+                                        case "DuraS5":
+                                            $('#SeriesFive').scrollView();
+                                        $('#SeriesHeader').text("SeriesFive");
+                                        $('#SeriesBlurb').text("@Html.Partial("../DuraForm/Blurbs/SeriesFive")");
+                                        $("#Dura li").each(function () {
+                                            $(this).removeClass("highlight");
+                                        });
+                                        $("#DuraS5").addClass("highlight");
+                                            break;
+                                    }
+                            }, 1000);
+                        });
+                }
+            }
+
+        });
+
+</script>

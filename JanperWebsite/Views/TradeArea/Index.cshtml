@@ -1,0 +1,64 @@
+﻿
+@{
+  ViewBag.Title = "JanperAcrylic";
+}
+<div id="TradePortal">
+  <div class="content-wrapper full">
+    <h1>Trade Area</h1>
+    <p>You are entering Janper's Trade Area</p>
+    <p>
+      By entering this area, we acknowledge that you have  a solid understanding of cabinetmaking practices. Janper is happy to supply componentry and doors to the cabinet making industry.
+    </p>
+    <p>
+      We are a cabinet maker supplier only, supplying flat packs and doors to the trade.
+    </p>
+    <p>
+      We are unable to advise or assist with technical questions or help with the construction of your kitchen.
+    </p>
+    <p>
+      If you have any queries please contact your cabinet maker directly.
+    </p>
+    <form>
+      <input id="acceptCheck" type="checkbox" />
+      <label>I agree to the above terms</label> <br />
+      <input id="acceptButton" type="button" value="Enter the Trade Area" />
+    </form>
+  </div>
+</div>
+
+<script>
+  $("#acceptButton").click(function (event) {
+    if (document.getElementById('acceptCheck').checked) {
+      if ($(window).width() > 1279) {
+        $("#menu").animate({ left: '-200px' }, { duration: 1000 });
+        $("#menu").toggleClass("expanded");
+        $("#container").animate({ left: '50px' }, { duration: 1000 });
+        $("header").animate({ left: '0' }, { duration: 1000, queue: false });
+        $("#menuHamburger").css("display", "block");
+        $("#closeMenu").css("display", "none");
+        $(".closeSubMenu").css("display", "none");
+        $("#Sheen").animate({ left: '50px' }, { duration: 1000, queue: false });
+        $("#Dura").animate({ left: '50px' }, { duration: 1000, queue: false });
+        $("#Edge").animate({ left: '50px' }, { duration: 1000, queue: false });
+        $("#Ease").animate({ left: '50px' }, { duration: 1000, queue: false });
+      }
+      else {
+        if (!gMobileView) {
+          $(".menu-wrapper").animate({ top: '-100vh' }, 1000, function () {
+            $("#menu").css("height", "75px");
+          });
+        }
+
+        $("#openMenu").css("display", "block");
+        $("#closeMenu").css("display", "none");
+      }
+      $.ajax(
+        {
+          url: "../TradeArea/TradeArea",
+          success: function (result) {
+            $("#TradePortal").replaceWith(result)
+          }
+        })
+    }
+  })
+</script>

@@ -1,0 +1,106 @@
+﻿@model JanperWebsite.Models.Model_Results
+
+<div id="search" class="animated slideInRight">
+    <div class="content-wrapper third">
+        <h1>Search Results</h1>
+        <h4>Search results for <span>"@Model.Tag"</span></h4>
+        <form>
+            <input id="resultField" type="text" maxlength="25" placeholder="Search" />
+            <span id="resultSend" class="glyphicons glyphicons-search"></span>
+        </form>
+    </div>
+
+    @{
+        List<JanperWebsite.Models.Model_Result> results = new List<JanperWebsite.Models.Model_Result>();
+        if (Model.Results.Count == 0)
+        {
+            <div class="content-wrapper third">
+                <p class="error">
+                    Your search for <span>"@Model.Tag"</span> has not come back with any results.<br />
+                    Please try a new search.
+                </p>
+            </div>
+        }
+        else if (Model.Results.Count > 20)
+        {
+            results = Model.Results.GetRange(0, 20);
+        }
+        else
+        {
+            results = Model.Results;
+        }
+        for (int i = 0; i < results.Count; i++)
+        {
+            if (i == 0 || i == 10)
+            {
+                @Html.Raw("<div class=\"content-wrapper third\">")
+            }
+            JanperWebsite.Models.Model_Result result = results[i];
+            <div class="result">
+                <p>@result.Page</p>
+                <span value="@result.Link">VIEW</span>
+            </div>
+            if (i == 9)
+            {
+                @Html.Raw("</div>")
+            }
+        }
+
+    }
+
+
+</div>
+<br class="clearfix" />
+<script>
+    $(".result span").click(function (event) {
+        $.ajax({
+            url: $(this).attr("value"),
+            type: "POST",
+            success: function (data) {
+                $("#content-container").html(data);
+                $(window).scrollTop(0);
+            }
+        })
+    })
+</script>
+<script>
+    $("#resultSend").click(function (event) {
+        var term = $("#resultField").val();
+        $(this).attr('class', "glyphicons glyphicons-refresh glyphicon-spin");
+        $.ajax({
+            url: "Search/SiteSearch",
+            type: "POST",
+            data: { "searchString": term },
+            success: function (data) {
+                $("#content-container").html(data);
+                $(window).scrollTop(0);
+            },
+            complete: function () {
+                $(this).attr('class', "glyphicons glyphicons-search");
+                $("#resultField").val("");
+            }
+        })
+    });
+
+    $('#resultField').keypress(function (event) {
+        if (event.keyCode == 13) {
+            event.preventDefault()
+            var term = $("#resultField").val();
+            $("#resultSend").attr('class', "glyphicons glyphicons-refresh glyphicon-spin");
+            $.ajax({
+                url: "Search/SiteSearch",
+                type: "POST",
+                data: { "searchString": term },
+                success: function (data) {
+                    $("#content-container").html(data);
+                    $(window).scrollTop(0);
+                },
+                complete: function () {
+                    $('#resultSend').attr('class', "glyphicons glyphicons-search");
+                    $("#resultField").val("");
+                }
+            })
+        }
+    });
+</script>
+

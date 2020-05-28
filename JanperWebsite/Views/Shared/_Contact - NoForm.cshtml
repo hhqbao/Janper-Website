@@ -1,0 +1,44 @@
+﻿@model JanperWebsite.Models.Model_Contact
+@{
+    Layout = null;
+}
+<div class="content-wrapper half">
+    <h1>
+        Janper has <br />
+        your cabinetry <br />
+        covered...
+    </h1>
+    <p>
+        If you have an enquiry, we are here to help.
+    </p>
+    <div class="button">Click Here</div>
+</div>
+<div class="content-wrapper half">
+    @*@using (Html.BeginForm("ContactPost", "Contact", FormMethod.Post, new { id = "contact-form" }))
+    {
+        @Html.TextBoxFor(x => x.Name, new { @placeholder = "Name*", id = "name" })
+        @Html.ValidationMessageFor(x => x.Name, "", new { @style = "color:red" })<br />
+
+        @Html.TextBoxFor(x => x.Email, new { @placeholder = "Email*", id = "email" })
+        @Html.ValidationMessageFor(x => x.Email, "", new { @style = "color:red" })<br />
+
+        @Html.TextBoxFor(x => x.Phone, new { @placeholder = "Phone*" })
+        @Html.ValidationMessageFor(x => x.Phone, "", new { @style = "color:red" })<br />
+
+        @Html.TextAreaFor(x => x.AdditionalComments, new { @placeholder = "Message*", @cols = "20", @rows = "5" })
+        @Html.ValidationMessageFor(x => x.AdditionalComments, "", new { @style = "color:red" })<br />
+        <div class="button" id="submit">Send</div>
+        <script>
+            $("#submit").click(function () {
+                $.ajax({
+                    url: "Enquiries/ContactPost",
+                    type: "post",
+                    data: $("#contact-form").serialize(), //if you need to post Model data, use this
+                    success: function (result) {
+                        $("#partial").replaceWith(result);
+                    }
+                });
+            });
+        </script>
+    }*@
+</div>

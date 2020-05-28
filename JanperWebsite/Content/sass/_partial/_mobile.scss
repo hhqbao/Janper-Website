@@ -1,0 +1,622 @@
+﻿@import "_variables.scss";
+
+@media (min-width:$min-size) {
+  .display-mobile {
+    display: none !important;
+  }
+}
+
+@media (max-width:$min-size) {
+  .display-desktop {
+    display: none !important;
+  }
+
+  #TradeArea #Samples ul li .sample-wrapper .display-desktop {
+    display: none !important;
+  }
+
+  .mobile-sub-menu {
+    background-color: $secondary-colour;
+    position: fixed;
+    top: 60px;
+    height: auto;
+    min-height: 60px;
+    width: 100%;
+    z-index: 99996;
+    font-family: Rutan, sans-serif;
+    font-weight: 500;
+    cursor: pointer;
+
+    &-title, &-control {
+      padding: 15px;
+      font-size: 20px;
+    }
+
+    &-title {
+      position: absolute;
+      left: 0;
+      right: 0;
+      text-align: center;
+      white-space: nowrap;
+      color: $primary-colour;
+
+      span {
+        transition: font-size 0.3s;
+      }
+    }
+
+    &-control {
+      position: absolute;
+      right: 0;
+      text-align: right;
+      color: white;
+    }
+
+    &-expanded {
+      display: none;
+      color: white;
+
+      ul {
+        list-style: none;
+        padding: 0;
+        text-align: center;
+
+        li {
+          padding: 0.5rem 0;
+          transition-duration: .4s;
+
+          &:hover {
+            color: $primary-colour;
+          }
+        }
+      }
+    }
+  }
+
+  html {
+    body {
+      header {
+        width: 100%;
+        height: 60px;
+        right: 0;
+        text-align: right;
+        z-index: 99999 !important;
+
+        span {
+          display: inline;
+          position: relative !important;
+          padding: 0 10px;
+          height: 50px;
+          line-height: 45px !important;
+          width: 75px;
+          text-align: right !important;
+          transition-duration: 0.4s;
+          cursor: pointer;
+
+          &:hover {
+            color: $secondary-colour;
+          }
+        }
+      }
+
+      #menu {
+        overflow: auto;
+        width: 100%;
+        top: -100%;
+        left: 0;
+        z-index: 99997 !important;
+        transition-duration: 0.4s;
+
+        &.show {
+          top: 0;
+        }
+
+        li {
+          font-size: 1rem !important;
+        }
+
+        .menu-wrapper {
+          padding: 60px 0 !important;
+          width: 100% !important;
+        }
+
+        .subMenu {
+          position: relative;
+          left: 0 !important;
+          height: auto;
+          width: 100%;
+          overflow: hidden;
+          z-index: 99998;
+
+          .closeSubMenu {
+            z-index: 99999;
+          }
+
+          hr {
+            display: none;
+          }
+
+          ul {
+            display: block;
+            padding: 0.5rem !important;
+          }
+        }
+      }
+
+      #container {
+        min-width: 0;
+        width: 100%;
+        max-width: 100%;
+        padding-top: 60px;
+        left: 0;
+      }
+
+      #logo {
+        display: block;
+        position: static;
+        width: 40%;
+        margin: 1rem auto 1rem;
+        min-width: 300px;
+        padding: 0 1rem;
+      }
+
+      #lightbox, .overlay {
+        display: none !important;
+      }
+
+      #home {
+        margin-top: 3.75rem;
+
+        * {
+          position: static !important;
+          height: auto !important;
+        }
+
+        #doors {
+          background-image: url(/Images/DuraForm/Doors/Barwon.png);
+          background-size: contain;
+          background-position: center;
+          background-repeat: no-repeat;
+          padding: 0 2rem;
+          width: 100%;
+          height: 300px !important;
+
+          h1 {
+            margin: 0;
+            font-size: 2rem;
+          }
+        }
+
+        #red {
+          h1 {
+            padding-top: 1rem;
+            font-size: 2rem;
+          }
+
+          p {
+            padding-top: 1rem;
+            margin: 0;
+            width: 100%;
+          }
+        }
+
+        .content-wrapper {
+          padding: 2rem !important;
+        }
+      }
+
+      #about {
+        padding: 0 !important;
+
+        h1 {
+          font-size: 1.5rem !important;
+        }
+
+        br {
+          display: none;
+        }
+
+        p {
+          width: 100% !important;
+          margin: 0 !important;
+          padding: 0 0 2rem !important;
+        }
+
+        .TwoThird h2 {
+          padding-top: 0 1.5rem !important;
+          font-size: 2rem !important;
+        }
+
+        #scrollheight {
+          padding: 0 !important;
+        }
+
+        .content-wrapper {
+          width: 100%;
+          padding: 0 1rem !important;
+          margin: 0 !important;
+        }
+
+        #red {
+          height: auto !important;
+          margin: -1rem;
+        }
+      }
+
+      #DuraForm {
+        margin-top: 60px;
+
+        hr {
+          margin: 0;
+        }
+
+        .clearfix {
+          display: none;
+        }
+
+        h1 {
+          font-size: 1.5rem !important;
+        }
+
+        h2 {
+          padding-top: 1.5rem !important;
+          font-size: 3rem !important;
+        }
+
+        h4 {
+          min-height: 19px;
+          max-height: 19px;
+          white-space: nowrap;
+
+          @media(max-width: 620px) {
+            min-height: 2rem;
+            max-height: 2rem;
+            white-space: normal;
+          }
+        }
+
+        #SeriesOne {
+          margin-top: 0;
+        }
+
+        #door {
+          h2 {
+            padding-top: 0 !important;
+          }
+        }
+
+        #Colours {
+          .full {
+            margin-top: 0;
+          }
+
+          h2 {
+            font-size: 2.5rem !important;
+            padding-top: 0 !important;
+
+            &.sub-title {
+              padding-top: 2.5rem !important;
+            }
+          }
+        }
+      }
+
+      #Gallery, #DuraForm, #JanperAcrylic, #JanperEdge, #ContactPage, #Contact {
+        height: auto !important;
+        padding: 2rem !important;
+
+        #back {
+          position: static;
+          z-index: 10;
+          padding-bottom: 2rem;
+
+          .back-text {
+            padding-left: 2rem;
+            transform: rotate(90deg)
+          }
+        }
+
+        .half {
+          float: none;
+          width: 100%;
+        }
+
+        .quarter {
+          vertical-align: text-top;
+          display: inline-block;
+          float: none;
+          width: 30% !important;
+          max-width: 30% !important;
+          margin: 0 0.2rem !important;
+          border-color: darken(#FFF, 10) !important;
+
+          * {
+            height: auto !important;
+            margin: 0.5rem 0 !important;
+            font-size: 1rem;
+            width: 100%;
+          }
+        }
+
+        .extras {
+          display: none;
+        }
+      }
+
+
+      #Colours, #JanperAcrylic, #JanperEdge {
+        h1 {
+          font-size: 2rem !important;
+        }
+
+        h3 {
+          margin: 0 !important;
+          padding: 0 !important;
+        }
+
+        .quarter {
+          width: 22% !important;
+          max-width: 22% !important;
+
+          * {
+            margin: 0.2rem 0 !important;
+          }
+        }
+      }
+
+      #JanperAcrylic, #JanperEdge {
+        h1 {
+          margin-top: 0 !important;
+        }
+      }
+
+      #DuraForm #Options {
+        h3 {
+          font-size: 1.2em;
+          padding: 1rem 0 0;
+        }
+
+        .quarter, .threequarter {
+          width: 100% !important;
+          max-width: 100% !important;
+          padding: 0;
+
+          img {
+            padding: 0 !important;
+            width: 100%;
+          }
+        }
+
+        .quarter {
+          overflow: hidden !important;
+        }
+
+        .doors {
+          min-height: 260px;
+        }
+
+        .duraform-profiles {
+          .doors {
+            min-height: 120px;
+          }
+        }
+      }
+
+      #TradePortal {
+        margin: 0;
+        padding: 2rem 1rem 1rem;
+
+        p {
+          margin: 0;
+          font-size: 0.95rem !important;
+          width: 100% !important;
+        }
+
+        #acceptCheck {
+          margin: 1rem 0.45rem;
+          margin-right: 0;
+        }
+
+        #acceptButton {
+          margin-top: 1rem;
+          transition: .3s;
+          cursor: pointer;
+
+          &:not(.enabled) {
+            filter: grayscale(100%);
+            pointer-events: none;
+          }
+        }
+      }
+
+      #TradeArea {
+        margin: 0;
+        padding: 1rem;
+
+        ul {
+          padding-left: 0;
+        }
+
+        li {
+          clear: both;
+
+          .sample-wrapper {
+            width: 30% !important;
+            word-wrap: break-word;
+          }
+        }
+
+        input[type="text"] {
+          width: 100% !important;
+          padding: 0.5rem !important;
+          font-size: 1rem !important;
+        }
+
+        #Samples {
+          br {
+            display: none !important;
+          }
+        }
+
+        .half {
+          width: 100%
+        }
+
+        .content-wrapper.quarter {
+          width: 100%;
+          cursor: pointer;
+
+          &:hover {
+            .overlay {
+              opacity: 0.6;
+            }
+          }
+
+          .overlay {
+            display: block !important;
+            z-index: 2;
+          }
+
+          .image-cover {
+            background-size: cover;
+            background-position: center;
+          }
+
+          .image-cover, .overlay {
+            height: 10rem;
+          }
+
+          h3 {
+            margin-bottom: 1rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid #ccc;
+          }
+        }
+      }
+
+      #ContactPage {
+        h1 {
+          font-size: 2rem !important;
+        }
+
+        .mapouter {
+          position: static !important;
+          max-width: 100% !important;
+
+          * {
+            max-width: 100% !important;
+          }
+        }
+      }
+
+      #Contact {
+        * {
+          float: none !important;
+          width: 100% !important;
+          text-align: center;
+        }
+
+        h1 {
+          font-family: 'Baskerville', serif !important;
+          font-size: 2rem !important;
+
+          br {
+            display: none !important;
+          }
+        }
+
+        p {
+          font-size: 0.9rem !important;
+          padding-bottom: 1rem;
+        }
+
+        .triangle {
+          display: none;
+        }
+
+        form {
+          margin: 0 !important;
+
+          input, textarea {
+            text-align: left;
+            padding: 0.5rem !important;
+          }
+        }
+      }
+
+      #HomeContact {
+        position: static !important;
+      }
+    }
+  }
+}
+
+@media (max-width: 600px) {
+  html {
+    body {
+      #Gallery {
+        .third {
+          display: inline-block;
+          float: none;
+          width: 45%;
+        }
+
+        .clearfix {
+          display: none;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 500px) {
+  html {
+    body {
+      #logo {
+        width: 100%;
+        min-width: 0;
+        max-width: 300px;
+      }
+
+      #home {
+        .content-wrapper {
+          padding: 1.5rem !important;
+        }
+      }
+
+      #Gallery {
+        padding-left: 4.5%;
+
+        .third {
+          width: 100%;
+        }
+      }
+
+      #DuraForm, #JanperAcrylic, #JanperEdge, #ContactPage, #Contact {
+        padding: 1.5rem !important;
+      }
+
+      #DuraForm {
+        .quarter {
+          width: 45% !important;
+          max-width: 45% !important;
+        }
+
+        #Avoca, #Bass {
+          h4 {
+            min-height: 38px !important;
+            max-height: 38px !important;
+            white-space: normal !important;
+          }
+        }
+      }
+
+      #JanperAcrylic, #JanperEdge {
+        .quarter {
+          width: 46% !important;
+          max-width: 46% !important;
+        }
+      }
+    }
+  }
+}

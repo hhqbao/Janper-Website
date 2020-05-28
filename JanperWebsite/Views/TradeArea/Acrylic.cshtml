@@ -1,0 +1,24 @@
+﻿
+@{
+  var Imagepath = Server.MapPath("~/Images/JanperAcrylic/");
+  var Files = Directory.GetFiles(Imagepath);
+  int counter = 1;
+  foreach (var file in Files)
+  {
+
+    String swatch = Path.GetFileNameWithoutExtension(file);
+    swatch = swatch.Split('_').First();
+    swatch = char.ToUpper(swatch[0]) + swatch.Substring(1);
+    <div class="sample-wrapper">
+      <img src="~/Images/JanperAcrylic/@Path.GetFileName(file)" />
+      <h5>@swatch</h5>
+      <div class="sampletriangle"></div>
+      <span class="glyphicons glyphicons-remove display-desktop" />
+    </div>
+    if (counter % 4 == 0)
+    {
+      <br class="clearfix" />
+    }
+    counter++;
+  }
+}

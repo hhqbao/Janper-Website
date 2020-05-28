@@ -1,0 +1,299 @@
+﻿@import "_variables.scss";
+
+#TradePortal {
+    padding-left: 50px;
+    margin-top: 50px;
+
+    p {
+        padding: 10px 0;
+        width: 30%;
+    }
+
+    form {
+        input[type=checkbox] {
+            transform: scale(2);
+            color: $secondary-colour;
+            padding-left: 2px;
+        }
+
+        label {
+            padding-left: 10px;
+        }
+
+        input[type=button] {
+            width: 250px;
+            background-color: $primary-colour;
+            padding: 10px;
+            text-align: center;
+            font-size: 1.4em;
+            border: 1px solid $primary-colour;
+            transition-duration: 0.4s;
+            margin: 30px 0;
+            color: white
+        }
+
+        input[type=button]:hover {
+            transition-duration: 0.4s;
+            color: $primary-colour;
+            background-color: white;
+        }
+    }
+}
+
+#TradeArea {
+    padding-left: 50px;
+    margin-bottom: 200px;
+    margin-right: 200px;
+    margin-top:50px;
+    hr {
+        border: 1px solid $secondary-colour;
+    }
+
+    .triangle {
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 50px 50px 0 0;
+        border-color: #ec092b transparent transparent transparent;
+        display: none;
+    }
+
+    .onload {
+        display: block !important;
+    }
+
+    .quarter {
+        padding: 0 10px;
+        position: relative;
+        transition-duration: 0.4s;
+
+        .overlay {
+            width: calc(100% - 20px);
+            height: 200px;
+            position: absolute;
+            background-color: $primary-colour;
+            opacity: 0;
+            transition-duration: 0.4s;
+            cursor:pointer;
+
+        }
+
+        h4 {
+            color: $primary-colour;
+        }
+
+        img {
+            max-width: 100%;
+            height: 200px;
+        }
+    }
+
+    .quarter:hover {
+        transition-duration: 0.4s;
+
+        .overlay {
+            opacity: 0.8;
+            transition-duration: 0.4s;
+        }
+    }
+
+    #Forms, #brochures {
+        padding-right: 10px;
+        display:none;
+        span{
+            color:$primary-colour;
+        }
+        ul {
+            list-style: none;
+
+            li {
+                border-bottom: 1px solid grey;
+                padding: 20px 0;
+
+                a {
+                    color: $primary-colour;
+                    font-weight: 100;
+                    float: right;
+                }
+            }
+        }
+    }
+
+    #brochures {
+    }
+
+    #Samples {
+
+        h1{
+            text-align:center;
+            color:$primary-colour;
+            margin-top:50px;
+        }
+
+        display:block;
+
+        padding-right: 10px;
+
+        h4 {
+            display: none;
+        }
+
+        .red{
+            color:$primary-colour;
+
+        }
+
+
+        ul {
+            list-style-type: none;
+
+            li {
+                padding: 15px 0;
+                transition-duration: 0.4s;
+                cursor: pointer;
+
+                .sample-wrapper {
+                    width: 23%;
+                    float: left;
+                    margin: 1%;
+                    position: relative;
+                    img {
+                        width: 100%;
+                        border: 1px solid $secondary-colour;
+                    }
+
+                    h5 {
+                        height: 40px;
+                        font-size: 1em;
+                    }
+
+                    span {
+                        color: $primary-colour;
+                        font-size: 2em;
+                        display: block;
+                        text-align: center;
+                        display: none;
+                        position:relative;
+                        bottom:30px;
+                    }
+
+                    .sampletriangle {
+                        width: 0;
+                        height: 0;
+                        border-style: solid;
+                        border-width: 0 50px 50px 0;
+                        border-color: transparent #ec092b transparent transparent;
+                        position: absolute;
+                        top: 0;
+                        right: 0;
+                        display: none;
+                    }
+
+                    .display {
+                        display: block !important;
+                    }
+                }
+
+                .sample-wrapper:hover {
+                    transition-duration: 0.4s;
+                    color: $primary-colour;
+                }
+            }
+
+            li:nth-child(odd) {
+                border-bottom: 1px solid grey;
+            }
+
+        }
+
+        #SamplesForm {
+            input[type=text] {
+                width: 75%;
+                margin-top: 15px;
+                height: 50px;
+                padding-left: .5vw;
+                font-size: 1.5vw;
+                border: 1px solid #898989;
+                -webkit-transition: .5s;
+            }
+
+            #sampleSubmit {
+                margin-top: 20px;
+                color: white;
+                margin-bottom:20px;
+            }
+
+            #sampleSubmit:hover {
+                background-color: white;
+                color: $primary-colour;
+            }
+
+            input::placeholder {
+                color: lightgray;
+            }
+
+            h4 {
+                color: $primary-colour;
+                margin-bottom: 10px;
+            }
+
+            br{
+                display:block;
+                margin:10px 0;
+                line-height:1px;
+                content: " ";
+            }
+
+            ul {
+                width: 75%;
+                padding: 0;
+
+                li {
+                    display: inline;
+                    border: none;
+                    line-height: 22px;
+
+                    .glyphicons:before {
+                        padding-bottom: 0;
+                    }
+
+                    span {
+                        transition-duration: 0.4s;
+                        color: $secondary-colour;
+                        font-size: 0.7em;
+                        padding-left: 0;
+
+                        p {
+                            font-family: Rutan-Light;
+                            display: inline;
+                        }
+
+                        p:after {
+                            content: " |"
+                        }
+                    }
+
+                    span:hover {
+                        color: $primary-colour;
+                        transition-duration: 0.4s;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width:1660px)
+{
+    #Samples {
+        ul {
+            li {
+                .sample-wrapper {
+                    span {
+                        bottom: initial !important;
+                    }
+                }
+            }
+        }
+    }
+}

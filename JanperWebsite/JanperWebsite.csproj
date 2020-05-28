@@ -1,0 +1,1042 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.Net.Compilers.3.6.0\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.3.6.0\build\Microsoft.Net.Compilers.props')" />
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{6774F558-7483-4218-B6A0-BCB201BF20DE}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>JanperWebsite</RootNamespace>
+    <AssemblyName>JanperWebsite</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <TypeScriptToolsVersion>2.5</TypeScriptToolsVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Antlr3.Runtime, Version=3.5.0.2, Culture=neutral, PublicKeyToken=eb42632606e9261f, processorArchitecture=MSIL">
+      <HintPath>..\packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="Json.Net, Version=1.0.22.1, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Json.Net.1.0.22\lib\netstandard2.0\Json.Net.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.Agent.Intercept, Version=2.4.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Agent.Intercept.2.4.0\lib\net45\Microsoft.AI.Agent.Intercept.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.DependencyCollector, Version=2.14.0.17971, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.DependencyCollector.2.14.0\lib\net45\Microsoft.AI.DependencyCollector.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.PerfCounterCollector, Version=2.14.0.17971, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.PerfCounterCollector.2.14.0\lib\net45\Microsoft.AI.PerfCounterCollector.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.ServerTelemetryChannel, Version=2.14.0.17971, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.2.14.0\lib\net45\Microsoft.AI.ServerTelemetryChannel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.Web, Version=2.14.0.17971, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Web.2.14.0\lib\net45\Microsoft.AI.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.WindowsServer, Version=2.14.0.17971, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.2.14.0\lib\net45\Microsoft.AI.WindowsServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ApplicationInsights, Version=2.14.0.17971, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.2.14.0\lib\net46\Microsoft.ApplicationInsights.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.TelemetryCorrelation, Version=1.0.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.TelemetryCorrelation.1.0.7\lib\net45\Microsoft.AspNet.TelemetryCorrelation.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=2.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Diagnostics.DiagnosticSource, Version=4.0.4.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Diagnostics.DiagnosticSource.4.6.0\lib\net46\System.Diagnostics.DiagnosticSource.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Memory, Version=4.0.1.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Memory.4.5.4\lib\net461\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Caching" />
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.4.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.4.5.3\lib\net461\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.7\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.7\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease, Version=1.6.5135.21930, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AboutController.cs" />
+    <Compile Include="Controllers\ContactController.cs" />
+    <Compile Include="Controllers\ContactPageController.cs" />
+    <Compile Include="Controllers\DuraFormController.cs" />
+    <Compile Include="Controllers\GalleryController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\JanperAcrylicController.cs" />
+    <Compile Include="Controllers\JanperEdgeController.cs" />
+    <Compile Include="Controllers\SearchController.cs" />
+    <Compile Include="Controllers\TradeAreaController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Helpers\AccessServerPath.cs" />
+    <Compile Include="Models\Model_Contact.cs" />
+    <Compile Include="Models\Model_Door.cs" />
+    <Compile Include="Models\Model_Result.cs" />
+    <Compile Include="Models\Model_TradeContact.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\animate.css" />
+    <Content Include="Content\bootstrap-grid.css" />
+    <Content Include="Content\bootstrap-grid.min.css" />
+    <Content Include="Content\bootstrap-reboot.css" />
+    <Content Include="Content\bootstrap-reboot.min.css" />
+    <Content Include="Content\bootstrap-theme.css" />
+    <Content Include="Content\bootstrap-theme.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\glyphicons.css" />
+    <Content Include="Content\js\app-dist.js" />
+    <Content Include="Content\js\app.js" />
+    <Content Include="Content\themes\base\accordion.css" />
+    <Content Include="Content\themes\base\all.css" />
+    <Content Include="Content\themes\base\autocomplete.css" />
+    <Content Include="Content\themes\base\base.css" />
+    <Content Include="Content\themes\base\button.css" />
+    <Content Include="Content\themes\base\core.css" />
+    <Content Include="Content\themes\base\datepicker.css" />
+    <Content Include="Content\themes\base\dialog.css" />
+    <Content Include="Content\themes\base\draggable.css" />
+    <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="Content\themes\base\images\ui-icons_222222_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_444444_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_454545_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_555555_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_777620_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_777777_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_888888_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_cc0000_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_ffffff_256x240.png" />
+    <Content Include="Content\themes\base\jquery-ui.css" />
+    <Content Include="Content\themes\base\jquery-ui.min.css" />
+    <Content Include="Content\themes\base\menu.css" />
+    <Content Include="Content\themes\base\progressbar.css" />
+    <Content Include="Content\themes\base\resizable.css" />
+    <Content Include="Content\themes\base\selectable.css" />
+    <Content Include="Content\themes\base\selectmenu.css" />
+    <Content Include="Content\themes\base\slider.css" />
+    <Content Include="Content\themes\base\sortable.css" />
+    <Content Include="Content\themes\base\spinner.css" />
+    <Content Include="Content\themes\base\tabs.css" />
+    <Content Include="Content\themes\base\theme.css" />
+    <Content Include="Content\themes\base\tooltip.css" />
+    <Content Include="favicon.ico" />
+    <Content Include="fonts\glyphicons-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="Content\styles.css" />
+    <Content Include="Images\About\door_8205F.jpg" />
+    <Content Include="Images\About\door_8205F.png" />
+    <Content Include="Images\DuraForm\Colours\Breeze\classic_white_breeze.png" />
+    <Content Include="Images\DuraForm\Colours\Breeze\designer_white_breeze.png" />
+    <Content Include="Images\DuraForm\Colours\Breeze\ink_breeze.png" />
+    <Content Include="Images\DuraForm\Colours\Breeze\parchment_breeze.png" />
+    <Content Include="Images\DuraForm\Colours\Satin\clamshell_satin.png" />
+    <Content Include="Images\DuraForm\Colours\Satin\luna_satin.png" />
+    <Content Include="Images\DuraForm\Colours\Satin\malibu_satin.jpg" />
+    <Content Include="Images\DuraForm\Colours\Satin\peltro_satin.png" />
+    <Content Include="Images\DuraForm\Colours\Satin\spada_satin.png" />
+    <Content Include="Images\DuraForm\Colours\SupaMatt\clamshell_supa_matt.png" />
+    <Content Include="Images\DuraForm\Colours\SupaMatt\peltro_ supa_matt.png" />
+    <Content Include="Images\DuraForm\Colours\SupaMatt\vongole_supa_matt.png" />
+    <Content Include="Images\Favicon\android-icon-144x144.png" />
+    <Content Include="Images\Favicon\android-icon-192x192.png" />
+    <Content Include="Images\Favicon\android-icon-36x36.png" />
+    <Content Include="Images\Favicon\android-icon-48x48.png" />
+    <Content Include="Images\Favicon\android-icon-72x72.png" />
+    <Content Include="Images\Favicon\android-icon-96x96.png" />
+    <Content Include="Images\Favicon\apple-icon-114x114.png" />
+    <Content Include="Images\Favicon\apple-icon-120x120.png" />
+    <Content Include="Images\Favicon\apple-icon-144x144.png" />
+    <Content Include="Images\Favicon\apple-icon-152x152.png" />
+    <Content Include="Images\Favicon\apple-icon-180x180.png" />
+    <Content Include="Images\Favicon\apple-icon-57x57.png" />
+    <Content Include="Images\Favicon\apple-icon-60x60.png" />
+    <Content Include="Images\Favicon\apple-icon-72x72.png" />
+    <Content Include="Images\Favicon\apple-icon-76x76.png" />
+    <Content Include="Images\Favicon\apple-icon-precomposed.png" />
+    <Content Include="Images\Favicon\apple-icon.png" />
+    <Content Include="Images\Favicon\browserconfig.xml" />
+    <Content Include="Images\DuraForm\Colours\GlossPremium\alleyway_prem_gloss.jpg" />
+    <Content Include="Images\DuraForm\Colours\GlossPremium\black_prem_gloss.jpg" />
+    <Content Include="Images\DuraForm\Colours\GlossPremium\bouari_gold_prem_gloss.jpg" />
+    <Content Include="Images\DuraForm\Colours\GlossPremium\bouari_grey_prem_gloss.jpg" />
+    <Content Include="Images\DuraForm\Colours\GlossPremium\charcoal_prem_gloss.jpg" />
+    <Content Include="Images\DuraForm\Colours\GlossPremium\dark_ebony_prem_gloss.jpg" />
+    <Content Include="Images\DuraForm\Colours\GlossPremium\gunmetal_prem_gloss.jpg" />
+    <Content Include="Images\DuraForm\Colours\GlossStandard\alabaster_gloss.jpg" />
+    <Content Include="Images\DuraForm\Colours\GlossStandard\classic_white_gloss_standard.jpg" />
+    <Content Include="Images\DuraForm\Colours\GlossStandard\designer_white_gloss_standard.jpg" />
+    <Content Include="Images\DuraForm\Colours\GlossStandard\malibu_gloss.jpg" />
+    <Content Include="Images\DuraForm\Colours\GlossStandard\mustang_gloss.jpg" />
+    <Content Include="Images\DuraForm\Colours\GlossStandard\new_antique_white_gloss.jpg" />
+    <Content Include="Images\DuraForm\Colours\GlossStandard\paper_bark_gloss.jpg" />
+    <Content Include="Images\DuraForm\Colours\GlossStandard\parchment_gloss.jpg" />
+    <Content Include="Images\DuraForm\Colours\GlossStandard\royal_oyster_gloss.jpg" />
+    <Content Include="Images\DuraForm\Colours\GlossStandard\white_gloss.jpg" />
+    <Content Include="Images\DuraForm\Colours\Satin\alabaster_satin.jpg" />
+    <Content Include="Images\DuraForm\Colours\Satin\battalion_satin.jpg" />
+    <Content Include="Images\DuraForm\Colours\Satin\black_satin.jpg" />
+    <Content Include="Images\DuraForm\Colours\Satin\classic_white_satin.jpg" />
+    <Content Include="Images\DuraForm\Colours\Satin\designer_white_satin.jpg" />
+    <Content Include="Images\DuraForm\Colours\Satin\new_antique_white_satin.jpg" />
+    <Content Include="Images\DuraForm\Colours\Satin\parchment_satin.jpg" />
+    <Content Include="Images\DuraForm\Colours\Satin\royal_oyster_satin.jpg" />
+    <Content Include="Images\DuraForm\Colours\Satin\white_satin.jpg" />
+    <Content Include="Images\DuraForm\Colours\Suedette\alpine_white_suedette.jpg" />
+    <Content Include="Images\DuraForm\Colours\Suedette\dakar_suedette.jpg" />
+    <Content Include="Images\DuraForm\Colours\Suedette\dust_grey_suedette.jpg" />
+    <Content Include="Images\DuraForm\Colours\Suedette\light_grey_suedette.jpg" />
+    <Content Include="Images\DuraForm\Colours\Suedette\onyx_grey_suedette.jpg" />
+    <Content Include="Images\DuraForm\Colours\Suedette\pearl_grey_suedette.jpg" />
+    <Content Include="Images\DuraForm\Colours\Suedette\platinum_white_suedette.jpg" />
+    <Content Include="Images\DuraForm\Colours\Suedette\premium_white_suedette.jpg" />
+    <Content Include="Images\DuraForm\Colours\Suedette\stone_suedette.jpg" />
+    <Content Include="Images\DuraForm\Colours\Suedette\white_grey_suedette.jpg" />
+    <Content Include="Images\DuraForm\Colours\SupaMatt\antrazite_supa_matt.jpg" />
+    <Content Include="Images\DuraForm\Colours\SupaMatt\arctic_supa_matt.jpg" />
+    <Content Include="Images\DuraForm\Colours\SupaMatt\doeskin_supa_matt.jpg" />
+    <Content Include="Images\DuraForm\Colours\SupaMatt\stone_grey_supa_matt.jpg" />
+    <Content Include="Images\DuraForm\Colours\Texture\black_texture.jpg" />
+    <Content Include="Images\DuraForm\Colours\Texture\new_antique_white_texture.jpg" />
+    <Content Include="Images\DuraForm\Colours\Texture\tusk_texture.jpg" />
+    <Content Include="Images\DuraForm\Colours\Woodgrain\beech_woodgrain.jpg" />
+    <Content Include="Images\DuraForm\Colours\Woodgrain\clermont_oak_woodgrain.jpg" />
+    <Content Include="Images\DuraForm\Colours\Woodgrain\grey_rough_woodgrain.jpg" />
+    <Content Include="Images\DuraForm\Colours\Woodgrain\grey_smooth_woodgrain.jpg" />
+    <Content Include="Images\DuraForm\Colours\Woodgrain\pinie_latte_woodgrain.jpg" />
+    <Content Include="Images\DuraForm\Colours\Woodgrain\rough_graphite_woodgrain.jpg" />
+    <Content Include="Images\DuraForm\Colours\Woodgrain\rough_white_woodgrain.jpg" />
+    <Content Include="Images\DuraForm\Doors\Barwon.jpg" />
+    <Content Include="Images\DuraForm\Doors\Barwon.png" />
+    <Content Include="Images\DuraForm\Doors\Profiles\S1\series-one-avoca-tech_300px.png" />
+    <Content Include="Images\DuraForm\Doors\Profiles\S1\series-one-bass-tech_300px.png" />
+    <Content Include="Images\DuraForm\Doors\Profiles\S1\series-one-buffalo-tech_300px.png" />
+    <Content Include="Images\DuraForm\Doors\Profiles\S1\series-one-gordon-tech_300px.png" />
+    <Content Include="Images\DuraForm\Doors\Profiles\S1\series-one-gordon12-tech_300px.png" />
+    <Content Include="Images\DuraForm\Doors\Profiles\S1\series-one-jamieson-tech_300px.png" />
+    <Content Include="Images\DuraForm\Doors\Profiles\S1\series-one-kiewa-tech_300px.png" />
+    <Content Include="Images\DuraForm\Doors\Profiles\S1\series-one-king-tech_300px.png" />
+    <Content Include="Images\DuraForm\Doors\Profiles\S1\series-one-omeo-tech_300px.png" />
+    <Content Include="Images\DuraForm\Doors\Profiles\S2\series-two-barwon-tech_300px.png" />
+    <Content Include="Images\DuraForm\Doors\Profiles\S2\series-two-canning-tech_300px.png" />
+    <Content Include="Images\DuraForm\Doors\Profiles\S2\series-two-daly-tech_300px.png" />
+    <Content Include="Images\DuraForm\Doors\Profiles\S2\series-two-emu-tech_300px.png" />
+    <Content Include="Images\DuraForm\Doors\Profiles\S2\series-two-fitzroy-tech_300px.png" />
+    <Content Include="Images\DuraForm\Doors\Profiles\S2\series-two-franklin-tech_300px.png" />
+    <Content Include="Images\DuraForm\Doors\Profiles\S2\series-two-hastings-tech_300px.png" />
+    <Content Include="Images\DuraForm\Doors\Profiles\S2\series-two-hunter-tech_300px.png" />
+    <Content Include="Images\DuraForm\Doors\Profiles\S2\series-two-huon-tech_300px.png" />
+    <Content Include="Images\DuraForm\Doors\Profiles\S2\series-two-tambo-tech_300px.png" />
+    <Content Include="Images\DuraForm\Doors\Profiles\S3\series-three-bemm-tech_300px.png" />
+    <Content Include="Images\DuraForm\Doors\Profiles\S3\series-three-catherine-tech_300px.png" />
+    <Content Include="Images\DuraForm\Doors\Profiles\S3\series-three-darling-tech_300px.png" />
+    <Content Include="Images\DuraForm\Doors\Profiles\S3\series-three-derwent-tech_300px.png" />
+    <Content Include="Images\DuraForm\Doors\Profiles\S3\series-three-esk-tech_300px.png" />
+    <Content Include="Images\DuraForm\Doors\Profiles\S3\series-three-goulburn-tech_300px.png" />
+    <Content Include="Images\DuraForm\Doors\Profiles\S3\series-three-jardine-tech_300px.png" />
+    <Content Include="Images\DuraForm\Doors\Profiles\S3\series-three-lachlan-tech_300px.png" />
+    <Content Include="Images\DuraForm\Doors\Profiles\S3\series-three-murray-tech_300px.png" />
+    <Content Include="Images\DuraForm\Doors\Profiles\S3\series-three-swan-tech_300px.png" />
+    <Content Include="Images\DuraForm\Doors\Profiles\S3\series-three-tarwin-tech_300px.png" />
+    <Content Include="Images\DuraForm\Doors\Profiles\S3\series-three-tusmore-tech_300px.png" />
+    <Content Include="Images\DuraForm\Doors\Profiles\S4\series-four-acheron-tech_300px.png" />
+    <Content Include="Images\DuraForm\Doors\Profiles\S4\series-four-dargo-tech_300px.png" />
+    <Content Include="Images\DuraForm\Doors\Profiles\S4\series-four-edward-tech_300px.png" />
+    <Content Include="Images\DuraForm\Doors\Profiles\S4\series-four-hay-tech_300px.png" />
+    <Content Include="Images\DuraForm\Doors\Profiles\S4\series-four-howqua-tech_300px.png" />
+    <Content Include="Images\DuraForm\Doors\Profiles\S4\series-four-latrobe-tech_300px.png" />
+    <Content Include="Images\DuraForm\Doors\Profiles\S4\series-four-loddon-tech_300px.png" />
+    <Content Include="Images\DuraForm\Doors\Profiles\S4\series-four-Thompsonsl-tech_300px.png" />
+    <Content Include="Images\DuraForm\Doors\Profiles\S4\series-four-thompson-tech_300px.png" />
+    <Content Include="Images\DuraForm\Doors\Profiles\S4\series-four-thompson3-tech_300px.png" />
+    <Content Include="Images\DuraForm\Doors\Profiles\S4\series-four-thompson3sl-tech_300px.png" />
+    <Content Include="Images\DuraForm\Doors\Profiles\S4\series-four-thompson5-tech_300px.png" />
+    <Content Include="Images\DuraForm\Doors\Profiles\S4\series-four-thompson5sl-tech_300px.png" />
+    <Content Include="Images\DuraForm\Doors\Profiles\S5\series-five-aire-tech_300px.png" />
+    <Content Include="Images\DuraForm\Doors\Profiles\S5\series-five-hopkins-tech_300px.png" />
+    <Content Include="Images\DuraForm\Doors\Profiles\S5\series-five-hume-lachlan-tech_300px.png" />
+    <Content Include="Images\DuraForm\Doors\Profiles\S5\series-five-hume-murray-tech_300px.png" />
+    <Content Include="Images\DuraForm\Doors\Profiles\S5\series-five-plenty-tech_300px.png" />
+    <Content Include="Images\DuraForm\Doors\Profiles\S5\series-five-ross-tech_300px.png" />
+    <Content Include="Images\DuraForm\Doors\Profiles\S5\series-five-yarra-bl-tech_300px.png" />
+    <Content Include="Images\DuraForm\Doors\Profiles\S5\series-five-yarra-tech_300px.png" />
+    <Content Include="Images\DuraForm\Doors\S1\Avoca.jpg" />
+    <Content Include="Images\DuraForm\Doors\S1\Bass.jpg" />
+    <Content Include="Images\DuraForm\Doors\S1\Buffalo.jpg" />
+    <Content Include="Images\DuraForm\Doors\S1\Gordon.jpg" />
+    <Content Include="Images\DuraForm\Doors\S1\Gordon12.jpg" />
+    <Content Include="Images\DuraForm\Doors\S1\Jamieson.jpg" />
+    <Content Include="Images\DuraForm\Doors\S1\Jamieson.thumbnail.png" />
+    <Content Include="Images\DuraForm\Doors\S1\Kiewa.jpg" />
+    <Content Include="Images\DuraForm\Doors\S1\King.jpg" />
+    <Content Include="Images\DuraForm\Doors\S1\Omeo.jpg" />
+    <Content Include="Images\DuraForm\Doors\S1\series_one_jamieson-whitegloss_gallery_800x533px.jpg" />
+    <Content Include="Images\DuraForm\Doors\S1\series_one_king-bouarigold_gallery_800x533px.jpg" />
+    <Content Include="Images\DuraForm\Doors\S2\Barwon.jpg" />
+    <Content Include="Images\DuraForm\Doors\S2\Canning.jpg" />
+    <Content Include="Images\DuraForm\Doors\S2\Daly.jpg" />
+    <Content Include="Images\DuraForm\Doors\S2\emu.jpg" />
+    <Content Include="Images\DuraForm\Doors\S2\Fitzroy.jpg" />
+    <Content Include="Images\DuraForm\Doors\S2\Franklin.jpg" />
+    <Content Include="Images\DuraForm\Doors\S2\hastings.jpg" />
+    <Content Include="Images\DuraForm\Doors\S2\Hunter.jpg" />
+    <Content Include="Images\DuraForm\Doors\S2\Huon.jpg" />
+    <Content Include="Images\DuraForm\Doors\S2\Series02.jpg" />
+    <Content Include="Images\DuraForm\Doors\S2\series_two_franklin-designerwhitetexture_gallery_800x533px.jpg" />
+    <Content Include="Images\DuraForm\Doors\S2\series_two_hastings-designerwhite_gallery_800x533px.jpg" />
+    <Content Include="Images\DuraForm\Doors\S2\tambo.jpg" />
+    <Content Include="Images\DuraForm\Doors\S3\Bemm.jpg" />
+    <Content Include="Images\DuraForm\Doors\S3\Catherine.jpg" />
+    <Content Include="Images\DuraForm\Doors\S3\Darling.jpg" />
+    <Content Include="Images\DuraForm\Doors\S3\Derwent.jpg" />
+    <Content Include="Images\DuraForm\Doors\S3\esk.jpg" />
+    <Content Include="Images\DuraForm\Doors\S3\Goulburn.jpg" />
+    <Content Include="Images\DuraForm\Doors\S3\jardine.jpg" />
+    <Content Include="Images\DuraForm\Doors\S3\Lachlan.jpg" />
+    <Content Include="Images\DuraForm\Doors\S3\Murray.jpg" />
+    <Content Include="Images\DuraForm\Doors\S3\series_three_goulburn-classicwhtie_gallery_800x533px.jpg" />
+    <Content Include="Images\DuraForm\Doors\S3\series_three_murray-newantiquewhtie_gallery_800x533px.jpg" />
+    <Content Include="Images\DuraForm\Doors\S3\Swan.jpg" />
+    <Content Include="Images\DuraForm\Doors\S3\Tarwin.jpg" />
+    <Content Include="Images\DuraForm\Doors\S3\Tusmore.jpg" />
+    <Content Include="Images\DuraForm\Doors\S4\Acheron.jpg" />
+    <Content Include="Images\DuraForm\Doors\S4\Dargo.jpg" />
+    <Content Include="Images\DuraForm\Doors\S4\Edward.jpg" />
+    <Content Include="Images\DuraForm\Doors\S4\hay.jpg" />
+    <Content Include="Images\DuraForm\Doors\S4\Howqua.jpg" />
+    <Content Include="Images\DuraForm\Doors\S4\LaTrobe.jpg" />
+    <Content Include="Images\DuraForm\Doors\S4\loddon.jpg" />
+    <Content Include="Images\DuraForm\Doors\S4\series_four_acheron_gallery_800x533px.jpg" />
+    <Content Include="Images\DuraForm\Doors\S4\series_four_hay-pearlgrey_gallery_800x533px.jpg" />
+    <Content Include="Images\DuraForm\Doors\S4\Thompson.jpg" />
+    <Content Include="Images\DuraForm\Doors\S4\thompson3.jpg" />
+    <Content Include="Images\DuraForm\Doors\S4\thompson3sl.jpg" />
+    <Content Include="Images\DuraForm\Doors\S4\thompson5.jpg" />
+    <Content Include="Images\DuraForm\Doors\S4\thompson5sl.jpg" />
+    <Content Include="Images\DuraForm\Doors\S4\thompsonsl.jpg" />
+    <Content Include="Images\DuraForm\Doors\S5\Aire.jpg" />
+    <Content Include="Images\DuraForm\Doors\S5\Hopkins.jpg" />
+    <Content Include="Images\DuraForm\Doors\S5\Hume Lachlan.jpg" />
+    <Content Include="Images\DuraForm\Doors\S5\Hume Murray.jpg" />
+    <Content Include="Images\DuraForm\Doors\S5\Plenty.jpg" />
+    <Content Include="Images\DuraForm\Doors\S5\ross.jpg" />
+    <Content Include="Images\DuraForm\Doors\S5\yarra-bl.jpg" />
+    <Content Include="Images\DuraForm\Doors\S5\Yarra.jpg" />
+    <Content Include="Images\DuraForm\Doors\S5\yarrabl.jpg" />
+    <Content Include="Images\DuraForm\Doors\Thumbs\S1\series_one_avoca_thumbnail.png" />
+    <Content Include="Images\DuraForm\Doors\Thumbs\S1\series_one_bass_thumbnail.png" />
+    <Content Include="Images\DuraForm\Doors\Thumbs\S1\series_one_buffalo_thumbnail.png" />
+    <Content Include="Images\DuraForm\Doors\Thumbs\S1\series_one_gordon12_thumbnail.png" />
+    <Content Include="Images\DuraForm\Doors\Thumbs\S1\series_one_gordon_thumbnail.png" />
+    <Content Include="Images\DuraForm\Doors\Thumbs\S1\series_one_jamieson_thumbnail.png" />
+    <Content Include="Images\DuraForm\Doors\Thumbs\S1\series_one_kiewa_thumbnail.png" />
+    <Content Include="Images\DuraForm\Doors\Thumbs\S1\series_one_king_thumbnail.png" />
+    <Content Include="Images\DuraForm\Doors\Thumbs\S1\series_one_omeo_thumbnail.png" />
+    <Content Include="Images\DuraForm\Doors\Thumbs\S2\series_two_barwon_thumbnail.png" />
+    <Content Include="Images\DuraForm\Doors\Thumbs\S2\series_two_canning_thumbnail.png" />
+    <Content Include="Images\DuraForm\Doors\Thumbs\S2\series_two_daly6_thumbnail.png" />
+    <Content Include="Images\DuraForm\Doors\Thumbs\S2\series_two_emu_thumbnail.png" />
+    <Content Include="Images\DuraForm\Doors\Thumbs\S2\series_two_fitzroy_thumbnail.png" />
+    <Content Include="Images\DuraForm\Doors\Thumbs\S2\series_two_franklin_thumbnail.png" />
+    <Content Include="Images\DuraForm\Doors\Thumbs\S2\series_two_hastings_thumbnail.png" />
+    <Content Include="Images\DuraForm\Doors\Thumbs\S2\series_two_hunter_thumbnail.png" />
+    <Content Include="Images\DuraForm\Doors\Thumbs\S2\series_two_huon_thumbnail.png" />
+    <Content Include="Images\DuraForm\Doors\Thumbs\S2\series_two_tambo_thumbnail.png" />
+    <Content Include="Images\DuraForm\Doors\Thumbs\S3\series_three_bemm_thumbnail.png" />
+    <Content Include="Images\DuraForm\Doors\Thumbs\S3\series_three_catherine_thumbnail.png" />
+    <Content Include="Images\DuraForm\Doors\Thumbs\S3\series_three_darling_thumbnail.png" />
+    <Content Include="Images\DuraForm\Doors\Thumbs\S3\series_three_derwent_thumbnail.png" />
+    <Content Include="Images\DuraForm\Doors\Thumbs\S3\series_three_esk_thumbnail.png" />
+    <Content Include="Images\DuraForm\Doors\Thumbs\S3\series_three_goulburn_thumbnail.png" />
+    <Content Include="Images\DuraForm\Doors\Thumbs\S3\series_three_jardine_thumbnail.png" />
+    <Content Include="Images\DuraForm\Doors\Thumbs\S3\series_three_lachlan_thumbnail.png" />
+    <Content Include="Images\DuraForm\Doors\Thumbs\S3\series_three_murray_thumbnail.png" />
+    <Content Include="Images\DuraForm\Doors\Thumbs\S3\series_three_swan_thumbnail.png" />
+    <Content Include="Images\DuraForm\Doors\Thumbs\S3\series_three_tarwin_thumbnail.png" />
+    <Content Include="Images\DuraForm\Doors\Thumbs\S3\series_three_tusmore_thumbnail.png" />
+    <Content Include="Images\DuraForm\Doors\Thumbs\S4\series_four_acheron_thumbnail.png" />
+    <Content Include="Images\DuraForm\Doors\Thumbs\S4\series_four_dargo_thumbnail.png" />
+    <Content Include="Images\DuraForm\Doors\Thumbs\S4\series_four_edward_thumbnail.png" />
+    <Content Include="Images\DuraForm\Doors\Thumbs\S4\series_four_hay_thumbnail.png" />
+    <Content Include="Images\DuraForm\Doors\Thumbs\S4\series_four_howqua_thumbnail.png" />
+    <Content Include="Images\DuraForm\Doors\Thumbs\S4\series_four_latrobe_thumbnail.png" />
+    <Content Include="Images\DuraForm\Doors\Thumbs\S4\series_four_loddon_thumbnail.png" />
+    <Content Include="Images\DuraForm\Doors\Thumbs\S4\series_four_thompson3SL_thumbnail.png" />
+    <Content Include="Images\DuraForm\Doors\Thumbs\S4\series_four_thompson3_thumbnail.png" />
+    <Content Include="Images\DuraForm\Doors\Thumbs\S4\series_four_thompson5SL_thumbnail.png" />
+    <Content Include="Images\DuraForm\Doors\Thumbs\S4\series_four_thompson5_thumbnail.png" />
+    <Content Include="Images\DuraForm\Doors\Thumbs\S4\series_four_thompsonSL_thumbnail.png" />
+    <Content Include="Images\DuraForm\Doors\Thumbs\S4\series_four_thompson_thumbnail.png" />
+    <Content Include="Images\DuraForm\Doors\Thumbs\S5\series_five_aire_thumbnail.png" />
+    <Content Include="Images\DuraForm\Doors\Thumbs\S5\series_five_hopkins_thumbnail.png" />
+    <Content Include="Images\DuraForm\Doors\Thumbs\S5\series_five_humelachlan_thumbnail.png" />
+    <Content Include="Images\DuraForm\Doors\Thumbs\S5\series_five_humemurray_thumbnail.png" />
+    <Content Include="Images\DuraForm\Doors\Thumbs\S5\series_five_plenty_thumbnail.png" />
+    <Content Include="Images\DuraForm\Doors\Thumbs\S5\series_five_ross_thumbnail.png" />
+    <Content Include="Images\DuraForm\Doors\Thumbs\S5\series_five_yarrabl_thumbnail.png" />
+    <Content Include="Images\DuraForm\Doors\Thumbs\S5\series_five_yarra_thumbnail.png" />
+    <Content Include="Images\DuraForm\Options\12mm_bevel.png" />
+    <Content Include="Images\DuraForm\Options\21mm_bevel.png" />
+    <Content Include="Images\DuraForm\Options\21mm_radius_bevel.png" />
+    <Content Include="Images\DuraForm\Options\2mm_pencil.png" />
+    <Content Include="Images\DuraForm\Options\30mm_stepped_bevel.png" />
+    <Content Include="Images\DuraForm\Options\6mm_pencil.png" />
+    <Content Include="Images\DuraForm\Options\6mm_stepped_pencil.png" />
+    <Content Include="Images\DuraForm\Options\arch.jpg" />
+    <Content Include="Images\DuraForm\Options\bow-arch.jpg" />
+    <Content Include="Images\DuraForm\Options\cap_moulds.png" />
+    <Content Include="Images\DuraForm\Options\decorative-trims_800x400px.png" />
+    <Content Include="Images\DuraForm\Options\double-arch.jpg" />
+    <Content Include="Images\DuraForm\Options\double-bow-arch.jpg" />
+    <Content Include="Images\DuraForm\Options\fold-back-tech-illustration.png" />
+    <Content Include="Images\DuraForm\Options\frames.png" />
+    <Content Include="Images\DuraForm\Options\ogee.png" />
+    <Content Include="Images\DuraForm\Options\recess_rail_800x400px.jpg" />
+    <Content Include="Images\DuraForm\Options\roller-surround_400px.jpg" />
+    <Content Include="Images\DuraForm\Options\round-arch.jpg" />
+    <Content Include="Images\DuraForm\Options\scallop_2mm_pencil.png" />
+    <Content Include="Images\DuraForm\Options\shoulder-arch.jpg" />
+    <Content Include="Images\DuraForm\Options\square.png" />
+    <Content Include="Images\DuraForm\Options\wine-rack-tech-illustration.png" />
+    <Content Include="Images\DuraForm\Options\wine-rack_800x400px.jpg" />
+    <Content Include="Images\DuraForm\Options\wrap-around_800x400px.jpg" />
+    <Content Include="Images\Favicon\favicon-16x16.png" />
+    <Content Include="Images\Favicon\favicon-32x32.png" />
+    <Content Include="Images\Favicon\favicon-96x96.png" />
+    <Content Include="Images\Favicon\favicon.ico" />
+    <Content Include="Images\Gallery\acrylic\JanperAcrylic - Alabaster Gloss %281 of 16%29.jpg" />
+    <Content Include="Images\Gallery\acrylic\JanperAcrylic - Alabaster Gloss %2810 of 16%29.jpg" />
+    <Content Include="Images\Gallery\acrylic\JanperAcrylic - Alabaster Gloss %2811 of 16%29.jpg" />
+    <Content Include="Images\Gallery\acrylic\JanperAcrylic - Alabaster Gloss %2812 of 16%29.jpg" />
+    <Content Include="Images\Gallery\acrylic\JanperAcrylic - Alabaster Gloss %2813 of 16%29.jpg" />
+    <Content Include="Images\Gallery\acrylic\JanperAcrylic - Alabaster Gloss %2814 of 16%29.jpg" />
+    <Content Include="Images\Gallery\acrylic\JanperAcrylic - Alabaster Gloss %2815 of 16%29.jpg" />
+    <Content Include="Images\Gallery\acrylic\JanperAcrylic - Alabaster Gloss %2816 of 16%29.jpg" />
+    <Content Include="Images\Gallery\acrylic\JanperAcrylic - Alabaster Gloss %282 of 16%29.jpg" />
+    <Content Include="Images\Gallery\acrylic\JanperAcrylic - Alabaster Gloss %283 of 16%29.jpg" />
+    <Content Include="Images\Gallery\acrylic\JanperAcrylic - Alabaster Gloss %284 of 16%29.jpg" />
+    <Content Include="Images\Gallery\acrylic\JanperAcrylic - Alabaster Gloss %285 of 16%29.jpg" />
+    <Content Include="Images\Gallery\acrylic\JanperAcrylic - Alabaster Gloss %286 of 16%29.jpg" />
+    <Content Include="Images\Gallery\acrylic\JanperAcrylic - Alabaster Gloss %287 of 16%29.jpg" />
+    <Content Include="Images\Gallery\acrylic\JanperAcrylic - Alabaster Gloss %288 of 16%29.jpg" />
+    <Content Include="Images\Gallery\acrylic\JanperAcrylic - Alabaster Gloss %289 of 16%29.jpg" />
+    <Content Include="Images\Gallery\acrylic\JanperAcrylic - Arctic Ice Gloss %281 of 13%29.jpg" />
+    <Content Include="Images\Gallery\acrylic\JanperAcrylic - Arctic Ice Gloss %2810 of 13%29.jpg" />
+    <Content Include="Images\Gallery\acrylic\JanperAcrylic - Arctic Ice Gloss %2811 of 13%29.jpg" />
+    <Content Include="Images\Gallery\acrylic\JanperAcrylic - Arctic Ice Gloss %2812 of 13%29.jpg" />
+    <Content Include="Images\Gallery\acrylic\JanperAcrylic - Arctic Ice Gloss %2813 of 13%29.jpg" />
+    <Content Include="Images\Gallery\acrylic\JanperAcrylic - Arctic Ice Gloss %282 of 13%29.jpg" />
+    <Content Include="Images\Gallery\acrylic\JanperAcrylic - Arctic Ice Gloss %283 of 13%29.jpg" />
+    <Content Include="Images\Gallery\acrylic\JanperAcrylic - Arctic Ice Gloss %284 of 13%29.jpg" />
+    <Content Include="Images\Gallery\acrylic\JanperAcrylic - Arctic Ice Gloss %285 of 13%29.jpg" />
+    <Content Include="Images\Gallery\acrylic\JanperAcrylic - Arctic Ice Gloss %286 of 13%29.jpg" />
+    <Content Include="Images\Gallery\acrylic\JanperAcrylic - Arctic Ice Gloss %287 of 13%29.jpg" />
+    <Content Include="Images\Gallery\acrylic\JanperAcrylic - Arctic Ice Gloss %288 of 13%29.jpg" />
+    <Content Include="Images\Gallery\acrylic\JanperAcrylic - Arctic Ice Gloss %289 of 13%29.jpg" />
+    <Content Include="Images\Gallery\acrylic\JanperAcrylic - Arctic Matt %281 of 13%29.jpg" />
+    <Content Include="Images\Gallery\acrylic\JanperAcrylic - Arctic Matt %2810 of 13%29.jpg" />
+    <Content Include="Images\Gallery\acrylic\JanperAcrylic - Arctic Matt %2811 of 13%29.jpg" />
+    <Content Include="Images\Gallery\acrylic\JanperAcrylic - Arctic Matt %2812 of 13%29.jpg" />
+    <Content Include="Images\Gallery\acrylic\JanperAcrylic - Arctic Matt %2813 of 13%29.jpg" />
+    <Content Include="Images\Gallery\acrylic\JanperAcrylic - Arctic Matt %282 of 13%29.jpg" />
+    <Content Include="Images\Gallery\acrylic\JanperAcrylic - Arctic Matt %283 of 13%29.jpg" />
+    <Content Include="Images\Gallery\acrylic\JanperAcrylic - Arctic Matt %284 of 13%29.jpg" />
+    <Content Include="Images\Gallery\acrylic\JanperAcrylic - Arctic Matt %285 of 13%29.jpg" />
+    <Content Include="Images\Gallery\acrylic\JanperAcrylic - Arctic Matt %286 of 13%29.jpg" />
+    <Content Include="Images\Gallery\acrylic\JanperAcrylic - Arctic Matt %287 of 13%29.jpg" />
+    <Content Include="Images\Gallery\acrylic\JanperAcrylic - Arctic Matt %288 of 13%29.jpg" />
+    <Content Include="Images\Gallery\acrylic\JanperAcrylic - Arctic Matt %289 of 13%29.jpg" />
+    <Content Include="Images\Gallery\acrylic\JanperAcrylic - Fossil &amp; Alabaster Gloss %281 of 15%29.jpg" />
+    <Content Include="Images\Gallery\acrylic\JanperAcrylic - Fossil &amp; Alabaster Gloss %2810 of 15%29.jpg" />
+    <Content Include="Images\Gallery\acrylic\JanperAcrylic - Fossil &amp; Alabaster Gloss %2811 of 15%29.jpg" />
+    <Content Include="Images\Gallery\acrylic\JanperAcrylic - Fossil &amp; Alabaster Gloss %2812 of 15%29.jpg" />
+    <Content Include="Images\Gallery\acrylic\JanperAcrylic - Fossil &amp; Alabaster Gloss %2813 of 15%29.jpg" />
+    <Content Include="Images\Gallery\acrylic\JanperAcrylic - Fossil &amp; Alabaster Gloss %2814 of 15%29.jpg" />
+    <Content Include="Images\Gallery\acrylic\JanperAcrylic - Fossil &amp; Alabaster Gloss %2815 of 15%29.jpg" />
+    <Content Include="Images\Gallery\acrylic\JanperAcrylic - Fossil &amp; Alabaster Gloss %282 of 15%29.jpg" />
+    <Content Include="Images\Gallery\acrylic\JanperAcrylic - Fossil &amp; Alabaster Gloss %283 of 15%29.jpg" />
+    <Content Include="Images\Gallery\acrylic\JanperAcrylic - Fossil &amp; Alabaster Gloss %284 of 15%29.jpg" />
+    <Content Include="Images\Gallery\acrylic\JanperAcrylic - Fossil &amp; Alabaster Gloss %285 of 15%29.jpg" />
+    <Content Include="Images\Gallery\acrylic\JanperAcrylic - Fossil &amp; Alabaster Gloss %286 of 15%29.jpg" />
+    <Content Include="Images\Gallery\acrylic\JanperAcrylic - Fossil &amp; Alabaster Gloss %287 of 15%29.jpg" />
+    <Content Include="Images\Gallery\acrylic\JanperAcrylic - Fossil &amp; Alabaster Gloss %288 of 15%29.jpg" />
+    <Content Include="Images\Gallery\acrylic\JanperAcrylic - Fossil &amp; Alabaster Gloss %289 of 15%29.jpg" />
+    <Content Include="Images\Gallery\duraform\Duraform - SeriesFive - Yarra - Platinum White, Suedette %281 of 5%29.jpg" />
+    <Content Include="Images\Gallery\duraform\Duraform - SeriesFive - Yarra - Platinum White, Suedette %282 of 5%29.jpeg" />
+    <Content Include="Images\Gallery\duraform\Duraform - SeriesFive - Yarra - Platinum White, Suedette %283 of 5%29.jpeg" />
+    <Content Include="Images\Gallery\duraform\Duraform - SeriesFive - Yarra - Platinum White, Suedette %284 of 5%29.jpeg" />
+    <Content Include="Images\Gallery\duraform\Duraform - SeriesFive - Yarra - Platinum White, Suedette %285 of 5%29.jpeg" />
+    <Content Include="Images\Gallery\duraform\Duraform - SeriesFour - Acheron - Tusk &amp; White, Texture %281 of 8%29.jpg" />
+    <Content Include="Images\Gallery\duraform\Duraform - SeriesFour - Acheron - Tusk &amp; White, Texture %282 of 8%29.jpg" />
+    <Content Include="Images\Gallery\duraform\Duraform - SeriesFour - Acheron - Tusk &amp; White, Texture %283 of 8%29.jpg" />
+    <Content Include="Images\Gallery\duraform\Duraform - SeriesFour - Acheron - Tusk &amp; White, Texture %284 of 8%29.jpg" />
+    <Content Include="Images\Gallery\duraform\Duraform - SeriesFour - Acheron - Tusk &amp; White, Texture %285 of 8%29.jpg" />
+    <Content Include="Images\Gallery\duraform\Duraform - SeriesFour - Acheron - Tusk &amp; White, Texture %288 of 8%29.jpg" />
+    <Content Include="Images\Gallery\duraform\Duraform - SeriesFour - Hay - Pearl Grey &amp; Alpine White, Suedette %281 of 10%29.jpg" />
+    <Content Include="Images\Gallery\duraform\Duraform - SeriesFour - Hay - Pearl Grey &amp; Alpine White, Suedette %2810 of 10%29.jpg" />
+    <Content Include="Images\Gallery\duraform\Duraform - SeriesFour - Hay - Pearl Grey &amp; Alpine White, Suedette %282 of 10%29.jpg" />
+    <Content Include="Images\Gallery\duraform\Duraform - SeriesFour - Hay - Pearl Grey &amp; Alpine White, Suedette %283 of 10%29.jpg" />
+    <Content Include="Images\Gallery\duraform\Duraform - SeriesFour - Hay - Pearl Grey &amp; Alpine White, Suedette %284 of 10%29.jpg" />
+    <Content Include="Images\Gallery\duraform\Duraform - SeriesFour - Hay - Pearl Grey &amp; Alpine White, Suedette %287 of 10%29.jpg" />
+    <Content Include="Images\Gallery\duraform\Duraform - SeriesFour - Hay - Pearl Grey &amp; Alpine White, Suedette %288 of 10%29.jpg" />
+    <Content Include="Images\Gallery\duraform\Duraform - SeriesFour - Hay - Pearl Grey &amp; Alpine White, Suedette %289 of 10%29.jpg" />
+    <Content Include="Images\Gallery\duraform\Duraform - SeriesFour - Thompson - White, Texture %281 of 7%29.jpg" />
+    <Content Include="Images\Gallery\duraform\Duraform - SeriesFour - Thompson - White, Texture %282 of 7%29.jpg" />
+    <Content Include="Images\Gallery\duraform\Duraform - SeriesFour - Thompson - White, Texture %283 of 7%29.jpg" />
+    <Content Include="Images\Gallery\duraform\Duraform - SeriesFour - Thompson - White, Texture %284 of 7%29.jpg" />
+    <Content Include="Images\Gallery\duraform\Duraform - SeriesFour - Thompson - White, Texture %285 of 7%29.jpg" />
+    <Content Include="Images\Gallery\duraform\Duraform - SeriesFour - Thompson - White, Texture %286 of 7%29.jpg" />
+    <Content Include="Images\Gallery\duraform\Duraform - SeriesFour - Thompson3 - Arctic, Supa Matt %281 of 17%29.jpg" />
+    <Content Include="Images\Gallery\duraform\Duraform - SeriesFour - Thompson3 - Arctic, Supa Matt %281 of 3%29.jpg" />
+    <Content Include="Images\Gallery\duraform\Duraform - SeriesFour - Thompson3 - Arctic, Supa Matt %2810 of 17%29.jpg" />
+    <Content Include="Images\Gallery\duraform\Duraform - SeriesFour - Thompson3 - Arctic, Supa Matt %2811 of 17%29.jpg" />
+    <Content Include="Images\Gallery\duraform\Duraform - SeriesFour - Thompson3 - Arctic, Supa Matt %2812 of 17%29.jpg" />
+    <Content Include="Images\Gallery\duraform\Duraform - SeriesFour - Thompson3 - Arctic, Supa Matt %2813 of 17%29.jpg" />
+    <Content Include="Images\Gallery\duraform\Duraform - SeriesFour - Thompson3 - Arctic, Supa Matt %2814 of 17%29.jpg" />
+    <Content Include="Images\Gallery\duraform\Duraform - SeriesFour - Thompson3 - Arctic, Supa Matt %2815 of 17%29.jpg" />
+    <Content Include="Images\Gallery\duraform\Duraform - SeriesFour - Thompson3 - Arctic, Supa Matt %2816 of 17%29.jpg" />
+    <Content Include="Images\Gallery\duraform\Duraform - SeriesFour - Thompson3 - Arctic, Supa Matt %282 of 17%29.jpg" />
+    <Content Include="Images\Gallery\duraform\Duraform - SeriesFour - Thompson3 - Arctic, Supa Matt %282 of 3%29.jpg" />
+    <Content Include="Images\Gallery\duraform\Duraform - SeriesFour - Thompson3 - Arctic, Supa Matt %283 of 17%29.jpg" />
+    <Content Include="Images\Gallery\duraform\Duraform - SeriesFour - Thompson3 - Arctic, Supa Matt %283 of 3%29.jpg" />
+    <Content Include="Images\Gallery\duraform\Duraform - SeriesFour - Thompson3 - Arctic, Supa Matt %284 of 17%29.jpg" />
+    <Content Include="Images\Gallery\duraform\Duraform - SeriesFour - Thompson3 - Arctic, Supa Matt %285 of 17%29.jpg" />
+    <Content Include="Images\Gallery\duraform\Duraform - SeriesFour - Thompson3 - Arctic, Supa Matt %286 of 17%29.jpg" />
+    <Content Include="Images\Gallery\duraform\Duraform - SeriesFour - Thompson3 - Arctic, Supa Matt %287 of 17%29.jpg" />
+    <Content Include="Images\Gallery\duraform\Duraform - SeriesFour - Thompson3 - Arctic, Supa Matt %288 of 17%29.jpg" />
+    <Content Include="Images\Gallery\duraform\Duraform - SeriesFour - Thompson3 - Arctic, Supa Matt %289 of 17%29.jpg" />
+    <Content Include="Images\Gallery\duraform\Duraform - SeriesOne - Gordon - White, Gloss %281 of 6%29.jpg" />
+    <Content Include="Images\Gallery\duraform\Duraform - SeriesOne - Gordon - White, Gloss %282 of 6%29.jpg" />
+    <Content Include="Images\Gallery\duraform\Duraform - SeriesOne - Gordon - White, Gloss %283 of 6%29.jpg" />
+    <Content Include="Images\Gallery\duraform\Duraform - SeriesOne - Gordon - White, Gloss %284 of 6%29.jpg" />
+    <Content Include="Images\Gallery\duraform\Duraform - SeriesOne - Gordon - White, Gloss %285 of 6%29.jpg" />
+    <Content Include="Images\Gallery\duraform\Duraform - SeriesOne - Gordon - White, Gloss %286 of 6%29.jpg" />
+    <Content Include="Images\Gallery\duraform\Duraform - SeriesOne - Jamieson - White, Gloss %281 of 7%29.jpg" />
+    <Content Include="Images\Gallery\duraform\Duraform - SeriesOne - Jamieson - White, Gloss %282 of 7%29.jpg" />
+    <Content Include="Images\Gallery\duraform\Duraform - SeriesOne - Jamieson - White, Gloss %283 of 7%29.jpg" />
+    <Content Include="Images\Gallery\duraform\Duraform - SeriesOne - Jamieson - White, Gloss %284 of 7%29.jpg" />
+    <Content Include="Images\Gallery\duraform\Duraform - SeriesOne - Jamieson - White, Gloss %285 of 7%29.jpg" />
+    <Content Include="Images\Gallery\duraform\Duraform - SeriesOne - Jamieson - White, Gloss %286 of 7%29.jpg" />
+    <Content Include="Images\Gallery\duraform\Duraform - SeriesOne - Jamieson - White, Gloss %287 of 7%29.jpg" />
+    <Content Include="Images\Gallery\duraform\Duraform - SeriesTwo - Hastings - White, Gloss %281 of 10%29.jpg" />
+    <Content Include="Images\Gallery\duraform\Duraform - SeriesTwo - Hastings - White, Gloss %2810 of 10%29.jpg" />
+    <Content Include="Images\Gallery\duraform\Duraform - SeriesTwo - Hastings - White, Gloss %282 of 10%29.jpg" />
+    <Content Include="Images\Gallery\duraform\Duraform - SeriesTwo - Hastings - White, Gloss %284 of 10%29.jpg" />
+    <Content Include="Images\Gallery\duraform\Duraform - SeriesTwo - Hastings - White, Gloss %286 of 10%29.jpg" />
+    <Content Include="Images\Gallery\duraform\Duraform - SeriesTwo - Hastings - White, Gloss %287 of 10%29.jpg" />
+    <Content Include="Images\Gallery\duraform\Duraform - SeriesTwo - Hastings - White, Gloss %288 of 10%29.jpg" />
+    <Content Include="Images\Gallery\duraform\Duraform - SeriesTwo - Hastings - White, Gloss %289 of 10%29.jpg" />
+    <Content Include="Images\Home\bathroom.jpg" />
+    <Content Include="Images\JanperAcrylic\Alabaster Supa Matt.jpg" />
+    <Content Include="Images\JanperAcrylic\Alabaster.jpg" />
+    <Content Include="Images\JanperAcrylic\Arctic.jpg" />
+    <Content Include="Images\JanperAcrylic\Ash.jpg" />
+    <Content Include="Images\JanperAcrylic\Brilliant Pearl.jpg" />
+    <Content Include="Images\JanperAcrylic\Carbon Supa Matt.jpg" />
+    <Content Include="Images\JanperAcrylic\Champagne.jpg" />
+    <Content Include="Images\JanperAcrylic\Charcoal.jpg" />
+    <Content Include="Images\JanperAcrylic\Dove.jpg" />
+    <Content Include="Images\JanperAcrylic\Fossil.jpg" />
+    <Content Include="Images\JanperAcrylic\Galactic.jpg" />
+    <Content Include="Images\JanperAcrylic\Graphite.jpg" />
+    <Content Include="Images\JanperAcrylic\Lavato Oak.jpg" />
+    <Content Include="Images\JanperAcrylic\Mocha.jpg" />
+    <Content Include="Images\JanperAcrylic\Nomad Supa Matt.jpg" />
+    <Content Include="Images\JanperAcrylic\Quartz.jpg" />
+    <Content Include="Images\JanperAcrylic\Ruby.jpg" />
+    <Content Include="Images\JanperAcrylic\Rutile Supa Matt %28Metalic%29.jpg" />
+    <Content Include="Images\JanperAcrylic\Sand.jpg" />
+    <Content Include="Images\JanperAcrylic\Sienna Teak.jpg" />
+    <Content Include="Images\JanperAcrylic\Sierra.jpg" />
+    <Content Include="Images\JanperAcrylic\Silver.jpg" />
+    <Content Include="Images\JanperAcrylic\Slate.jpg" />
+    <Content Include="Images\JanperAcrylic\Tierra Elm.jpg" />
+    <Content Include="Images\JanperEdge\Matt\Alabaster.png" />
+    <Content Include="Images\JanperEdge\Matt\Black.png" />
+    <Content Include="Images\JanperEdge\Matt\Charcoal.png" />
+    <Content Include="Images\JanperEdge\Matt\Chino.png" />
+    <Content Include="Images\JanperEdge\Matt\Classic White.png" />
+    <Content Include="Images\JanperEdge\Matt\Designer White.png" />
+    <Content Include="Images\JanperEdge\Matt\Espresso.png" />
+    <Content Include="Images\JanperEdge\Matt\Fossil.png" />
+    <Content Include="Images\JanperEdge\Matt\Latte.png" />
+    <Content Include="Images\JanperEdge\Matt\Mariner.png" />
+    <Content Include="Images\JanperEdge\Matt\Mocha.png" />
+    <Content Include="Images\JanperEdge\Matt\New Antique.png" />
+    <Content Include="Images\JanperEdge\Matt\Nomad.png" />
+    <Content Include="Images\JanperEdge\Matt\Oyster Grey.png" />
+    <Content Include="Images\JanperEdge\Matt\Parchment.png" />
+    <Content Include="Images\JanperEdge\Matt\Pumice.png" />
+    <Content Include="Images\JanperEdge\Matt\Sandstone.png" />
+    <Content Include="Images\JanperEdge\Matt\Sea Foam.png" />
+    <Content Include="Images\JanperEdge\Matt\Soft Ash.png" />
+    <Content Include="Images\JanperEdge\Matt\Stone.png" />
+    <Content Include="Images\JanperEdge\Matt\Urban.png" />
+    <Content Include="Images\JanperEdge\Matt\Whisper.png" />
+    <Content Include="Images\JanperEdge\Woodgrain\Bavarian Oak.png" />
+    <Content Include="Images\JanperEdge\Woodgrain\Beech.png" />
+    <Content Include="Images\JanperEdge\Woodgrain\Burnished Oak.png" />
+    <Content Include="Images\JanperEdge\Woodgrain\Calico.png" />
+    <Content Include="Images\JanperEdge\Woodgrain\Charred Oak.png" />
+    <Content Include="Images\JanperEdge\Woodgrain\Chessnut.png" />
+    <Content Include="Images\JanperEdge\Woodgrain\Chocolate Oak.png" />
+    <Content Include="Images\JanperEdge\Woodgrain\Concrete.png" />
+    <Content Include="Images\JanperEdge\Woodgrain\Driftwood.png" />
+    <Content Include="Images\JanperEdge\Woodgrain\Ebony Rincon.png" />
+    <Content Include="Images\JanperEdge\Woodgrain\Licorica Linea.png" />
+    <Content Include="Images\JanperEdge\Woodgrain\Limed Elm.png" />
+    <Content Include="Images\JanperEdge\Woodgrain\Majestic Alder.png" />
+    <Content Include="Images\JanperEdge\Woodgrain\Native Oak.png" />
+    <Content Include="Images\JanperEdge\Woodgrain\Natural Oak.png" />
+    <Content Include="Images\JanperEdge\Woodgrain\Oyster Linea.png" />
+    <Content Include="Images\JanperEdge\Woodgrain\Pacific Maple.png" />
+    <Content Include="Images\JanperEdge\Woodgrain\Reclaimed Wood.png" />
+    <Content Include="Images\JanperEdge\Woodgrain\Salt Wash.png" />
+    <Content Include="Images\JanperEdge\Woodgrain\Smooth Sapelle.png" />
+    <Content Include="Images\JanperEdge\Woodgrain\Swiss Elm.png" />
+    <Content Include="Images\JanperEdge\Woodgrain\Teak Allover.png" />
+    <Content Include="Images\JanperEdge\Woodgrain\Warm Oak.png" />
+    <Content Include="Images\JanperEdge\Woodgrain\White Oak.png" />
+    <Content Include="Images\logo.png" />
+    <Content Include="Images\Favicon\ms-icon-144x144.png" />
+    <Content Include="Images\Favicon\ms-icon-150x150.png" />
+    <Content Include="Images\Favicon\ms-icon-310x310.png" />
+    <Content Include="Images\Favicon\ms-icon-70x70.png" />
+    <Content Include="Images\Social\facebook-redAsset 7.png" />
+    <Content Include="Images\Social\FACEBOOKAsset 1.png" />
+    <Content Include="Images\Social\insta-redAsset 6.png" />
+    <Content Include="Images\Social\INSTAGRAMAsset 4.png" />
+    <Content Include="Images\Social\linkedin-redAsset 9.png" />
+    <Content Include="Images\Social\linkedinAsset 5.png" />
+    <Content Include="Images\Social\twitter-redAsset 8.png" />
+    <Content Include="Images\Social\TWITTERAsset 2.png" />
+    <Content Include="Images\TradeArea\9196480_m.jpg" />
+    <Content Include="Images\TradeArea\catalogue_thumb.jpg" />
+    <Content Include="Images\TradeArea\swatch_request_thumb.jpg" />
+    <Content Include="ApplicationInsights.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\sass\styles.scss" />
+    <Content Include="Content\sass\_partial\_variables.scss" />
+    <Content Include="fonts\Rutan-Light.ttf" />
+    <Content Include="fonts\Rutan-Light.woff" />
+    <Content Include="fonts\Rutan-Medium.ttf" />
+    <Content Include="fonts\Rutan-Medium.woff" />
+    <Content Include="fonts\Rutan-Regular.ttf" />
+    <Content Include="fonts\Rutan-Regular.woff" />
+    <Content Include="Content\sass\_partial\_base.scss" />
+    <Content Include="Content\bootstrap-theme.css.map" />
+    <Content Include="Content\bootstrap-theme.min.css.map" />
+    <Content Include="Content\styles.css.map" />
+    <Content Include="fonts\glyphicons-regular.eot" />
+    <Content Include="fonts\glyphicons-regular.ttf" />
+    <Content Include="fonts\glyphicons-regular.woff" />
+    <Content Include="fonts\glyphicons-regular.woff2" />
+    <Content Include="Content\sass\_partial\_footer.scss" />
+    <Content Include="Content\sass\_partial\_nav.scss" />
+    <Content Include="Content\sass\_partial\_home.scss" />
+    <Content Include="Content\sass\_partial\_DuraForm.scss" />
+    <Content Include="fonts\Baskerville.ttf" />
+    <Content Include="fonts\35B3BC_0_0.woff" />
+    <Content Include="fonts\35B3BC_0_0.woff2" />
+    <Content Include="Content\sass\_partial\_JanperAcrylic.scss" />
+    <Content Include="Scripts\bootstrap.bundle.js" />
+    <Content Include="Scripts\bootstrap.bundle.min.js" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\esm\popper-utils.js" />
+    <Content Include="Scripts\esm\popper-utils.min.js" />
+    <Content Include="Scripts\esm\popper.js" />
+    <Content Include="Scripts\esm\popper.min.js" />
+    <Content Include="Scripts\index.js.flow" />
+    <Content Include="Scripts\esm\popper.min.js.map" />
+    <Content Include="Scripts\esm\popper.js.map" />
+    <Content Include="Scripts\esm\popper-utils.min.js.map" />
+    <Content Include="Scripts\esm\popper-utils.js.map" />
+    <Content Include="Scripts\bootstrap.min.js.map" />
+    <Content Include="Scripts\bootstrap.js.map" />
+    <Content Include="Scripts\bootstrap.bundle.min.js.map" />
+    <Content Include="Scripts\bootstrap.bundle.js.map" />
+    <Content Include="Content\bootstrap.min.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Content\bootstrap-reboot.min.css.map" />
+    <Content Include="Content\bootstrap-reboot.css.map" />
+    <Content Include="Content\bootstrap-grid.min.css.map" />
+    <Content Include="Content\bootstrap-grid.css.map" />
+    <None Include="Scripts\jquery-3.5.1.intellisense.js" />
+    <Content Include="Scripts\jquery-3.5.1.js" />
+    <Content Include="Scripts\jquery-3.5.1.min.js" />
+    <Content Include="Scripts\jquery-3.5.1.slim.js" />
+    <Content Include="Scripts\jquery-3.5.1.slim.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Scripts\popper-utils.js" />
+    <Content Include="Scripts\popper-utils.min.js" />
+    <Content Include="Scripts\popper.js" />
+    <Content Include="Scripts\popper.min.js" />
+    <Content Include="Scripts\respond.js" />
+    <Content Include="Scripts\respond.matchmedia.addListener.js" />
+    <Content Include="Scripts\respond.matchmedia.addListener.min.js" />
+    <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\src\index.js" />
+    <Content Include="Scripts\src\methods\defaults.js" />
+    <Content Include="Scripts\src\methods\destroy.js" />
+    <Content Include="Scripts\src\methods\disableEventListeners.js" />
+    <Content Include="Scripts\src\methods\enableEventListeners.js" />
+    <Content Include="Scripts\src\methods\placements.js" />
+    <Content Include="Scripts\src\methods\update.js" />
+    <Content Include="Scripts\src\modifiers\applyStyle.js" />
+    <Content Include="Scripts\src\modifiers\arrow.js" />
+    <Content Include="Scripts\src\modifiers\computeStyle.js" />
+    <Content Include="Scripts\src\modifiers\flip.js" />
+    <Content Include="Scripts\src\modifiers\hide.js" />
+    <Content Include="Scripts\src\modifiers\index.js" />
+    <Content Include="Scripts\src\modifiers\inner.js" />
+    <Content Include="Scripts\src\modifiers\keepTogether.js" />
+    <Content Include="Scripts\src\modifiers\offset.js" />
+    <Content Include="Scripts\src\modifiers\preventOverflow.js" />
+    <Content Include="Scripts\src\modifiers\shift.js" />
+    <Content Include="Scripts\src\utils\clockwise.js" />
+    <Content Include="Scripts\src\utils\computeAutoPlacement.js" />
+    <Content Include="Scripts\src\utils\debounce.js" />
+    <Content Include="Scripts\src\utils\find.js" />
+    <Content Include="Scripts\src\utils\findCommonOffsetParent.js" />
+    <Content Include="Scripts\src\utils\findIndex.js" />
+    <Content Include="Scripts\src\utils\getBordersSize.js" />
+    <Content Include="Scripts\src\utils\getBoundaries.js" />
+    <Content Include="Scripts\src\utils\getBoundingClientRect.js" />
+    <Content Include="Scripts\src\utils\getClientRect.js" />
+    <Content Include="Scripts\src\utils\getFixedPositionOffsetParent.js" />
+    <Content Include="Scripts\src\utils\getOffsetParent.js" />
+    <Content Include="Scripts\src\utils\getOffsetRect.js" />
+    <Content Include="Scripts\src\utils\getOffsetRectRelativeToArbitraryNode.js" />
+    <Content Include="Scripts\src\utils\getOppositePlacement.js" />
+    <Content Include="Scripts\src\utils\getOppositeVariation.js" />
+    <Content Include="Scripts\src\utils\getOuterSizes.js" />
+    <Content Include="Scripts\src\utils\getParentNode.js" />
+    <Content Include="Scripts\src\utils\getPopperOffsets.js" />
+    <Content Include="Scripts\src\utils\getReferenceNode.js" />
+    <Content Include="Scripts\src\utils\getReferenceOffsets.js" />
+    <Content Include="Scripts\src\utils\getRoot.js" />
+    <Content Include="Scripts\src\utils\getRoundedOffsets.js" />
+    <Content Include="Scripts\src\utils\getScroll.js" />
+    <Content Include="Scripts\src\utils\getScrollParent.js" />
+    <Content Include="Scripts\src\utils\getStyleComputedProperty.js" />
+    <Content Include="Scripts\src\utils\getSupportedPropertyName.js" />
+    <Content Include="Scripts\src\utils\getViewportOffsetRectRelativeToArtbitraryNode.js" />
+    <Content Include="Scripts\src\utils\getWindow.js" />
+    <Content Include="Scripts\src\utils\getWindowSizes.js" />
+    <Content Include="Scripts\src\utils\includeScroll.js" />
+    <Content Include="Scripts\src\utils\index.js" />
+    <Content Include="Scripts\src\utils\isBrowser.js" />
+    <Content Include="Scripts\src\utils\isFixed.js" />
+    <Content Include="Scripts\src\utils\isFunction.js" />
+    <Content Include="Scripts\src\utils\isIE.js" />
+    <Content Include="Scripts\src\utils\isModifierEnabled.js" />
+    <Content Include="Scripts\src\utils\isModifierRequired.js" />
+    <Content Include="Scripts\src\utils\isNumeric.js" />
+    <Content Include="Scripts\src\utils\isOffsetContainer.js" />
+    <Content Include="Scripts\src\utils\removeEventListeners.js" />
+    <Content Include="Scripts\src\utils\runModifiers.js" />
+    <Content Include="Scripts\src\utils\setAttributes.js" />
+    <Content Include="Scripts\src\utils\setStyles.js" />
+    <Content Include="Scripts\src\utils\setupEventListeners.js" />
+    <Content Include="Scripts\umd\popper-utils.js" />
+    <Content Include="Scripts\umd\popper-utils.min.js" />
+    <Content Include="Scripts\umd\popper.js" />
+    <Content Include="Scripts\umd\popper.min.js" />
+    <Content Include="Templates\EnquiryConfirmation.html" />
+    <Content Include="Templates\EnquiryNotification.html" />
+    <Content Include="Templates\SampleRequestConfirmation.html" />
+    <Content Include="Templates\SampleRequestNotification.html" />
+    <Content Include="XML\DuraFormDoors.xml" />
+    <Content Include="Content\sass\_partial\_Door.scss" />
+    <Content Include="Content\sass\_partial\_Trade.scss" />
+    <Content Include="Download\Janper-Ultra-Glaze-Order-Form.pdf" />
+    <Content Include="Download\A4 Brochure_DuraForm Brochure_0618_ALTS_V1.pdf" />
+    <Content Include="Content\sass\_partial\_contact.scss" />
+    <Content Include="Content\sass\_partial\_Gallery.scss" />
+    <Content Include="Download\Duraform Doors Order Form.pdf" />
+    <Content Include="Download\Flat Pack Order Form.pdf" />
+    <Content Include="Download\JanperEdge Order Form.pdf" />
+    <Content Include="Download\Maintenance  Installation.pdf" />
+    <Content Include="Download\Sample Order Form - Duraform.pdf" />
+    <Content Include="Download\A4 Brochure_Acrylic Catalogue_SCREEN_FA.pdf" />
+    <Content Include="Download\A4 Brochure_JanperEdge Catalogue_SCREEN_FA.pdf" />
+    <Content Include="Content\sass\_partial\_about.scss" />
+    <Content Include="Images\Favicon\manifest.json" />
+    <Content Include="Content\sass\_partial\_search.scss" />
+    <Content Include="XML\SearchTerms.xml" />
+    <Content Include="Content\js\app-dist.js.map" />
+    <Content Include="Content\sass\_partial\_mobile.scss" />
+    <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
+    <None Include="Properties\PublishProfiles\Release - Dev.pubxml" />
+    <None Include="Properties\PublishProfiles\Release - Live.pubxml" />
+    <Content Include="Scripts\jquery-scrollto.js" />
+    <Content Include="Scripts\jquery.inview.js" />
+    <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Views\DuraForm\Colours\GlossPremium.cshtml" />
+    <Content Include="Views\DuraForm\Colours\GlossStandard.cshtml" />
+    <Content Include="Views\DuraForm\Colours\Index.cshtml" />
+    <Content Include="Views\DuraForm\Colours\Woodgrain.cshtml" />
+    <Content Include="Views\DuraForm\Colours\Texture.cshtml" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Shared\_Contact.cshtml" />
+    <Content Include="Views\Shared\_Footer.cshtml" />
+    <Content Include="Views\DuraForm\SeriesOne.cshtml" />
+    <Content Include="Views\DuraForm\SeriesTwo.cshtml" />
+    <Content Include="Views\DuraForm\Options.cshtml" />
+    <Content Include="Views\DuraForm\SeriesFive.cshtml" />
+    <Content Include="Views\DuraForm\SeriesFour.cshtml" />
+    <Content Include="Views\DuraForm\SeriesThree.cshtml" />
+    <Content Include="Views\DuraForm\Index.cshtml" />
+    <Content Include="Views\JanperAcrylic\Index.cshtml" />
+    <Content Include="Views\DuraForm\Door.cshtml" />
+    <Content Include="Views\JanperEdge\Index.cshtml" />
+    <Content Include="Views\TradeArea\Index.cshtml" />
+    <Content Include="Views\TradeArea\TradeArea.cshtml" />
+    <Content Include="Views\DuraForm\Blurbs\SeriesOne.cshtml" />
+    <Content Include="Views\DuraForm\Blurbs\SeriesTwo.cshtml" />
+    <Content Include="Views\DuraForm\Blurbs\SeriesThree.cshtml" />
+    <Content Include="Views\DuraForm\Blurbs\SeriesFour.cshtml" />
+    <Content Include="Views\DuraForm\Blurbs\SeriesFive.cshtml" />
+    <Content Include="Views\DuraForm\Colours\Satin.cshtml" />
+    <Content Include="Views\DuraForm\Colours\Suedette.cshtml" />
+    <Content Include="Views\DuraForm\Colours\SupaMatt.cshtml" />
+    <Content Include="Views\TradeArea\GlossStandard.cshtml" />
+    <Content Include="Views\TradeArea\GlossPremium.cshtml" />
+    <Content Include="Views\TradeArea\Satin.cshtml" />
+    <Content Include="Views\TradeArea\SupaMatt.cshtml" />
+    <Content Include="Views\TradeArea\Woodgrain.cshtml" />
+    <Content Include="Views\TradeArea\Texture.cshtml" />
+    <Content Include="Views\TradeArea\Suedette.cshtml" />
+    <Content Include="Views\TradeArea\Success.cshtml" />
+    <Content Include="Views\ContactPage\Index.cshtml" />
+    <Content Include="Views\Shared\_Lightbox.cshtml" />
+    <Content Include="Views\Gallery\Index.cshtml" />
+    <Content Include="Views\Gallery\Duraform.cshtml" />
+    <Content Include="Views\Gallery\Acrylic.cshtml" />
+    <Content Include="Views\JanperEdge\Matt.cshtml" />
+    <Content Include="Views\JanperEdge\Woodgrain.cshtml" />
+    <Content Include="Views\TradeArea\Samples.cshtml" />
+    <Content Include="Views\TradeArea\EdgeMatt.cshtml" />
+    <Content Include="Views\TradeArea\EdgeWoodgrain.cshtml" />
+    <Content Include="Views\TradeArea\Acrylic.cshtml" />
+    <Content Include="Views\TradeArea\SampleForm.cshtml" />
+    <Content Include="Views\About\Index.cshtml" />
+    <Content Include="Views\Search\Index.cshtml" />
+    <Content Include="Views\Shared\_DuraSubMenu.cshtml" />
+    <Content Include="Views\DuraForm\Colours\Breeze.cshtml" />
+    <Content Include="Views\TradeArea\Breeze.cshtml" />
+    <Content Include="Scripts\jquery-3.5.1.slim.min.map" />
+    <Content Include="Scripts\jquery-3.5.1.min.map" />
+    <Content Include="Scripts\umd\popper.min.js.map" />
+    <Content Include="Scripts\umd\popper.js.map" />
+    <Content Include="Scripts\umd\popper.js.flow" />
+    <Content Include="Scripts\umd\popper-utils.min.js.map" />
+    <Content Include="Scripts\umd\popper-utils.js.map" />
+    <Content Include="Scripts\README.md" />
+    <Content Include="Scripts\popper.min.js.map" />
+    <Content Include="Scripts\popper.js.map" />
+    <Content Include="Scripts\popper-utils.min.js.map" />
+    <Content Include="Scripts\popper-utils.js.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Code\" />
+    <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
+  </ItemGroup>
+  <ItemGroup>
+    <TypeScriptCompile Include="Scripts\index.d.ts" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets')" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>52582</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:56422/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.3.6.0\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.3.6.0\build\Microsoft.Net.Compilers.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.ApplicationInsights.DependencyCollector.2.14.0\build\Microsoft.ApplicationInsights.DependencyCollector.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.ApplicationInsights.DependencyCollector.2.14.0\build\Microsoft.ApplicationInsights.DependencyCollector.targets'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.ApplicationInsights.PerfCounterCollector.2.14.0\build\Microsoft.ApplicationInsights.PerfCounterCollector.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.ApplicationInsights.PerfCounterCollector.2.14.0\build\Microsoft.ApplicationInsights.PerfCounterCollector.targets'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.2.14.0\build\Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.2.14.0\build\Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.targets'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.ApplicationInsights.WindowsServer.2.14.0\build\Microsoft.ApplicationInsights.WindowsServer.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.ApplicationInsights.WindowsServer.2.14.0\build\Microsoft.ApplicationInsights.WindowsServer.targets'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.ApplicationInsights.Web.2.14.0\build\Microsoft.ApplicationInsights.Web.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.ApplicationInsights.Web.2.14.0\build\Microsoft.ApplicationInsights.Web.targets'))" />
+  </Target>
+  <Import Project="..\packages\Microsoft.ApplicationInsights.DependencyCollector.2.14.0\build\Microsoft.ApplicationInsights.DependencyCollector.targets" Condition="Exists('..\packages\Microsoft.ApplicationInsights.DependencyCollector.2.14.0\build\Microsoft.ApplicationInsights.DependencyCollector.targets')" />
+  <Import Project="..\packages\Microsoft.ApplicationInsights.PerfCounterCollector.2.14.0\build\Microsoft.ApplicationInsights.PerfCounterCollector.targets" Condition="Exists('..\packages\Microsoft.ApplicationInsights.PerfCounterCollector.2.14.0\build\Microsoft.ApplicationInsights.PerfCounterCollector.targets')" />
+  <Import Project="..\packages\Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.2.14.0\build\Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.targets" Condition="Exists('..\packages\Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.2.14.0\build\Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.targets')" />
+  <Import Project="..\packages\Microsoft.ApplicationInsights.WindowsServer.2.14.0\build\Microsoft.ApplicationInsights.WindowsServer.targets" Condition="Exists('..\packages\Microsoft.ApplicationInsights.WindowsServer.2.14.0\build\Microsoft.ApplicationInsights.WindowsServer.targets')" />
+  <Import Project="..\packages\Microsoft.ApplicationInsights.Web.2.14.0\build\Microsoft.ApplicationInsights.Web.targets" Condition="Exists('..\packages\Microsoft.ApplicationInsights.Web.2.14.0\build\Microsoft.ApplicationInsights.Web.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

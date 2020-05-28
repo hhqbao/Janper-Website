@@ -1,0 +1,114 @@
+﻿
+
+@{
+  ViewBag.Title = "Home Page";
+}
+<div id="home">
+  <div id="doors" class="content-wrapper full">
+    <h1>
+      Janper offers a range of quality
+      kitchen doors and panels from
+      sleek contemporary to detailed
+      classical design.
+    </h1>
+    <img src="~/Images/DuraForm/Doors/Barwon.png" class="display-desktop" />
+  </div>
+  <br class="clearfix" />
+  <div id="red" class="content-wrapper full">
+    <h1>Janper exclusive quality</h1>
+    <p>
+      An Australian owned family company, Janper Pty Ltd was established in 1969, and now has over fifty years experience in the cabinet making industry.
+
+      Millions of dollars have been invested in research and development and state of the art manufacturing equipment. From automatic routing systems, to our high pressure vacuum press, this reflects our determination and commitment to keep abreast with Australian and International standards in quality.
+
+      Design, production and quality systems are assessed regularly, with on-going training and updating of systems to maintain the highest calibre of finished product that has made Janper a leading manufacturer in the industry.
+    </p>
+  </div>
+</div>
+
+<script>
+  $('#doors h1').on('inview', function (event, isInView) {
+    if (isInView) {
+      // element is now visible in the viewport
+    }
+    else {
+      var lastScrollTop = 0;
+      $(window).scroll(function (event) {
+        var st = $(this).scrollTop();
+        if (st > lastScrollTop) {
+          var scrollTop = $(window).scrollTop(),
+            elementOffset = $('#doors img').offset().top,
+            distance = (elementOffset - scrollTop);
+          if (distance < -200) {
+            $("#doors img").addClass("animated fadeOutUp")
+              .on('animationend webkitAnimationEnd MSAnimationEnd oAnimationEnd', function (e) {
+                $(this).removeClass("animated fadeOutUp");
+              });
+          }
+        }
+        else {
+          var scrollBottom = $(window).scrollTop() + $(window).height(),
+            elementOffset = $('#doors img').offset().top();
+          distance = (elementOffset - scrollBottom);
+          if (distance < 50) {
+            $("#doors img").addClass("animated fadeInDown")
+              .on('animationend webkitAnimationEnd MSAnimationEnd oAnimationEnd', function (e) {
+                $(this).removeClass("animated fadeInDown");
+              });
+          }
+        }
+        lastScrollTop = st;
+
+      });
+    }
+  });
+
+    //$(window).on('scroll', function () {
+    //    var lastScrollTop = 0;
+    //    $(window).scroll(function (event) {
+    //        var st = $(this).scrollTop();
+    //        if (st > lastScrollTop) {
+    //            var scrollTop = $(window).scrollTop(),
+    //                elementOffset = $('#doors img').offset().top,
+    //                distance = (elementOffset - scrollTop);
+    //                if (distance < 30) {
+    //                    $("#doors img").addClass("fadeOutUp");
+    //                }
+
+    //        }
+    //        else {
+    //            var scrollBottom = $(window).scrollTop() + $(window).height();
+    //            elementOffset = $('#doors img').offset().top,
+    //                distance = (elementOffset - scrollBottom);
+    //            if (disance > 30) {
+    //                $("#doors img").addClass("fadeInDown");
+    //            }
+    //        }
+    //        lastScrollTop = st;
+    //    })
+    //});
+
+
+</script>
+
+@*<script>
+      $(document).ready(function () {
+          $(window).scroll(function () {
+              $('#arrow').css('opacity', $(this).s)
+              //if ($(this).scrollTop() > 500) {
+              //    $('#arrow').fadeOut();
+              //} else {
+              //    $('#arrow').fadeIn();
+              //}
+          });
+      });
+  </script>*@
+
+@*<script>
+      $("#carousel").Cloud9Carousel({
+          buttonLeft: $("#buttons > .left"),
+          buttonRight: $("#buttons > .right"),
+          autoPlay: 1,
+          bringToFront: true
+      });
+  </script>*@

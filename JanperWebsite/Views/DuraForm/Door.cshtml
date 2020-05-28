@@ -1,0 +1,138 @@
+﻿@model JanperWebsite.Models.Model_Door
+
+<div id="door" class="animated slideInRight">
+
+  <div class="display-desktop" id="back">
+    <span class="glyphicons glyphicons-play"></span>
+    <span class="back-text">BACK</span>
+  </div>
+  <div class="content-wrapper half">
+
+    <h1>DuraForm</h1>
+    <h2>series<span>@Model.Series</span></h2>
+    <h1>@Model.Name</h1>
+    <h4>@Model.Round</h4>
+    <img class="profile" src="@Model.Profile" />
+    <p>
+      @{
+        switch (Model.Series)
+        {
+          case "one":
+            @Html.Partial("Blurbs/SeriesOne")
+            break;
+          case "two":
+            @Html.Partial("Blurbs/SeriesTwo")
+            break;
+          case "three":
+            @Html.Partial("Blurbs/SeriesThree")
+            break;
+          case "four":
+            @Html.Partial("Blurbs/SeriesFour")
+            break;
+          case "five":
+            @Html.Partial("Blurbs/SeriesFive")
+            break;
+        }
+      }
+    </p>
+  </div>
+  <div class="content-wrapper half">
+    <img src="@Model.Images[0]" />
+  </div>
+  <br class="clearfix" />
+  <hr />
+  @{
+    List<string> doorimages = Model.Images.GetRange(1, 4);
+    if (doorimages[1] == "")
+    {
+      doorimages[1] = doorimages[0];
+    }
+    foreach (string door in doorimages)
+    {
+
+      if (!string.Equals(door, ""))
+      {
+        <div class="content-wrapper extras">
+          <div class="overlay">
+            <span class="glyphicons glyphicons-search"></span>
+          </div>
+          <img src="@door" />
+        </div>
+      }
+      else
+      {
+        <div class="content-wrapper extras">
+          <div class="overlay">
+            <span class="glyphicons glyphicons-search"></span>
+          </div>
+          <img src="@doorimages[1]" />
+        </div>
+      }
+
+
+    }
+  }
+
+  <script>
+
+        $("#door .extras").click(function (event) {
+            $("#lightbox").toggleClass('hidden');
+            $("#left").attr("class", "hidden")
+            $("#right").attr("class", "hidden")
+            $("#Name").html("@Model.Name");
+            $("#desc").html("@Model.Round");
+            $("#hero").attr("src", $(this).children().eq(1).attr("src"));
+            $("#hero").removeClass("heropadding");
+
+        })
+        @{
+            int i = 1;
+            foreach(string door in doorimages)
+            {
+                if (door == "")
+                {
+                    <text>
+                        $("#Gallery" + @i).attr("src", "@doorimages[1]");
+                    </text>
+
+                }
+                else
+                {
+                    <text>
+                        $("#Gallery" + @i).attr("src", "@door");
+                    </text>
+                }
+                i++;
+            }
+        }
+
+  </script>
+
+  <script>
+        $("#back").on('click', function () {
+            $("#door").toggleClass("slideInRight");
+            $("#door").toggleClass("slideOutRight");
+            $.ajax({
+                @{
+                    if (Model.Sender == "duraform")
+                    {
+                        <text>
+                            url: "/DuraForm/Index",
+                        </text>
+                    }
+                    else
+                    {
+                        <text>
+                            url: "/Gallery/Index",
+                        </text>
+                    }
+
+                }
+                success: function (data) {
+                    $("#content-container").html(data);
+                }
+            })
+        });
+  </script>
+
+</div>
