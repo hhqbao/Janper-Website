@@ -3,572 +3,575 @@
 
 }
 <div id="TradeArea">
-  <script src="https://www.google.com/recaptcha/api.js"></script>
-  <div class="content-wrapper full">
-    <h1>Trade Area</h1>
-  </div>
-  <br class="clearfix" />
-  <div id="SampleSelect" class="content-wrapper quarter">
-    <div class="overlay"></div>
-    <div class="display-desktop">
-      <img src="~/Images/TradeArea/swatch_request_thumb.jpg" />
+    <script src="https://www.google.com/recaptcha/api.js"></script>
+    <div class="content-wrapper full">
+        <h1>Trade Area</h1>
     </div>
-    <div class="display-mobile image-cover" style="background-image:url(Images/TradeArea/swatch_request_thumb.jpg)">
+    <br class="clearfix" />
+    <div id="SampleSelect" class="content-wrapper quarter">
+        <div class="overlay"></div>
+        <div class="display-desktop">
+            <img src="~/Images/TradeArea/swatch_request_thumb.jpg" />
+        </div>
+        <div class="display-mobile image-cover" style="background-image:url(Images/TradeArea/swatch_request_thumb.jpg)">
+        </div>
+        <h3>Request Samples</h3>
+        <div class="display-desktop">
+            <h4></h4>
+            <div class="triangle"></div>
+        </div>
     </div>
-    <h3>Request Samples</h3>
-    <div class="display-desktop">
-      <h4></h4>
-      <div class="triangle"></div>
-    </div>
-  </div>
 
-  <div id="FormSelect" class="content-wrapper quarter">
-    <div class="overlay"></div>
-    <div class="display-desktop">
-      <img src="~/Images/TradeArea/9196480_m.jpg" />
+    <div id="FormSelect" class="content-wrapper quarter">
+        <div class="overlay"></div>
+        <div class="display-desktop">
+            <img src="~/Images/TradeArea/9196480_m.jpg" />
+        </div>
+        <div class="display-mobile image-cover" style="background-image:url(Images/TradeArea/9196480_m.jpg)">
+        </div>
+        <h3>Download Forms</h3>
+        <div class="display-desktop">
+            <h4></h4>
+            <div class="triangle"></div>
+        </div>
     </div>
-    <div class="display-mobile image-cover" style="background-image:url(Images/TradeArea/9196480_m.jpg)">
+    <div id="BrochureSelect" class="content-wrapper quarter">
+        <div class="overlay"></div>
+        <div class="display-desktop">
+            <img src="~/Images/TradeArea/catalogue_thumb.jpg" />
+        </div>
+        <div class="display-mobile image-cover" style="background-image:url(Images/TradeArea/catalogue_thumb.jpg)">
+        </div>
+        <h3>Download Brochures</h3>
+        <div class="display-desktop">
+            <h4></h4>
+            <div class="triangle"></div>
+        </div>
     </div>
-    <h3>Download Forms</h3>
-    <div class="display-desktop">
-      <h4></h4>
-      <div class="triangle"></div>
+    <div class="content-wrapper quarter display-desktop">
+        <a href="http://www.janperorders.com.au/janper" target="_blank">
+            <div class="overlay"></div>
+        </a>
+        <img src="~/Images/DuraForm/Doors/Barwon.png" />
+        <div class="display-mobile image-cover" style="background-image:url(Images/DuraForm/Doors/Barwon.png)">
+        </div>
+        <h3>Login</h3>
+        <h4></h4>
+        <div class="triangle"></div>
     </div>
-  </div>
-  <div id="BrochureSelect" class="content-wrapper quarter">
-    <div class="overlay"></div>
-    <div class="display-desktop">
-      <img src="~/Images/TradeArea/catalogue_thumb.jpg" />
-    </div>
-    <div class="display-mobile image-cover" style="background-image:url(Images/TradeArea/catalogue_thumb.jpg)">
-    </div>
-    <h3>Download Brochures</h3>
-    <div class="display-desktop">
-      <h4></h4>
-      <div class="triangle"></div>
-    </div>
-  </div>
-  <div class="content-wrapper quarter display-desktop">
-    <a href="http://www.janperorders.com.au/janper" target="_blank">
-      <div class="overlay"></div>
-    </a>
-    <img src="~/Images/DuraForm/Doors/Barwon.png" />
-    <div class="display-mobile image-cover" style="background-image:url(Images/DuraForm/Doors/Barwon.png)">
-    </div>
-    <h3>Login</h3>
-    <h4></h4>
-    <div class="triangle"></div>
-  </div>
-  <br class="clearfix" />
-
-
-  <div id="Samples">
-    @if (Model == null || !Model.Successful)
-    {
-      <script>
-        var url = window.location.href.toLowerCase();
-        var redirect = url.lastIndexOf("/tradearea/index");
-        url = url.substring(0, redirect);
-        window.history.pushState("object or string", "Title", url);
-        //Replace url with home address to allow users to load doors and prevent double firing of sample request. Its ugly i know
-      </script>
-      <div id="SamplesFormContainer">
-        @Html.Partial("SampleForm", Model)
-      </div>
-      <div class="content-wrapper half" id="SamplesList">
-        @Html.Partial("Samples")
-      </div>
-    }
-    else
-    {
-      <script>
-        var url = window.location.href;
-        var redirect = url.lastIndexOf("/TradeArea/SendRequest");
-        url = url.substring(0, redirect);
-        window.history.pushState("object or string", "Title", url);
-        //Replace url with home address to allow users to load doors and prevent double firing of sample request. Its ugly i know
-      </script>
-      <div id="SamplesFormContainer">
-        @Html.Partial("SampleForm", Model)
-      </div>
-      <div class="content-wrapper half" id="SamplesList">
-        @Html.Partial("Samples")
-      </div>
-    }
     <br class="clearfix" />
 
 
-  </div>
-  <div id="brochures">
-    <div class="content-wrapper half">
-      <p>
-        Here you’ll find all our current and previous brochures,
-        catalogues and specifications guides.
-      </p>
-      <p>
-        If you have any questions, please feel free to contact our
-        office on... <br /><span>+61 3 9720 0533</span>
-      </p>
-    </div>
-    <div class="content-wrapper half">
-      <ul>
-        <li>
-          Maintenance Installation
-          <a href="~/Download/Maintenance  Installation.pdf" target="_blank">DOWNLOAD</a>
-        </li>
-        <li class="hidden">
-          Flat Pack Specification Guide
-          <a>Coming Soon</a>
-        </li>
-        <li class="hidden">
-          Janper Catalogue
-          <a>Coming Soon</a>
-        </li>
-        <li>
-          JanperAcrylic&reg;   Brochure
-          <a href="~/Download/A4 Brochure_Acrylic Catalogue_SCREEN_FA.pdf" target="_blank">DOWNLOAD</a>
-        </li>
-        <li>
-          DuraForm&reg;  Brochure
-          <a href="~/Download/A4 Brochure_DuraForm Brochure_0618_ALTS_V1.pdf" target="_blank">DOWNLOAD</a>
-        </li>
-        <li>
-          JanperEdge&reg;  Brochure
-          <a href="~/Download/A4 Brochure_JanperEdge Catalogue_SCREEN_FA.pdf" target="_blank">DOWNLOAD</a>
-        </li>
-
-      </ul>
-    </div>
-    <br class="clearfix" />
-  </div>
-  <div id="Forms">
-    <div class="content-wrapper half">
-      <p>
-        Here you'll find our forms for our DuraForm doors and panels, flat packs, JanperEdge Doors and panels and UltraSheen
-      </p>
-      <p>
-        If you have questions, please feel free to contact our office on... <br /> <span>+61 3 9720 0533</span>
-      </p>
-    </div>
-    <div class="content-wrapper half">
-      <ul>
-        <li>
-          Sample Order Form <a href="~/Download/Sample Order Form - Duraform.pdf?v=4" target="_blank">DOWNLOAD</a>
-        </li>
-        <li>
-          DuraForm Doors Order Form <a href="~/Download/Duraform Doors Order Form.pdf?v=4" target="_blank">DOWNLOAD</a>
-        </li>
-        <li>
-          Flat Pack Order Form <a href="~/Download/Flat Pack Order Form.pdf?v=4" target="_blank">DOWNLOAD</a>
-        </li>
-        <li>
-          JanperEdge Order Form <a href="~/Download/JanperEdge Order Form.pdf?v=4" target="_blank">DOWNLOAD</a>
-        </li>
-      </ul>
-    </div>
-    <br class="clearfix" />
-  </div>
-  <script>
-    scrollToElement('#TradeArea');
-
-    $("#SampleSelect").find('.triangle').css("display", "block");
-
-
-    $("#FormSelect").click(function (event) {
-      $("#Forms").css("display", "block");
-      $("#Samples").css("display", "none");
-      $("#brochures").css("display", "none");
-      $("#TradeArea").find('.triangle').css("display", "none");
-      $("#TradeArea").find('.overlay').css("opacity", "0");
-      $(this).find('.triangle').css("display", "block");
-      $(this).find('.overlay').css("opacity", "0.5");
-    })
-
-    $("#SampleSelect").click(function (event) {
-      $("#Forms").css("display", "none");
-      $("#Samples").css("display", "block");
-      $("#brochures").css("display", "none");
-      $("#TradeArea").find('.triangle').css("display", "none");
-      $("#TradeArea").find('.overlay').css("opacity", "0");
-      $(this).find('.triangle').css("display", "block");
-      $(this).find('.overlay').css("opacity", "0.5");
-    })
-    $("#BrochureSelect").click(function (event) {
-      $("#Forms").css("display", "none");
-      $("#Samples").css("display", "none");
-      $("#brochures").css("display", "block");
-      $("#TradeArea").find('.triangle').css("display", "none");
-      $("#TradeArea").find('.overlay').css("opacity", "0");
-      $(this).find('.triangle').css("display", "block");
-      $(this).find('.overlay').css("opacity", "0.5");
-    })
-  </script>
-  <script>
-    $("#sampleSubmit").click(function (event) {
-      sampleList = [];
-      var SupaMattList = "<b>DuraForm - Supa Matt</b> <br/>";
-      var WoodgrainsList = "<br/><b>DuraForm - Woodgrain</b> <br/>";
-      var SatinList = "<br/><b>DuraForm - Satin</b> <br/>";
-      var TextureList = "<br/><b>DuraForm - Texture</b> <br/>";
-      var GlossStandardList = "<br/><b>DuraForm - Gloss Standard</b> <br/>";
-      var GlossPremiumList = "<br/><b>DuraForm - Gloss Premium</b> <br/>";
-      var SuedetteList = "<br><b>DuraForm - Suedette</b> <br/>";
-      var EdgeWoodgrainList = "<br/><b>JanperEdge - Woodgrain</b> <br/>";
-      var EdgeMattList = "<br/><b>JanperEdge - Matt</b> <br/>";
-      var JanperAcrylicList = "<br><b>Janper Acrylic</b> <br/>";
-      var BreezeList = "<br><b>DuraForm - Breeze</b> <br/>";
-
-      $("#SupaMattList > li").each(function () {
-        SupaMattList = (SupaMattList + $(this).text() + ",")
-      })
-      $("#SuedetteList > li").each(function () {
-        SuedetteList = (SuedetteList + $(this).text() + ",")
-      })
-      $("#WoodgrainList > li").each(function () {
-        WoodgrainsList = (WoodgrainsList + $(this).text() + ",")
-      })
-      $("#SatinList > li").each(function () {
-        SatinList = (SatinList + $(this).text() + ",")
-      })
-      $("#TextureList > li").each(function () {
-        TextureList = (TextureList + $(this).text() + ",")
-      })
-      $("#GlossStandardList > li").each(function () {
-        GlossStandardList = (GlossStandardList + $(this).text() + ",")
-      })
-      $("#GlossPremiumList > li").each(function () {
-        GlossPremiumList = (GlossPremiumList + $(this).text() + ",")
-      })
-      $("#EdgeWoodgrainList > li").each(function () {
-        EdgeWoodgrainList = (EdgeWoodgrainList + $(this).text() + ",")
-      })
-      $("#EdgeMattList > li").each(function () {
-        EdgeMattList = (EdgeMattList + $(this).text() + ",")
-      })
-      $("#AcrylicList > li").each(function () {
-        JanperAcrylicList = (JanperAcrylicList + $(this).text() + ",")
-      })
-      $("#BreezeList > li").each(function () {
-        BreezeList = (BreezeList + $(this).text() + ",")
-      })
-      sampleList.push(SupaMattList);
-      sampleList.push(WoodgrainsList);
-      sampleList.push(SatinList);
-      sampleList.push(TextureList);
-      sampleList.push(GlossStandardList);
-      sampleList.push(GlossPremiumList);
-      sampleList.push(SuedetteList);
-      sampleList.push(EdgeWoodgrainList);
-      sampleList.push(EdgeMattList);
-      sampleList.push(JanperAcrylicList);
-      sampleList.push(BreezeList);
-      var formvalid = true;
-        debugger;
-      sampleList = JSON.stringify(sampleList);
-      var formData = '"form":' + '"' + $("#SamplesForm").serialize() + '"';
-      var DatatoSend = "{" + formData + "," + sampleList + "}";
-      $('input[name="samples"]').val(sampleList);
-      var testsample = "[\"<b>DuraForm - Supa Matt</b> <br/>\",\"<br/><b>DuraForm - Woodgrain</b> <br/>\",\"<br/><b>DuraForm - Satin</b> <br/>\",\"<br/><b>DuraForm - Texture</b> <br/>\",\"<br/><b>DuraForm - Gloss Standard</b> <br/>\",\"<br/><b>DuraForm - Gloss Premium</b> <br/>\",\"<br><b>DuraForm - Suedette</b> <br/>\",\"<br/><b>JanperEdge - Woodgrain</b> <br/>\",\"<br/><b>JanperEdge - Matt</b> <br/>\",\"<br><b>Janper Acrylic</b> <br/>\",\"<br><b>DuraForm - Breeze</b> <br/>\"]";
-      if (sampleList == testsample) {
-        $("#sampleerror").attr("class", "red");
-        formvalid = false
-        return;
-      }
-
-
-      var indexof = document.getElementById("Email").value
-
-      var test = document.getElementById("CustomerName").value
-      if (test == "") {
-
-        formvalid = false;
-        $("#nameerror").attr("class", "red");
-      }
-      else {
-
-        $("#nameerror").attr("class", "red hidden");
-      }
-      if (document.getElementById("Email").value == "") {
-        formvalid = false;
-        $("#emailerror").attr("class", "red");
-      }
-      else {
-        $("#emailerror").attr("class", "red hidden");
-      }
-      if (indexof.indexOf("@@") == -1) {
-        formvalid = false;
-        $("#emailinvalid").attr("class", "red");
-      }
-      else {
-        $("#emailinvalid").attr("class", "red hidden");
-      }
-      if (document.getElementById("Address").value == "") {
-        formvalid = false;
-        $("#addresserror").attr("class", "red");
-      }
-      else {
-        $("#addresserror").attr("class", "red hidden");
-      }
-
-      if (document.getElementById("Suburb").value == "") {
-        formvalid = false;
-        $("#suburberror").attr("class", "red");
-      }
-      else {
-        $("#suburberror").attr("class", "red hidden");
-      }
-
-      if (document.getElementById("State").value == "") {
-        formvalid = false;
-        $("#stateerror").attr("class", "red");
-      }
-      else {
-        $("#stateerror").attr("class", "red hidden");
-      }
-
-      if (document.getElementById("pCode").value == "") {
-        formvalid = false;
-        $("#pcodeerror").attr("class", "red");
-      }
-      else {
-        $("#pcodeerror").attr("class", "red hidden");
-      }
-      if (isNaN(document.getElementById("pCode").value) || document.getElementById("pCode").value.length != 4) {
-        formvalid = false;
-        $("#pcodeinvalid").attr("class", "red");
-      }
-      if (formvalid) {
-        var formData = '"form":' + '"' + $("#SamplesForm").serialize() + '"';
-        var DatatoSend = "{" + formData + "," + sampleList + "}";
-        $('input[name="samples"]').val(sampleList);
-        $("#SamplesForm").submit();
-      }
-    })
-
-  </script>
-  <script>
-    function removeSelected(list, samplename) {
-      debugger;
-      $("#" + list).children().first().each(function () {
-        if ($(this).children().first().children().eq(1).text() == samplename) {
-          $(this).children().first().children().toggleClass("selected");
-          return;
+    <div id="Samples">
+        @if (Model == null || !Model.Successful)
+        {
+            <script>
+                var url = window.location.href.toLowerCase();
+                var redirect = url.lastIndexOf("/tradearea/index");
+                url = url.substring(0, redirect);
+                window.history.pushState("object or string", "Title", url);
+                //Replace url with home address to allow users to load doors and prevent double firing of sample request. Its ugly i know
+            </script>
+            <div id="SamplesFormContainer">
+                @Html.Partial("SampleForm", Model)
+            </div>
+            <div class="content-wrapper half" id="SamplesList">
+                @Html.Partial("Samples")
+            </div>
         }
-      })
-    }
-  </script>
-  <script>
-    $(".sample-wrapper").click(function (event) {
-      var temp = $(this).closest('li').attr('id');
-      var listSelectorArray = temp.split("C");
-      var listSelectorString = listSelectorArray[0];
-      $(this).find(".sampletriangle").toggleClass("display");
-      $(this).find("span").toggleClass("display");
-
-      if ($(this).hasClass("selected")) {
-        var sampleName = $(this).children("h5")[0].innerHTML;
-        var sampleType = $(this).parent('li').prev()[0].innerHTML;
-        sampleType = sampleType.trim();
-        $(this).toggleClass("selected");
-
-        switch (sampleType) {
-
-          case "DuraForm - Supa Matt":
-            removeFormList("SupaMattList", sampleName);
-
-            break;
-          case "DuraForm - Suedette":
-            removeFormList("SupaMattList", sampleName);
-
-            break;
-          case "Janper Acrylic":
-            removeFormList("AcrylicList", sampleName);
-
-            break;
-          case "JanperEdge - Woodgrain":
-            removeFormList("EdgeWoodgrainList", sampleName);
-
-            break;
-          case "JanperEdge - Matt":
-            removeFormList("EdgeMattList", sampleName);
-
-            break;
-          case "DuraForm - Satin":
-            removeFormList("SatinList", sampleName);
-
-            break;
-          case "DuraForm - Texture":
-            removeFormList("TextureList", sampleName);
-
-            break;
-          case "DuraForm - Woodgrain":
-            removeFormList("WoodgrainList", sampleName);
-
-            break;
-          case "DuraForm - Gloss Standard":
-            removeFormList("GlossStandardList", sampleName);
-
-            break;
-          case "DuraForm - Gloss Premium":
-            removeFormList("GlossPremiumList", sampleName);
-                break;
-          case "DuraForm - Breeze":
-            removeFormList("BreezeList", sampleName);
-            break;
-
+        else
+        {
+            <script>
+                var url = window.location.href;
+                var redirect = url.lastIndexOf("/TradeArea/SendRequest");
+                url = url.substring(0, redirect);
+                window.history.pushState("object or string", "Title", url);
+                //Replace url with home address to allow users to load doors and prevent double firing of sample request. Its ugly i know
+            </script>
+            <div id="SamplesFormContainer">
+                @Html.Partial("SampleForm", Model)
+            </div>
+            <div class="content-wrapper half" id="SamplesList">
+                @Html.Partial("Samples")
+            </div>
         }
-      }
-      else {
-        switch (listSelectorString) {
-          case "SupaMatt":
-            $(addToList(this, "#SupaMattList"));
-            break;
-          case "Suedette":
-            $(addToList(this, "#SuedetteList"));
-            break;
-          case "Satin":
-            $(addToList(this, "#SatinList"));
-            break;
-          case "Texture":
-            $(addToList(this, "#TextureList"));
-            break;
-          case "Woodgrain":
-            $(addToList(this, "#WoodgrainList"));
-            break;
-          case "GlossStandard":
-            $(addToList(this, "#GlossStandardList"));
-            break;
-          case "GlossPremium":
-            $(addToList(this, "#GlossPremiumList"));
-            break;
-          case "EdgeWoodgrain":
-            $(addToList(this, "#EdgeWoodgrainList"));
-            break;
-          case "EdgeMatt":
-            $(addToList(this, "#EdgeMattList"));
-            break;
-          case "Acrylic":
-            $(addToList(this, "#AcrylicList"));
-                break;
-        case "Breeze":
-            $(addToList(this, "#BreezeList"));
-            break;
+        <br class="clearfix" />
+
+
+    </div>
+    <div id="brochures">
+        <div class="content-wrapper half">
+            <p>
+                Here you’ll find all our current and previous brochures,
+                catalogues and specifications guides.
+            </p>
+            <p>
+                If you have any questions, please feel free to contact our
+                office on... <br /><span>+61 3 9720 0533</span>
+            </p>
+        </div>
+        <div class="content-wrapper half">
+            <ul>
+                <li>
+                    Maintenance Installation
+                    <a href="~/Download/Maintenance  Installation.pdf" target="_blank">DOWNLOAD</a>
+                </li>
+                <li class="hidden">
+                    Flat Pack Specification Guide
+                    <a>Coming Soon</a>
+                </li>
+                <li class="hidden">
+                    Janper Catalogue
+                    <a>Coming Soon</a>
+                </li>
+                <li>
+                    JanperAcrylic&reg;   Brochure
+                    <a href="~/Download/A4 Brochure_Acrylic Catalogue_SCREEN_FA.pdf" target="_blank">DOWNLOAD</a>
+                </li>
+                <li>
+                    DuraForm&reg;  Brochure
+                    <a href="~/Download/A4 Brochure_DuraForm Brochure_0618_ALTS_V1.pdf" target="_blank">DOWNLOAD</a>
+                </li>
+                <li>
+                    JanperEdge&reg;  Brochure
+                    <a href="~/Download/A4 Brochure_JanperEdge Catalogue_SCREEN_FA.pdf" target="_blank">DOWNLOAD</a>
+                </li>
+
+            </ul>
+        </div>
+        <br class="clearfix" />
+    </div>
+    <div id="Forms">
+        <div class="content-wrapper half">
+            <p>
+                Here you'll find our forms for our DuraForm doors and panels, flat packs, JanperEdge Doors and panels and UltraSheen
+            </p>
+            <p>
+                If you have questions, please feel free to contact our office on... <br /> <span>+61 3 9720 0533</span>
+            </p>
+        </div>
+        <div class="content-wrapper half">
+            <ul>
+                <li>
+                    Sample Order Form <a href="~/Download/Sample Order Form - Duraform.pdf?v=4" target="_blank">DOWNLOAD</a>
+                </li>
+                <li>
+                    DuraForm Doors Order Form Page 1 <a href="~/Download/JANPER Duraform_P1_V4.pdf?v=4.1" target="_blank">DOWNLOAD</a>
+                </li>
+                <li>
+                    DuraForm Doors Order Form Page 2 <a href="~/Download/JANPER Duraform_P2_V4.pdf?v=4.1" target="_blank">DOWNLOAD</a>
+                </li>
+                <li>
+                    Flat Pack Order Form <a href="~/Download/Flat Pack Order Form.pdf?v=4" target="_blank">DOWNLOAD</a>
+                </li>
+                <li>
+                    JanperEdge Order Form <a href="~/Download/JanperEdge Order Form.pdf?v=4" target="_blank">DOWNLOAD</a>
+                </li>
+            </ul>
+        </div>
+        <br class="clearfix" />
+    </div>
+    <script>
+        scrollToElement('#TradeArea');
+
+        $("#SampleSelect").find('.triangle').css("display", "block");
+
+
+        $("#FormSelect").click(function (event) {
+            $("#Forms").css("display", "block");
+            $("#Samples").css("display", "none");
+            $("#brochures").css("display", "none");
+            $("#TradeArea").find('.triangle').css("display", "none");
+            $("#TradeArea").find('.overlay').css("opacity", "0");
+            $(this).find('.triangle').css("display", "block");
+            $(this).find('.overlay').css("opacity", "0.5");
+        })
+
+        $("#SampleSelect").click(function (event) {
+            $("#Forms").css("display", "none");
+            $("#Samples").css("display", "block");
+            $("#brochures").css("display", "none");
+            $("#TradeArea").find('.triangle').css("display", "none");
+            $("#TradeArea").find('.overlay').css("opacity", "0");
+            $(this).find('.triangle').css("display", "block");
+            $(this).find('.overlay').css("opacity", "0.5");
+        })
+        $("#BrochureSelect").click(function (event) {
+            $("#Forms").css("display", "none");
+            $("#Samples").css("display", "none");
+            $("#brochures").css("display", "block");
+            $("#TradeArea").find('.triangle').css("display", "none");
+            $("#TradeArea").find('.overlay').css("opacity", "0");
+            $(this).find('.triangle').css("display", "block");
+            $(this).find('.overlay').css("opacity", "0.5");
+        })
+    </script>
+    <script>
+        $("#sampleSubmit").click(function (event) {
+            sampleList = [];
+            var SupaMattList = "<b>DuraForm - Supa Matt</b> <br/>";
+            var WoodgrainsList = "<br/><b>DuraForm - Woodgrain</b> <br/>";
+            var SatinList = "<br/><b>DuraForm - Satin</b> <br/>";
+            var TextureList = "<br/><b>DuraForm - Texture</b> <br/>";
+            var GlossStandardList = "<br/><b>DuraForm - Gloss Standard</b> <br/>";
+            var GlossPremiumList = "<br/><b>DuraForm - Gloss Premium</b> <br/>";
+            var SuedetteList = "<br><b>DuraForm - Suedette</b> <br/>";
+            var EdgeWoodgrainList = "<br/><b>JanperEdge - Woodgrain</b> <br/>";
+            var EdgeMattList = "<br/><b>JanperEdge - Matt</b> <br/>";
+            var JanperAcrylicList = "<br><b>Janper Acrylic</b> <br/>";
+            var BreezeList = "<br><b>DuraForm - Breeze</b> <br/>";
+
+            $("#SupaMattList > li").each(function () {
+                SupaMattList = (SupaMattList + $(this).text() + ",")
+            })
+            $("#SuedetteList > li").each(function () {
+                SuedetteList = (SuedetteList + $(this).text() + ",")
+            })
+            $("#WoodgrainList > li").each(function () {
+                WoodgrainsList = (WoodgrainsList + $(this).text() + ",")
+            })
+            $("#SatinList > li").each(function () {
+                SatinList = (SatinList + $(this).text() + ",")
+            })
+            $("#TextureList > li").each(function () {
+                TextureList = (TextureList + $(this).text() + ",")
+            })
+            $("#GlossStandardList > li").each(function () {
+                GlossStandardList = (GlossStandardList + $(this).text() + ",")
+            })
+            $("#GlossPremiumList > li").each(function () {
+                GlossPremiumList = (GlossPremiumList + $(this).text() + ",")
+            })
+            $("#EdgeWoodgrainList > li").each(function () {
+                EdgeWoodgrainList = (EdgeWoodgrainList + $(this).text() + ",")
+            })
+            $("#EdgeMattList > li").each(function () {
+                EdgeMattList = (EdgeMattList + $(this).text() + ",")
+            })
+            $("#AcrylicList > li").each(function () {
+                JanperAcrylicList = (JanperAcrylicList + $(this).text() + ",")
+            })
+            $("#BreezeList > li").each(function () {
+                BreezeList = (BreezeList + $(this).text() + ",")
+            })
+            sampleList.push(SupaMattList);
+            sampleList.push(WoodgrainsList);
+            sampleList.push(SatinList);
+            sampleList.push(TextureList);
+            sampleList.push(GlossStandardList);
+            sampleList.push(GlossPremiumList);
+            sampleList.push(SuedetteList);
+            sampleList.push(EdgeWoodgrainList);
+            sampleList.push(EdgeMattList);
+            sampleList.push(JanperAcrylicList);
+            sampleList.push(BreezeList);
+            var formvalid = true;
+            debugger;
+            sampleList = JSON.stringify(sampleList);
+            var formData = '"form":' + '"' + $("#SamplesForm").serialize() + '"';
+            var DatatoSend = "{" + formData + "," + sampleList + "}";
+            $('input[name="samples"]').val(sampleList);
+            var testsample = "[\"<b>DuraForm - Supa Matt</b> <br/>\",\"<br/><b>DuraForm - Woodgrain</b> <br/>\",\"<br/><b>DuraForm - Satin</b> <br/>\",\"<br/><b>DuraForm - Texture</b> <br/>\",\"<br/><b>DuraForm - Gloss Standard</b> <br/>\",\"<br/><b>DuraForm - Gloss Premium</b> <br/>\",\"<br><b>DuraForm - Suedette</b> <br/>\",\"<br/><b>JanperEdge - Woodgrain</b> <br/>\",\"<br/><b>JanperEdge - Matt</b> <br/>\",\"<br><b>Janper Acrylic</b> <br/>\",\"<br><b>DuraForm - Breeze</b> <br/>\"]";
+            if (sampleList == testsample) {
+                $("#sampleerror").attr("class", "red");
+                formvalid = false
+                return;
+            }
+
+
+            var indexof = document.getElementById("Email").value
+
+            var test = document.getElementById("CustomerName").value
+            if (test == "") {
+
+                formvalid = false;
+                $("#nameerror").attr("class", "red");
+            }
+            else {
+
+                $("#nameerror").attr("class", "red hidden");
+            }
+            if (document.getElementById("Email").value == "") {
+                formvalid = false;
+                $("#emailerror").attr("class", "red");
+            }
+            else {
+                $("#emailerror").attr("class", "red hidden");
+            }
+            if (indexof.indexOf("@@") == -1) {
+                formvalid = false;
+                $("#emailinvalid").attr("class", "red");
+            }
+            else {
+                $("#emailinvalid").attr("class", "red hidden");
+            }
+            if (document.getElementById("Address").value == "") {
+                formvalid = false;
+                $("#addresserror").attr("class", "red");
+            }
+            else {
+                $("#addresserror").attr("class", "red hidden");
+            }
+
+            if (document.getElementById("Suburb").value == "") {
+                formvalid = false;
+                $("#suburberror").attr("class", "red");
+            }
+            else {
+                $("#suburberror").attr("class", "red hidden");
+            }
+
+            if (document.getElementById("State").value == "") {
+                formvalid = false;
+                $("#stateerror").attr("class", "red");
+            }
+            else {
+                $("#stateerror").attr("class", "red hidden");
+            }
+
+            if (document.getElementById("pCode").value == "") {
+                formvalid = false;
+                $("#pcodeerror").attr("class", "red");
+            }
+            else {
+                $("#pcodeerror").attr("class", "red hidden");
+            }
+            if (isNaN(document.getElementById("pCode").value) || document.getElementById("pCode").value.length != 4) {
+                formvalid = false;
+                $("#pcodeinvalid").attr("class", "red");
+            }
+            if (formvalid) {
+                var formData = '"form":' + '"' + $("#SamplesForm").serialize() + '"';
+                var DatatoSend = "{" + formData + "," + sampleList + "}";
+                $('input[name="samples"]').val(sampleList);
+                $("#SamplesForm").submit();
+            }
+        })
+
+    </script>
+    <script>
+        function removeSelected(list, samplename) {
+            debugger;
+            $("#" + list).children().first().each(function () {
+                if ($(this).children().first().children().eq(1).text() == samplename) {
+                    $(this).children().first().children().toggleClass("selected");
+                    return;
+                }
+            })
         }
-      }
-    }
-    )
-
-    $("#SamplesForm").on("click", "li", function () {
-      var sampleName = $(this).children("span").children().html();
-      var sampleType = $(this).closest('ul').prev().html();
-      if ($(this).parent().children("li").length == 1) {
-        $(this).closest('ul').prev().css("display", "none");
-      }
-
-      $(this).remove();
-
-
-
-      switch (sampleType) {
-        case "DuraForm - Supa Matt":
-          removeFormList("SupaMattList", sampleName);
-          removeSelected("SupaMattCollapse", sampleName);
-          break;
-        case "DuraForm - Suedette":
-          removeFormList("SupaMattList", sampleName);
-          removeSelected("SuedetteCollapse", sampleName);
-          break;
-
-        case "Janper Acrylic":
-          removeFormList("AcrylicList", sampleName);
-          removeSelected("AcrylicCollapse", sampleName);
-          break;
-        case "JanperEdge - Woodgrain":
-          removeFormList("EdgeWoodgrainList", sampleName);
-          removeSelected("EdgeWoodgrainCollapse", sampleName);
-          break;
-        case "JanperEdge - Matt":
-          removeFormList("EdgeMattList", sampleName);
-          removeSelected("EdgeMattCollapse", sampleName);
-          break;
-        case "DuraForm - Satin":
-          removeFormList("SatinList", sampleName);
-          removeSelected("SatinCollapse", sampleName);
-          break;
-        case "DuraForm - Texture":
-          removeFormList("TextureList", sampleName);
-          removeSelected("TextureCollapse", sampleName);
-          break;
-        case "DuraForm - Woodgrain":
-          removeFormList("WoodgrainList", sampleName);
-          removeSelected("WoodgrainCollapse", sampleName);
-          break;
-        case "DuraForm - Gloss Standard":
-          removeFormList("GlossStandardList", sampleName);
-          removeSelected("GlossStandardCollapse", sampleName);
-          break;
-        case "DuraForm - Gloss Premium":
-          removeFormList("GlossPremiumList", sampleName);
-          removeSelected("GlossPremiumCollapse", sampleName);
-          break;
-        case "DuraForm - Breeze":
-          removeFormList("BreezeList", sampleName);
-          removeSelected("BreezeCollapse", sampleName);
-          break;
-
-      }
-
-    })
-
-    function removeFormList(list, sample) {
-      $("#" + list).children().each(function () {
-        if ($(this).children().first()[0].innerHTML == ("<p>" + sample + "</p>")) {
-          if ($(this).parent().children("li").length == 1) {
-            $(this).closest('ul').prev().css("display", "none");
-            $(this).remove();
-            return false;
-          }
-          else {
-            $(this).remove();
-            return false;
-          }
-        }
-      })
-    }
-
-    function removeSelected(list, sample) {
-      $('#' + list).children().each(function () {
-        if ($(this).hasClass("selected")) {
-          if ($(this).children("h5")[0].innerHTML == sample) {
-            $(this).removeClass("selected");
+    </script>
+    <script>
+        $(".sample-wrapper").click(function (event) {
+            var temp = $(this).closest('li').attr('id');
+            var listSelectorArray = temp.split("C");
+            var listSelectorString = listSelectorArray[0];
             $(this).find(".sampletriangle").toggleClass("display");
             $(this).find("span").toggleClass("display");
-          }
+
+            if ($(this).hasClass("selected")) {
+                var sampleName = $(this).children("h5")[0].innerHTML;
+                var sampleType = $(this).parent('li').prev()[0].innerHTML;
+                sampleType = sampleType.trim();
+                $(this).toggleClass("selected");
+
+                switch (sampleType) {
+
+                    case "DuraForm - Supa Matt":
+                        removeFormList("SupaMattList", sampleName);
+
+                        break;
+                    case "DuraForm - Suedette":
+                        removeFormList("SupaMattList", sampleName);
+
+                        break;
+                    case "Janper Acrylic":
+                        removeFormList("AcrylicList", sampleName);
+
+                        break;
+                    case "JanperEdge - Woodgrain":
+                        removeFormList("EdgeWoodgrainList", sampleName);
+
+                        break;
+                    case "JanperEdge - Matt":
+                        removeFormList("EdgeMattList", sampleName);
+
+                        break;
+                    case "DuraForm - Satin":
+                        removeFormList("SatinList", sampleName);
+
+                        break;
+                    case "DuraForm - Texture":
+                        removeFormList("TextureList", sampleName);
+
+                        break;
+                    case "DuraForm - Woodgrain":
+                        removeFormList("WoodgrainList", sampleName);
+
+                        break;
+                    case "DuraForm - Gloss Standard":
+                        removeFormList("GlossStandardList", sampleName);
+
+                        break;
+                    case "DuraForm - Gloss Premium":
+                        removeFormList("GlossPremiumList", sampleName);
+                        break;
+                    case "DuraForm - Breeze":
+                        removeFormList("BreezeList", sampleName);
+                        break;
+
+                }
+            }
+            else {
+                switch (listSelectorString) {
+                    case "SupaMatt":
+                        $(addToList(this, "#SupaMattList"));
+                        break;
+                    case "Suedette":
+                        $(addToList(this, "#SuedetteList"));
+                        break;
+                    case "Satin":
+                        $(addToList(this, "#SatinList"));
+                        break;
+                    case "Texture":
+                        $(addToList(this, "#TextureList"));
+                        break;
+                    case "Woodgrain":
+                        $(addToList(this, "#WoodgrainList"));
+                        break;
+                    case "GlossStandard":
+                        $(addToList(this, "#GlossStandardList"));
+                        break;
+                    case "GlossPremium":
+                        $(addToList(this, "#GlossPremiumList"));
+                        break;
+                    case "EdgeWoodgrain":
+                        $(addToList(this, "#EdgeWoodgrainList"));
+                        break;
+                    case "EdgeMatt":
+                        $(addToList(this, "#EdgeMattList"));
+                        break;
+                    case "Acrylic":
+                        $(addToList(this, "#AcrylicList"));
+                        break;
+                    case "Breeze":
+                        $(addToList(this, "#BreezeList"));
+                        break;
+                }
+            }
         }
-      });
-    }
+        )
 
-    function addToList(sample, List) {
-      if ($(sample).hasClass("selected")) {
-        List = List + " li";
-        $(List + ":contains(" + $(sample).children('h5').html() + ")").remove();
-        $(sample).removeClass("selected");
-      }
-      else {
-        $(sample).addClass("selected");
-        $(List).prev().css("display", "block");
-        $(List).append(
-          $("<li>").append(
-            $('<span>').attr('class', 'glyphicons glyphicons-remove').append(
-              $('<p>').html($(sample).children('h5').html())
-            )
-          )
+        $("#SamplesForm").on("click", "li", function () {
+            var sampleName = $(this).children("span").children().html();
+            var sampleType = $(this).closest('ul').prev().html();
+            if ($(this).parent().children("li").length == 1) {
+                $(this).closest('ul').prev().css("display", "none");
+            }
 
-        );
-      }
-    }
+            $(this).remove();
 
 
-  </script>
+
+            switch (sampleType) {
+                case "DuraForm - Supa Matt":
+                    removeFormList("SupaMattList", sampleName);
+                    removeSelected("SupaMattCollapse", sampleName);
+                    break;
+                case "DuraForm - Suedette":
+                    removeFormList("SupaMattList", sampleName);
+                    removeSelected("SuedetteCollapse", sampleName);
+                    break;
+
+                case "Janper Acrylic":
+                    removeFormList("AcrylicList", sampleName);
+                    removeSelected("AcrylicCollapse", sampleName);
+                    break;
+                case "JanperEdge - Woodgrain":
+                    removeFormList("EdgeWoodgrainList", sampleName);
+                    removeSelected("EdgeWoodgrainCollapse", sampleName);
+                    break;
+                case "JanperEdge - Matt":
+                    removeFormList("EdgeMattList", sampleName);
+                    removeSelected("EdgeMattCollapse", sampleName);
+                    break;
+                case "DuraForm - Satin":
+                    removeFormList("SatinList", sampleName);
+                    removeSelected("SatinCollapse", sampleName);
+                    break;
+                case "DuraForm - Texture":
+                    removeFormList("TextureList", sampleName);
+                    removeSelected("TextureCollapse", sampleName);
+                    break;
+                case "DuraForm - Woodgrain":
+                    removeFormList("WoodgrainList", sampleName);
+                    removeSelected("WoodgrainCollapse", sampleName);
+                    break;
+                case "DuraForm - Gloss Standard":
+                    removeFormList("GlossStandardList", sampleName);
+                    removeSelected("GlossStandardCollapse", sampleName);
+                    break;
+                case "DuraForm - Gloss Premium":
+                    removeFormList("GlossPremiumList", sampleName);
+                    removeSelected("GlossPremiumCollapse", sampleName);
+                    break;
+                case "DuraForm - Breeze":
+                    removeFormList("BreezeList", sampleName);
+                    removeSelected("BreezeCollapse", sampleName);
+                    break;
+
+            }
+
+        })
+
+        function removeFormList(list, sample) {
+            $("#" + list).children().each(function () {
+                if ($(this).children().first()[0].innerHTML == ("<p>" + sample + "</p>")) {
+                    if ($(this).parent().children("li").length == 1) {
+                        $(this).closest('ul').prev().css("display", "none");
+                        $(this).remove();
+                        return false;
+                    }
+                    else {
+                        $(this).remove();
+                        return false;
+                    }
+                }
+            })
+        }
+
+        function removeSelected(list, sample) {
+            $('#' + list).children().each(function () {
+                if ($(this).hasClass("selected")) {
+                    if ($(this).children("h5")[0].innerHTML == sample) {
+                        $(this).removeClass("selected");
+                        $(this).find(".sampletriangle").toggleClass("display");
+                        $(this).find("span").toggleClass("display");
+                    }
+                }
+            });
+        }
+
+        function addToList(sample, List) {
+            if ($(sample).hasClass("selected")) {
+                List = List + " li";
+                $(List + ":contains(" + $(sample).children('h5').html() + ")").remove();
+                $(sample).removeClass("selected");
+            }
+            else {
+                $(sample).addClass("selected");
+                $(List).prev().css("display", "block");
+                $(List).append(
+                    $("<li>").append(
+                        $('<span>').attr('class', 'glyphicons glyphicons-remove').append(
+                            $('<p>').html($(sample).children('h5').html())
+                        )
+                    )
+
+                );
+            }
+        }
+
+
+    </script>
 </div>
 <br class="clearfix" />
