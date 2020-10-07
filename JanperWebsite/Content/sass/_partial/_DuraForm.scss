@@ -5,9 +5,7 @@
     padding-left: 50px;
     padding-right: 100px;
 
-    .content-wrapper {
-
-
+    .content-wrapper.header {
         h2 {
             font-family: $secondary-font;
             font-size: 7em;
@@ -82,7 +80,7 @@
     }
 
     #Colours {
-        .full {
+        .full.header {
             margin-top: 50px;
             margin-bottom: 30px;
         }

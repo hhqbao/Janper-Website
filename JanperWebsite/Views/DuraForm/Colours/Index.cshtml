@@ -1,5 +1,4 @@
-﻿
-
+﻿@model List<JanperWebsite.Models.ImageSection>
 @{
   ViewBag.Title = "Index";
 }
@@ -13,37 +12,22 @@
 </div>
 
 <div id="DuraForm">
-    <div id="Colours">
-        <div class="content-wrapper full">
+    <div id="Colours" style="padding-bottom: 50px">
+        <div class="header content-wrapper full">
             <h1>DuraForm&#174;</h1>
             <h2 class="sub-title">colours <span>&amp;</span> finishes</h2>
             <h5><b>J</b> = Janper matching colour on 2400mm x 1200mm x 16mm board</h5>
             <h5><b>L</b> = Matching boards available</h5>
-
         </div>
-        @Html.Partial("Colours/SupaMatt")
+        @foreach (var section in Model)
+        {
+            @Html.Partial("ImageSection", section)
 
-        <br class="clearfix" />
-        <hr />
-        @Html.Partial("Colours/Satin")
-        <br class="clearfix" />
-        <hr />
-        @Html.Partial("Colours/GlossStandard")
-        <br class="clearfix" />
-        <hr />
-        @Html.Partial("Colours/GlossPremium")
-        <br class="clearfix" />
-        <hr />
-        @Html.Partial("Colours/Suedette")
-        <br class="clearfix" />
-        <hr />
-        @Html.Partial("Colours/Texture")
-        <br class="clearfix" />
-        <hr />
-        @Html.Partial("Colours/Breeze")
-        <br class="clearfix" />
-        <hr />
-        @Html.Partial("Colours/Woodgrain")
+            if (Model.IndexOf(section) < Model.Count - 1)
+            {
+                <hr/>
+            }
+        }
         <br class="clearfix" />
     </div>
 </div>

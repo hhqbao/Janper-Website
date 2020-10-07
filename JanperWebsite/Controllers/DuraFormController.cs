@@ -1,11 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Xml;
-using System.Web;
-using System.Web.Mvc;
-using JanperWebsite.Models;
+﻿using JanperWebsite.Models;
 using JanperWebsite.PhysicalAccessPaths;
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Web.Mvc;
 using System.Xml.Linq;
 
 namespace JanperWebsite.Controllers
@@ -39,7 +38,26 @@ namespace JanperWebsite.Controllers
         }
         public ActionResult Colours()
         {
-            return View("~/Views/DuraForm/Colours/Index.cshtml");
+            try
+            {
+                var folderNames = Directory.GetDirectories(Server.MapPath("~/Images/Duraform/Colours")).Select(x =>
+                {
+                    var dirInfo = new DirectoryInfo(x);
+
+                    return dirInfo.Name;
+                });
+
+                var imageSections = folderNames
+                    .Select(folder => new ImageSection { Title = folder, ImageUrls = ImageUrls(folder) }).ToList();
+
+                return View("~/Views/DuraForm/Colours/Index.cshtml", imageSections);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                throw;
+            }
+
         }
         public ActionResult Options()
         {
@@ -59,7 +77,7 @@ namespace JanperWebsite.Controllers
                 if (node.Element("name").Value.ToUpper() == doorName.ToUpper())
                 {
                     int counter = 0;
-                    door.Images = new List<string> {"","","","","" };
+                    door.Images = new List<string> { "", "", "", "", "" };
                     door.Name = doorName;
                     door.Series = node.Element("series").Value;
                     door.Round = node.Element("round").Value;
@@ -73,7 +91,7 @@ namespace JanperWebsite.Controllers
 
                     foreach (var image in images)
                     {
-                        door.Images.Insert(counter,image.Value);
+                        door.Images.Insert(counter, image.Value);
                         counter++;
                     }
 
@@ -83,6 +101,11 @@ namespace JanperWebsite.Controllers
             }
             return null;
 
+        }
+
+        private IEnumerable<string> ImageUrls(string folder)
+        {
+            return Directory.EnumerateFiles(Server.MapPath($"~/Images/Duraform/Colours/{folder}")).Select(fn => $"~/Images/Duraform/Colours/{folder}/" + Path.GetFileName(fn));
         }
     }
 }

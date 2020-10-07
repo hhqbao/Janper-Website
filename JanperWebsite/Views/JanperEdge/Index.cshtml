@@ -1,5 +1,4 @@
-﻿
-
+﻿@model List<JanperWebsite.Models.ImageSection>
 @{
     ViewBag.Title = "Index";
 }
@@ -7,10 +6,15 @@
     <div class="content-wrapper full">
         <h1>JanperEdge&#174;</h1>
     </div>
-    @Html.Partial("Matt")
-    <br class="clearfix" />
-    <hr />
-    @Html.Partial("Woodgrain")
+    @foreach (var section in Model)
+    {
+        @Html.Partial("ImageSection", section)
+
+        if (Model.IndexOf(section) < Model.Count - 1)
+        {
+            <hr/>
+        }
+    }
     <br class="clearfix" />
 </div>
 

@@ -1,0 +1,24 @@
+﻿@model JanperWebsite.Models.ImageSection
+
+<br class="clearfix" />
+<div class="content-wrapper full">
+    <h2>@Model.Title</h2>
+</div>
+@{
+    var counter = 0;
+    foreach (var image in Model.ImageUrls)
+    {
+        <div class="content-wrapper quarter">
+            <img src="@Url.Content(image)" alt="@Model.Title"/>
+            <h3>
+                @Path.GetFileNameWithoutExtension(image)<br />
+            </h3>
+        </div>
+        counter++;
+        if (counter % 4 == 0)
+        {
+            <br class="clearfix" />
+        }
+    }
+}
+<br class="clearfix" />

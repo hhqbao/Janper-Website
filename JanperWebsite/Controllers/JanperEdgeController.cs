@@ -1,9 +1,7 @@
-﻿using System;
+﻿using JanperWebsite.Models;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Text.RegularExpressions;
-using System.Web;
 using System.Web.Mvc;
 
 namespace JanperWebsite.Controllers
@@ -12,11 +10,21 @@ namespace JanperWebsite.Controllers
     {
         public ActionResult Index()
         {
-            ViewBag.Woodgrain = Directory.EnumerateFiles(Server.MapPath("~/Images/JanperEdge/Woodgrain")).Select(fn => ("~/Images/JanperEdge/Woodgrain/" + Path.GetFileName(fn)));
+            var folderNames = Directory.GetDirectories(Server.MapPath("~/Images/JanperEdge")).Select(x =>
+            {
+                var dirInfo = new DirectoryInfo(x);
 
-            ViewBag.Matt = Directory.EnumerateFiles(Server.MapPath("~/Images/JanperEdge/Matt")).Select(fn => ("~/Images/JanperEdge/Matt/" + Path.GetFileName(fn)));
+                return dirInfo.Name;
+            });
 
-            return View();
+            var imageSections = folderNames.Select(folder => new ImageSection { Title = folder, ImageUrls = ImageUrls(folder) }).ToList();
+
+            return View(imageSections);
+        }
+
+        private IEnumerable<string> ImageUrls(string folder)
+        {
+            return Directory.EnumerateFiles(Server.MapPath($"~/Images/JanperEdge/{folder}")).Select(fn => $"~/Images/JanperEdge/{folder}/" + Path.GetFileName(fn));
         }
     }
 }
